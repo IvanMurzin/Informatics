@@ -78,11 +78,23 @@ build CMakeFiles/lab1.dir/main.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Pro
   OBJECT_DIR = CMakeFiles/lab1.dir
   OBJECT_FILE_DIR = CMakeFiles/lab1.dir
 
-build CMakeFiles/lab1.dir/DynamicArray.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/DynamicArray.c || cmake_object_order_depends_target_lab1
-  DEP_FILE = CMakeFiles/lab1.dir/DynamicArray.c.o.d
+build CMakeFiles/lab1.dir/models/DynamicArray.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/models/DynamicArray.c || cmake_object_order_depends_target_lab1
+  DEP_FILE = CMakeFiles/lab1.dir/models/DynamicArray.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.5 -std=gnu11
   OBJECT_DIR = CMakeFiles/lab1.dir
-  OBJECT_FILE_DIR = CMakeFiles/lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab1.dir/models
+
+build CMakeFiles/lab1.dir/models/String.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/models/String.c || cmake_object_order_depends_target_lab1
+  DEP_FILE = CMakeFiles/lab1.dir/models/String.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.5 -std=gnu11
+  OBJECT_DIR = CMakeFiles/lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab1.dir/models
+
+build CMakeFiles/lab1.dir/models/StructInfo.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/models/StructInfo.c || cmake_object_order_depends_target_lab1
+  DEP_FILE = CMakeFiles/lab1.dir/models/StructInfo.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.5 -std=gnu11
+  OBJECT_DIR = CMakeFiles/lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab1.dir/models
 
 
 # =============================================================================
@@ -92,7 +104,7 @@ build CMakeFiles/lab1.dir/DynamicArray.c.o: C_COMPILER__lab1_Debug /Users/ivanmu
 #############################################
 # Link the executable lab1
 
-build lab1: C_EXECUTABLE_LINKER__lab1_Debug CMakeFiles/lab1.dir/main.c.o CMakeFiles/lab1.dir/DynamicArray.c.o
+build lab1: C_EXECUTABLE_LINKER__lab1_Debug CMakeFiles/lab1.dir/main.c.o CMakeFiles/lab1.dir/models/DynamicArray.c.o CMakeFiles/lab1.dir/models/String.c.o CMakeFiles/lab1.dir/models/StructInfo.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.5
   OBJECT_DIR = CMakeFiles/lab1.dir
   POST_BUILD = :

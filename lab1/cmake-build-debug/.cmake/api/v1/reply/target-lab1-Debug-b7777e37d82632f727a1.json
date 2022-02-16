@@ -53,7 +53,9 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				3,
+				5
 			]
 		}
 	],
@@ -87,14 +89,18 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				3,
+				5
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				2
+				2,
+				4,
+				6
 			]
 		}
 	],
@@ -109,12 +115,34 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "DynamicArray.c",
+			"path" : "models/DynamicArray.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "DynamicArray.h",
+			"path" : "models/DynamicArray.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "models/String.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "models/String.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "models/StructInfo.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "models/StructInfo.h",
 			"sourceGroupIndex" : 1
 		}
 	],
