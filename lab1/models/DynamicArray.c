@@ -94,6 +94,7 @@ int addLast(DynamicArray *array, void *element) {
     }
     if (array->bufferSize == array->size) {
         array->bufferSize = array->bufferSize * 5 / 3;
+        printf("%zu ", getStructSize(array->info));
         void **newData = malloc(getStructSize(array->info) * array->bufferSize);
         memcpy(newData, array->data, getStructSize(array->info) * array->size);
         free(array->data);

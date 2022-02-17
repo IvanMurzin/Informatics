@@ -8,6 +8,7 @@
 struct Integer {
     int *data;
 };
+
 typedef struct Integer Integer;
 
 
@@ -21,7 +22,7 @@ char *toString(Integer *integer) {
 
 int main() {
     Integer **integers = malloc(sizeof(Integer) * 20);
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 11; ++i) {
         integers[i] = malloc(sizeof(Integer));
         integers[i]->data = malloc(sizeof(int));
         *integers[i]->data = i;
@@ -34,9 +35,9 @@ int main() {
 
     StructInfo *info = getStructInfo(sizeof(Integer), toString);
     DynamicArray *a = getDynamicArray(info);
-    for (int i = 0; i < 5; ++i) add(a, integers[i]);
+    for (int i = 0; i < 11; ++i) add(a, integers[i]);
     printArray(a);
-    for (int i = 5; i < 10; ++i) addFirst(a, integers[i]);
     printArray(a);
+
     return 0;
 }
