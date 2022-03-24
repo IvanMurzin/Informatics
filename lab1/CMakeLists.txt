@@ -3,4 +3,4 @@ project(lab1 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(lab1 main.c models/DynamicArray.c models/DynamicArray.h models/String.c models/String.h models/StructInfo.c models/StructInfo.h)
+add_executable(lab1 main.c model/IntDynamicArray.c model/IntDynamicArray.h model/IntHashSet.c model/IntHashSet.h controller/ConsoleController.c controller/ConsoleController.h)

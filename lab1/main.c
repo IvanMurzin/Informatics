@@ -1,43 +1,46 @@
 #include <stdlib.h>
-#include <printf.h>
-#include "models/DynamicArray.h"
-#include "string.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-struct Integer {
-    int *data;
-};
-
-typedef struct Integer Integer;
-
-
-char *toString(Integer *integer) {
-    if (!integer) return "";
-    char *a = malloc(sizeof(char) * 20);
-    sprintf(a, "I{d=%d};", *integer->data);
-    return a;
-}
+#include "model/IntDynamicArray.h"
+#include "model/IntHashSet.h"
+#include "controller/ConsoleController.h"
 
 
 int main() {
-    Integer **integers = malloc(sizeof(Integer) * 20);
-    for (int i = 0; i < 11; ++i) {
-        integers[i] = malloc(sizeof(Integer));
-        integers[i]->data = malloc(sizeof(int));
-        *integers[i]->data = i;
+    int rowSize = getRowSize();
+    IntHashSet **matrix = (IntHashSet **) malloc(rowSize * sizeof(IntHashSet *));
+    for (int i = 0; i < rowSize; ++i) {
+        matrix[i] = getIntHashSet();
+        fillSetWithLine(matrix[i]);
     }
 
+    printMatrix(matrix, rowSize, 1);
 
+    int b[rowSize];
+    for (int i = 0; i < rowSize - 1; ++i)
+        b[i] = countDifferences(matrix[i], matrix[i + 1]);
+    b[rowSize - 1] = countDifferences(matrix[rowSize - 1], matrix[0]);
 
+    printArrayOfDifferences(b, rowSize);
 
-
-
-    StructInfo *info = getStructInfo(sizeof(Integer), toString);
-    DynamicArray *a = getDynamicArray(info);
-    for (int i = 0; i < 11; ++i) add(a, integers[i]);
-    printArray(a);
-    printArray(a);
-
+    for (int i = 0; i < rowSize; ++i)
+        destroySet(matrix[i]);
+    free(matrix);
     return 0;
 }
+/*
+3
+1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 1 1 1 1 2 2 2 1 1 1 3 3
+43 45346 334 3345345 43 598 3894 35980435 89453 980435 890 45389453 904 894 5380945 3
+32  sdfksdfoksdf skdf k34 k3 3k4 3 4 3p4k 3[4 k34 5k3
+
+
+
+ 3
+1 2 3 4 5 6
+1 2 3 4 5 6 7 8 9
+1 2
+
+ 3
+1 2 3 4 5 6 7 8 9 9 9 9 9 9 9 9 9 9 9 9 9
+10 11 -12
+55
+ */
