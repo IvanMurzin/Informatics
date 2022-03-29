@@ -1,9 +1,12 @@
-#include "../model/IntHashSet.h"
+#ifndef CONSOLE_CONTROLLER
+#define CONSOLE_CONTROLLER
 
-int getRowSize();
+#include "IntDynamicArray.h"
 
-int fillSetWithLine(IntHashSet *set);
+int getRowCount();
 
-int printMatrix(IntHashSet** matrix, int rowSize, int pretty);
+int gelLineFromInput(IntDynamicArray *array);
 
-void printArrayOfDifferences(int b[], int size);
+void printArrayOfDifferences(const int b[], int size);
+
+#endif

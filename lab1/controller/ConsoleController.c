@@ -1,47 +1,46 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <readline/readline.h>
 #include "ConsoleController.h"
+#include "IntDynamicArray.h"
 
-int fillSetWithLine(IntHashSet *set) {
-    if (!set) return 0;
-    while (fgetc(stdin) != '\n');
-    char string[1024];
-    scanf("%[^\n]s", string);
+int gelLineFromInput(IntDynamicArray *array) {
+    if (!array) return 0;
+    char *string = readline("");
+    if (string[0] == '\0') return 0;
     char *word = strtok(string, " ");
     while (word != NULL) {
         int number = atoi(word);
         if (number != 0 || strstr(word, "0") != NULL)
-            addToSet(set, number);
+            addToArray(array, number);
+        else {
+            printf("Invalid row input. Emergency exit.\n");
+            exit(-1);
+        }
         word = strtok(NULL, " ");
     }
+    printf("before realloc:\n");
+    printArray(array);
+    trimToSize(array);
+    printf("\nafter realloc:\n");
+    printArray(array);
+    printf("\n");
     return 1;
 }
 
-int getRowSize() {
-    printf("Input row size:\n");
-    int rowSize;
-    while (!scanf("%d", &rowSize) || rowSize <= 0 || rowSize > 20) {
-        while (fgetc(stdin) != '\n');
-        printf("Incorrect input: row size should be integer between 0 and 20.\nInput row size:\n");
-    }
-    return rowSize;
+int getRowCount() {
+    printf("Input row count:\n");
+    char *string = readline("");
+    int number = atoi(string);
+    if (number > 0 && number <20)
+        return number;
+    printf("Incorrect input: row count should be integer between 0 and 20. Emergency exit.\n");
+    exit(-1);
 }
 
-int printMatrix(IntHashSet **matrix, int rowSize, int pretty) {
-    printf("\n\n");
-    if (!matrix) return 0;
-    printf("-------------------- Matrix --------------------\n");
-    for (int i = 0; i < rowSize; ++i) {
-        printf("[%d]: ", i + 1);
-        if (pretty) printSetLikeArray(matrix[i]);
-        else printSet(matrix[i]);
-        printf("--------------------\n");
-    }
-    return 1;
-}
 
-void printArrayOfDifferences(int b[], int size) {
+void printArrayOfDifferences(const int b[], int size) {
     printf("\n\n");
     printf("-------------------- Array Of Differences --------------------\n");
     for (int i = 0; i < size; ++i) {

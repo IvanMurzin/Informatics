@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "lab1",
+					"name" : "lab2",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "lab1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lab1-Debug-7bdf5d9ac80f9f03df6b.json",
-					"name" : "lab1",
+					"id" : "lab2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab2-Debug-4f5c3eeeacbbee38dd4a.json",
+					"name" : "lab2",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/cmake-build-debug",
-		"source" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1"
+		"build" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab2/cmake-build-debug",
+		"source" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab2"
 	},
 	"version" : 
 	{

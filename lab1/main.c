@@ -1,46 +1,33 @@
-#include <stdlib.h>
-#include "model/IntDynamicArray.h"
-#include "model/IntHashSet.h"
-#include "controller/ConsoleController.h"
+#include <stdio.h>
+#include "Matrix.h"
 
 
 int main() {
-    int rowSize = getRowSize();
-    IntHashSet **matrix = (IntHashSet **) malloc(rowSize * sizeof(IntHashSet *));
-    for (int i = 0; i < rowSize; ++i) {
-        matrix[i] = getIntHashSet();
-        fillSetWithLine(matrix[i]);
+    Matrix *matrix = getMatrix();
+    printf("Raw matrix:\n");
+    printMatrix(matrix);
+
+    IntDynamicArray *differences = getIntDynamicArray();
+    IntHashSet *set1;
+    IntHashSet *set2;
+    for (int i = 0; i < matrix->size - 1; ++i) {
+        set1 = getIntHashSetFromArray(matrix->rows[i]);
+        set2 = getIntHashSetFromArray(matrix->rows[i + 1]);
+        addToArray(differences, countDifferences(set1, set2));
+//        destroySet(set1);
+//        destroySet(set2);
     }
 
-    printMatrix(matrix, rowSize, 1);
+    set1 = getIntHashSetFromArray(matrix->rows[matrix->size - 1]);
+    set2 = getIntHashSetFromArray(matrix->rows[0]);
+    addToArray(differences, countDifferences(set1, set2));
+//    destroySet(set1);
+//    destroySet(set2);
 
-    int b[rowSize];
-    for (int i = 0; i < rowSize - 1; ++i)
-        b[i] = countDifferences(matrix[i], matrix[i + 1]);
-    b[rowSize - 1] = countDifferences(matrix[rowSize - 1], matrix[0]);
-
-    printArrayOfDifferences(b, rowSize);
-
-    for (int i = 0; i < rowSize; ++i)
-        destroySet(matrix[i]);
-    free(matrix);
+    printf("Array of differences:\n");
+    printArray(differences);
+    printf("\n");
+    destroyArray(differences);
+    destroyMatrix(matrix);
     return 0;
 }
-/*
-3
-1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 3 1 1 1 1 2 2 2 1 1 1 3 3
-43 45346 334 3345345 43 598 3894 35980435 89453 980435 890 45389453 904 894 5380945 3
-32  sdfksdfoksdf skdf k34 k3 3k4 3 4 3p4k 3[4 k34 5k3
-
-
-
- 3
-1 2 3 4 5 6
-1 2 3 4 5 6 7 8 9
-1 2
-
- 3
-1 2 3 4 5 6 7 8 9 9 9 9 9 9 9 9 9 9 9 9 9
-10 11 -12
-55
- */

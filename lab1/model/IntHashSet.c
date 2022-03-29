@@ -4,30 +4,31 @@
 #include "IntDynamicArray.h"
 
 
-struct IntHashSet {
-    int capacity;
-    IntDynamicArray **columns;
-};
-
-
 IntHashSet *getIntHashSet() {
     IntHashSet *set = (IntHashSet *) malloc(sizeof(IntHashSet));
     set->capacity = 10;
-    set->columns = (IntDynamicArray **) malloc(10 * sizeof(IntDynamicArray *));
-    for (int i = 0; i < set->capacity; ++i)
-        set->columns[i] = getIntDynamicArray();
+    set->columns = (IntDynamicArray **) malloc(set->capacity * sizeof(IntDynamicArray *));
+    return set;
+}
+
+IntHashSet *getIntHashSetFromArray(const IntDynamicArray *array) {
+    IntHashSet *set = getIntHashSet();
+    for (int i = 0; i < getSize(array); ++i)
+        addToSet(set, get(array, i));
     return set;
 }
 
 int addToSet(IntHashSet *set, int element) {
     int columnIndex = (element >= 0 ? element : -element) % 10;
+    if (!set->columns[columnIndex])
+        set->columns[columnIndex] = (IntDynamicArray *) malloc(sizeof(IntDynamicArray *));
     IntDynamicArray *column = set->columns[columnIndex];
     if (containsInArray(column, element)) return 0;
     addToArray(column, element);
     return 1;
 }
 
-int printSet(IntHashSet *set) {
+int printSet(const IntHashSet *set) {
     if (!set) return 0;
     for (int i = 0; i < set->capacity; ++i) {
         if (!isEmpty(set->columns[i])) {
@@ -39,7 +40,7 @@ int printSet(IntHashSet *set) {
     return 1;
 }
 
-int containsInSet(IntHashSet *set, int element) {
+int containsInSet(const IntHashSet *set, int element) {
     if (!set) return 0;
     int columnIndex = (element >= 0 ? element : -element) % 10;
     IntDynamicArray *column = set->columns[columnIndex];
@@ -47,7 +48,7 @@ int containsInSet(IntHashSet *set, int element) {
     return 0;
 }
 
-int printSetLikeArray(IntHashSet *set) {
+int printSetLikeArray(const IntHashSet *set) {
     if (!set) return 0;
     for (int i = 0; i < set->capacity; ++i)
         printArray(set->columns[i]);
@@ -56,7 +57,7 @@ int printSetLikeArray(IntHashSet *set) {
     return 1;
 }
 
-int countDifferences(IntHashSet *set1, IntHashSet *set2) {
+int countDifferences(const IntHashSet *set1, const IntHashSet *set2) {
     int count = 0;
     for (int i = 0; i < set1->capacity; ++i) {
         IntDynamicArray *column = set1->columns[i];
@@ -71,7 +72,10 @@ int countDifferences(IntHashSet *set1, IntHashSet *set2) {
 void destroySet(IntHashSet *set) {
     if (!set) return;
     for (int i = 0; i < set->capacity; ++i)
-        destroyArray(set->columns[i]);
+        if (!set->columns[i]) {
+            printf(":%d:", i);
+            destroyArray(set->columns[i]);
+        }
     free(set->columns);
     free(set);
 }

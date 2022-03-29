@@ -1,15 +1,27 @@
-typedef struct IntHashSet IntHashSet;
+#ifndef INT_HASH_SET
+#define INT_HASH_SET
+
+#include "IntDynamicArray.h"
+
+typedef struct IntHashSet {
+    int capacity;
+    IntDynamicArray **columns;
+} IntHashSet;
 
 int addToSet(IntHashSet *set, int element);
 
 IntHashSet *getIntHashSet();
 
-int printSet(IntHashSet *set);
+IntHashSet *getIntHashSetFromArray(const IntDynamicArray* array);
 
-int printSetLikeArray(IntHashSet *set);
+int printSet(const IntHashSet *set);
 
-int containsInSet(IntHashSet *set, int element);
+int printSetLikeArray(const IntHashSet *set);
 
-int countDifferences(IntHashSet *set1, IntHashSet *set2);
+int containsInSet(const IntHashSet *set, int element);
+
+int countDifferences(const IntHashSet *set1, const IntHashSet *set2);
 
 void destroySet(IntHashSet *set);
+
+#endif

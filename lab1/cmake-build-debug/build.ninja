@@ -75,26 +75,37 @@ build cmake_object_order_depends_target_lab1: phony || CMakeFiles/lab1.dir
 build CMakeFiles/lab1.dir/main.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/main.c || cmake_object_order_depends_target_lab1
   DEP_FILE = CMakeFiles/lab1.dir/main.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller
   OBJECT_DIR = CMakeFiles/lab1.dir
   OBJECT_FILE_DIR = CMakeFiles/lab1.dir
 
 build CMakeFiles/lab1.dir/model/IntDynamicArray.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model/IntDynamicArray.c || cmake_object_order_depends_target_lab1
   DEP_FILE = CMakeFiles/lab1.dir/model/IntDynamicArray.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller
   OBJECT_DIR = CMakeFiles/lab1.dir
   OBJECT_FILE_DIR = CMakeFiles/lab1.dir/model
 
 build CMakeFiles/lab1.dir/model/IntHashSet.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model/IntHashSet.c || cmake_object_order_depends_target_lab1
   DEP_FILE = CMakeFiles/lab1.dir/model/IntHashSet.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller
   OBJECT_DIR = CMakeFiles/lab1.dir
   OBJECT_FILE_DIR = CMakeFiles/lab1.dir/model
 
 build CMakeFiles/lab1.dir/controller/ConsoleController.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller/ConsoleController.c || cmake_object_order_depends_target_lab1
   DEP_FILE = CMakeFiles/lab1.dir/controller/ConsoleController.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller
   OBJECT_DIR = CMakeFiles/lab1.dir
   OBJECT_FILE_DIR = CMakeFiles/lab1.dir/controller
+
+build CMakeFiles/lab1.dir/model/Matrix.c.o: C_COMPILER__lab1_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model/Matrix.c || cmake_object_order_depends_target_lab1
+  DEP_FILE = CMakeFiles/lab1.dir/model/Matrix.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/model -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab1/controller
+  OBJECT_DIR = CMakeFiles/lab1.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab1.dir/model
 
 
 # =============================================================================
@@ -104,7 +115,7 @@ build CMakeFiles/lab1.dir/controller/ConsoleController.c.o: C_COMPILER__lab1_Deb
 #############################################
 # Link the executable lab1
 
-build lab1: C_EXECUTABLE_LINKER__lab1_Debug CMakeFiles/lab1.dir/main.c.o CMakeFiles/lab1.dir/model/IntDynamicArray.c.o CMakeFiles/lab1.dir/model/IntHashSet.c.o CMakeFiles/lab1.dir/controller/ConsoleController.c.o
+build lab1: C_EXECUTABLE_LINKER__lab1_Debug CMakeFiles/lab1.dir/main.c.o CMakeFiles/lab1.dir/model/IntDynamicArray.c.o CMakeFiles/lab1.dir/model/IntHashSet.c.o CMakeFiles/lab1.dir/controller/ConsoleController.c.o CMakeFiles/lab1.dir/model/Matrix.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/lab1.dir
   POST_BUILD = :
