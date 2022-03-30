@@ -14,7 +14,6 @@ Matrix *getMatrix() {
     for (int i = 0; i < rowSize; ++i) {
         matrix->rows[i] = getIntDynamicArray();
         gelLineFromInput(matrix->rows[i]);
-        printArray(matrix->rows[i]);
     }
     return matrix;
 }

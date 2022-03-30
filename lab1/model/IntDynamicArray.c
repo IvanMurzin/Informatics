@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <memory.h>
 #include "IntDynamicArray.h"
 
 
@@ -35,15 +36,15 @@ int addToArray(IntDynamicArray *array, int element) {
 }
 
 int containsInArray(const IntDynamicArray *array, int element) {
-    if (!array || array->size == 0) return 0;
+    if (!array ||!array->data || array->size == 0) return 0;
     for (int i = 0; i < array->size; ++i)
         if (array->data[i] == element) return 1;
     return 0;
 }
 
 int printArray(const IntDynamicArray *array) {
-    if (!array) return 0;
-    for (int i = 0; i < array->size; ++i)
+    if (!array || !array->data) return 0;
+	for (int i = 0; i < array->size; ++i)
         printf("%d ", array->data[i]);
     return 1;
 }
@@ -57,7 +58,7 @@ IntDynamicArray *getIntDynamicArray() {
 }
 
 int isEmpty(const IntDynamicArray *array) {
-    return array->size == 0;
+    return array == NULL || array->size == 0;
 }
 
 void destroyArray(IntDynamicArray *array) {

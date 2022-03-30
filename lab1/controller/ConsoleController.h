@@ -7,6 +7,4 @@ int getRowCount();
 
 int gelLineFromInput(IntDynamicArray *array);
 
-void printArrayOfDifferences(const int b[], int size);
-
 #endif

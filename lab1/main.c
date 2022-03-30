@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "Matrix.h"
 
 
@@ -14,15 +15,15 @@ int main() {
         set1 = getIntHashSetFromArray(matrix->rows[i]);
         set2 = getIntHashSetFromArray(matrix->rows[i + 1]);
         addToArray(differences, countDifferences(set1, set2));
-//        destroySet(set1);
-//        destroySet(set2);
+        destroySet(set1);
+        destroySet(set2);
     }
-
     set1 = getIntHashSetFromArray(matrix->rows[matrix->size - 1]);
     set2 = getIntHashSetFromArray(matrix->rows[0]);
     addToArray(differences, countDifferences(set1, set2));
-//    destroySet(set1);
-//    destroySet(set2);
+    printf("%d\n",countDifferences(set1, set2));
+    destroySet(set1);
+    destroySet(set2);
 
     printf("Array of differences:\n");
     printArray(differences);
