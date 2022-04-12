@@ -1,6 +1,9 @@
-#include <stdio.h>
+#include <stdlib.h>
+#include "Game.h"
 
 int main() {
-    printf("Hello, World!\n");
+    Game *game = getGame();
+    game->start();
+    free(game);
     return 0;
 }
