@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "Game.h"
+#include "Stack.h"
 
 int main() {
     Game *game = getGame();

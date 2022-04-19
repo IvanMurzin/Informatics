@@ -115,6 +115,7 @@ int getFieldSize() {
            "Field size: ");
     char *string = readline("");
     int fieldSize = atoi(string);
+    free(string);
     if (fieldSize >= 2 && fieldSize <= 10)
         return fieldSize;
     printf("%sIncorrect input of field size.\n"

@@ -2,11 +2,13 @@
 1	58	1649669780159481650	CMakeFiles/lab2.dir/field/Field.c.o	22ce91096f0c3588
 1	39	1649673145194492012	CMakeFiles/lab2.dir/console/KeyboardInput.c.o	b707aeaee9696938
 1	40	1648116851164981744	CMakeFiles/lab2.dir/controller/game_controller/GameController.c.o	1f215fd54da0c20e
-1	50	1649673145205790197	CMakeFiles/lab2.dir/console/ConsoleUtil.c.o	d3e93c1fd8229afa
+1	289	1649760317996886655	CMakeFiles/lab2.dir/console/ConsoleUtil.c.o	d3e93c1fd8229afa
 2	38	1649669780137799259	CMakeFiles/lab2.dir/console/Color.c.o	daf74bde772464e8
-0	40	1649673145194492512	CMakeFiles/lab2.dir/main.c.o	39d7e1aabe063ee2
+2	283	1649760317994109665	CMakeFiles/lab2.dir/stack/StackList.c.o	ea2cf5221392aab0
+1	235	1649760317944915638	CMakeFiles/lab2.dir/stack/StackVector.c.o	75a79e6724fd0185
+1	276	1649760317988509560	CMakeFiles/lab2.dir/main.c.o	39d7e1aabe063ee2
 36	73	1649671109711633171	lab2	9c850ed7000bec67
-0	43	1649698786624236116	build.ninja	28eda0b6b7f25b6c
+0	43	1650367897173638669	build.ninja	28eda0b6b7f25b6c
 1	61	1649669780163113888	CMakeFiles/lab2.dir/game/Game.c.o	52046a5ba955000
 7	54	1649603538779770582	CMakeFiles/lab2.dir/console/Direction.c.o	8653ecdbc6b670e5
 2	50	1649669780151688646	CMakeFiles/lab2.dir/math/Math.c.o	345d799bad42d54d

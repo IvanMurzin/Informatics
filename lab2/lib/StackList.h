@@ -1,11 +1,10 @@
 #ifndef STACKLIST_H
 #define STACKLIST_H
 
-#include "Point.h"
-
 typedef struct Node {
     struct Node *next;
-    Point point;
+    int x;
+    int y;
 } Node;
 
 typedef struct Stack {
@@ -15,9 +14,9 @@ typedef struct Stack {
 
 Stack *getStack();
 
-void push(Stack *stack, Point point);
+void push(Stack *stack, int x, int y);
 
-int pop(Stack *stack, Point *point);
+int pop(Stack *stack, int *x, int *y);
 
 void destroy(Stack *stack);
 

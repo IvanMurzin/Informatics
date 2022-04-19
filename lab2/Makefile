@@ -3,8 +3,8 @@ CFLAGS= -Iconsole -Ifield -Igame -Imath -Istack -c -std=c99
 
 all: program
 
-program: Color.o KeyboardInput.o ConsoleUtil.o Field.o Game.o Math.o main.o StackVector.o
-	$(CC) Color.o KeyboardInput.o ConsoleUtil.o Field.o Game.o Math.o main.o StackVector.o -lreadline -o program
+program: Color.o KeyboardInput.o ConsoleUtil.o Field.o Game.o Math.o main.o
+	$(CC) Color.o KeyboardInput.o ConsoleUtil.o Field.o Game.o Math.o main.o -lreadline -Llib -Wl,-Rlib -lstacklist -o program
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c
@@ -26,8 +26,12 @@ Game.o: game/Game.c
 
 Math.o: math/Math.c
 	$(CC) $(CFLAGS) math/Math.c
-StackVector.o: stack/StackVector.c
-	$(CC) $(CFLAGS) stack/StackVector.c
 
 clean:
 	rm -rf *.o program
+// не должно быть двух массивов - новая структура данных для координат
+// убрать глобальные переменные
+// добавить ошибку при вставке
+// генерировать поле для пятнашек без запрещенных ситуаций
+// makefile не рабоче-крестьянский(добавить общие правила)
+// добавить библиотечную компиляцию make -C lib static VECTOR=1

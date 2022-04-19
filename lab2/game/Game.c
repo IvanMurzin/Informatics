@@ -85,6 +85,7 @@ void destroyGameData() {
     for (int i = 0; i < field->size; ++i) free(field->data[i]);
     free(field->data);
     free(field);
+    destroy(stack);
 }
 
 void start() {

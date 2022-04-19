@@ -1,5 +1,7 @@
-//#ifdef VECTOR
+#ifdef VECTOR
 #include "StackVector.h"
-//#else
-//#include "StackList.h"
-//#endif
+#else
+
+#include "StackList.h"
+
+#endif
