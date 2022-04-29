@@ -12,33 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e20c1dd0-8421-4e35-b881-84e8e298eb18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/controller/ConsoleController.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/controller/ConsoleController.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/IntDynamicArray.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/IntDynamicArray.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/IntHashSet.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/IntHashSet.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/Matrix.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/model/Matrix.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ConsoleController.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ConsoleController.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ConsoleController.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ConsoleController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/IntDynamicArray.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/IntDynamicArray.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/IntHashSet.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/IntHashSet.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Matrix.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/Matrix.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/Model/Game/Game.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/Model/Game/Game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/Model/Game/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/Model/Game/Game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c236807c39f4d8785187.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/index-2022-03-24T09-30-42-0894.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/target-lab2-Debug-4f5c3eeeacbbee38dd4a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-19T11-31-37-0182.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/math/Math.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/math/Math.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/stack/StackList.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/stack/StackList.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/stack/StackList.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/stack/StackList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/stack/StackVector.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/stack/StackVector.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/stack/StackVector.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/stack/StackVector.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +110,7 @@
       <workItem from="1648548188164" duration="4416000" />
       <workItem from="1648646098442" duration="6811000" />
       <workItem from="1648652941740" duration="1000" />
+      <workItem from="1650435788935" duration="85000" />
     </task>
     <servers />
   </component>

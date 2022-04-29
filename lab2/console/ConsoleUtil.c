@@ -52,12 +52,13 @@ void printField(Field *field, COLOR color, int solid) {
     system("clear");
     printHeader(field->size);
     for (int i = 0; i < field->size; ++i) {
-        int spaceAt = i == field->emptyY ? field->emptyX : -1;
-        int selectedAt = (!solid && i == field->selectedY) ? field->selectedX : -1;
+        int spaceAt = i == field->empty.y ? field->empty.x : -1;
+        int selectedAt = (!solid && i == field->selected.y) ? field->selected.x : -1;
         coloredLine(field->size, 0, spaceAt, selectedAt, color);
         for (int j = 0; j < field->size; ++j) {
-            if (isEmpty(field, j, i)) printSpace();
-            else if (solid || !isSelected(field, j, i)) printValue(field->data[i][j], color);
+            Point p = {j, i};
+            if (isEmpty(field, p)) printSpace();
+            else if (solid || !isSelected(field, p)) printValue(field->data[i][j], color);
             else printValue(field->data[i][j], green);
         }
         printf("\n");

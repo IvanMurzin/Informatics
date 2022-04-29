@@ -1,20 +1,20 @@
 #ifndef FIELD_H
 #define FIELD_H
 
+#include "Point.h"
+
 typedef struct Field {
     int **data;
     int size;
-    int emptyY;
-    int emptyX;
-    int selectedX;
-    int selectedY;
+    Point empty;
+    Point selected;
 } Field;
 
 
 Field *getField(int size);
 
-int isEmpty(Field *field, int x, int y);
+int isEmpty(Field *field, Point point);
 
-int isSelected(Field *field, int x, int y);
+int isSelected(Field *field, Point point);
 
 #endif

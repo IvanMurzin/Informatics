@@ -4,11 +4,9 @@
 #include "Field.h"
 #include "Stack.h"
 
-Field *field;
-Stack *stack;
 
-int isWin() {
-    if (field->emptyX != field->size - 1 || field->emptyY != field->size - 1) return 0;
+int isWin(Field *field) {
+    if (field->empty.x != field->size - 1 || field->empty.y != field->size - 1) return 0;
     int previous = field->data[0][0];
     for (int i = 0; i < field->size; ++i) {
         for (int j = 0; j < field->size; ++j) {
@@ -20,68 +18,68 @@ int isWin() {
     return 1;
 }
 
-int canMove() {
-    int x = field->selectedX;
-    int y = field->selectedY;
+int canMove(Field *field) {
+    int x = field->selected.x;
+    int y = field->selected.y;
     if (x < 0 || x >= field->size || y < 0 || y >= field->size)
         return 0;
-    int dx = abs(x - field->emptyX);
-    int dy = abs(y - field->emptyY);
+    int dx = abs(x - field->empty.x);
+    int dy = abs(y - field->empty.y);
     if (dx > 1 || dy > 1 || dx + dy != 1)
         return 0;
     return 1;
 }
 
 
-void swap() {
-    int x = field->selectedX;
-    int y = field->selectedY;
-    int temp = field->data[y][x];
-    field->data[y][x] = field->data[field->emptyY][field->emptyX];
-    field->data[field->emptyY][field->emptyX] = temp;
-    field->emptyX = x;
-    field->emptyY = y;
+void swap(Field *field) {
+    Point selected = field->selected;
+    int temp = field->data[selected.y][selected.x];
+    field->data[selected.y][selected.x] = field->data[field->empty.y][field->empty.x];
+    field->data[field->empty.y][field->empty.x] = temp;
+    field->empty = selected;
 }
 
-int select(int x, int y) {
-    if (x < 0 || x >= field->size || y < 0 || y >= field->size || isEmpty(field, x, y)) {
+int select(Field *field, int x, int y) {
+    Point point = {x, y};
+    if (x < 0 || x >= field->size ||
+        y < 0 || y >= field->size ||
+        isEmpty(field, point)) {
         return 0;
     }
-    field->selectedX = x;
-    field->selectedY = y;
+    field->selected = point;
     return 1;
 }
 
-int move() {
-    if (!canMove()) {
+int move(Field *field) {
+    if (!canMove(field)) {
         highlightField(field, red);
         return 0;
     }
-    swap();
+    swap(field);
     return 1;
 }
 
-void transfer(KeyboardInput input) {
-    int x = field->selectedX;
-    int y = field->selectedY;
+void transfer(Field *field, KeyboardInput input) {
+    int x = field->selected.x;
+    int y = field->selected.y;
     switch (input) {
         case up:
-            select(x, y - 1);
+            select(field, x, y - 1);
             break;
         case down:
-            select(x, y + 1);
+            select(field, x, y + 1);
             break;
         case left:
-            select(x - 1, y);
+            select(field, x - 1, y);
             break;
         case right:
-            select(x + 1, y);
+            select(field, x + 1, y);
         default:
             return;
     }
 }
 
-void destroyGameData() {
+void destroyGameData(Field *field, Stack *stack) {
     for (int i = 0; i < field->size; ++i) free(field->data[i]);
     free(field->data);
     free(field);
@@ -91,8 +89,8 @@ void destroyGameData() {
 void start() {
     printGreetings();
     int fieldSize = getFieldSize();
-    field = getField(fieldSize);
-    stack = getStack();
+    Field *field = getField(fieldSize);
+    Stack *stack = getStack();
     defaultPrintField(field);
     KeyboardInput input;
     int flag = 0;
@@ -101,10 +99,9 @@ void start() {
         switch (input) {
             case enter:
                 system("stty sane");
-                int x = field->emptyX;
-                int y = field->emptyY;
-                if (move()) push(stack, x, y);
-                if (isWin()) flag = 1;
+                Point empty = field->empty;
+                if (move(field)) push(stack, empty);
+                if (isWin(field)) flag = 1;
                 break;
             case quit:
                 system("stty sane");
@@ -112,10 +109,10 @@ void start() {
                 break;
             case back:
                 system("stty sane");
-                pop(stack, &field->selectedX, &field->selectedY);
-                move();
+                pop(stack, &field->selected);
+                move(field);
             default:
-                transfer(input);
+                transfer(field, input);
         }
         defaultPrintField(field);
     }
@@ -123,7 +120,7 @@ void start() {
         printField(field, green, 1);
         printCongratulations();
     } else printFarewell();
-    destroyGameData();
+    destroyGameData(field, stack);
 }
 
 Game *getGame() {
