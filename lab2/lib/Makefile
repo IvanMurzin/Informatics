@@ -1,18 +1,19 @@
 CC=gcc
 CFLAGS= -c -fPIC -std=c99
 
-all: libstackvector libstacklist
+SOURCES=StackVector.c StackList.c ../point/Point.c
+OBJECTS=$(SOURCES:.c=.o)
+DIRS=-I../point
+LDFLAGS=-shared
 
+all: $(OBJECTS) log
 
+dynvector: StackVector.o ../point/Point.o
+	$(CC) $(DIRS) StackVector.o ../point/Point.o -shared -o libstackvector.so
 
-libstackvector: StackVector.o
-	$(CC) StackVector.o -shared -o libstackvector.so
+dynlist: StackList.o ../point/Point.o
+	$(CC) $(DIRS) StackList.o ../point/Point.o -shared -o libstacklist.so
 
-libstacklist: StackList.o
-	$(CC) StackList.o -shared -o libstacklist.so
+.c.o:
+	$(CC) $(DIRS) $(CFLAGS) $< -o $@
 
-StackVector.o: StackVector.c
-	$(CC) $(CFLAGS) StackVector.c
-
-StackList.o: StackList.c
-	$(CC) $(CFLAGS) StackList.c

@@ -8,29 +8,21 @@ Stack *getStack() {
     return stack;
 }
 
-void push(Stack *stack, int x, int y) {
-    if (stack == NULL) return;
-    if (stack->head == NULL) {
-        stack->head = calloc(1, sizeof(Node));
-        stack->head->next = NULL;
-        stack->head->x = x;
-        stack->head->y = y;
-        stack->size = 1;
-        return;
-    }
+int push(Stack *stack, Point point) {
+    if (stack == NULL) return 0;
     Node *newNode = calloc(1, sizeof(Node));
+    if (newNode == NULL) return 0;
     newNode->next = stack->head;
-    newNode->x = x;
-    newNode->y = y;
+    newNode->point = point;
     stack->head = newNode;
     stack->size++;
+    return 1;
 }
 
-int pop(Stack *stack, int *x, int *y) {
+int pop(Stack *stack, Point *point) {
     if (stack == NULL || stack->head == NULL)
         return 0;
-    *x = stack->head->x;
-    *y = stack->head->y;
+    *point = stack->head->point;
     Node *trash = stack->head;
     stack->head = stack->head->next;
     stack->size--;
