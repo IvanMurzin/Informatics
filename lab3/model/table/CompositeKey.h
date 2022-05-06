@@ -2,10 +2,10 @@
 #define COMPOSITEKEY_H
 
 #include "Key2.h"
-#include "Key1.h"
+#include "model/keyspace/key/Key.h"
 
 typedef struct CompositeKey{
-    Key1* key1;
+    Key* key1;
     Key2* key2;
 } CompositeKey;
 #endif

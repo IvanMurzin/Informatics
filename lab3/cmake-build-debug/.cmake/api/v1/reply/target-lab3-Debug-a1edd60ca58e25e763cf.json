@@ -100,7 +100,7 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/table/item"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/item"
 				},
 				{
 					"backtrace" : 6,
@@ -137,8 +137,7 @@
 				8,
 				9,
 				10,
-				11,
-				12
+				11
 			]
 		}
 	],
@@ -182,8 +181,7 @@
 				8,
 				9,
 				10,
-				11,
-				12
+				11
 			]
 		}
 	],
@@ -228,13 +226,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "model/table/item/Item.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "model/table/item/Info.c",
+			"path" : "model/keyspace/item/Item.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -252,19 +244,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "model/keyspace/keyspace1/Item1.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "model/keyspace/keyspace1/Key1.c",
+			"path" : "model/keyspace/key/Key.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "controller/keyspace/IteratorKS1.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "model/keyspace/keyspace2/Item2.c",
 			"sourceGroupIndex" : 0
 		}
 	],

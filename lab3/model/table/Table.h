@@ -28,7 +28,7 @@ int find(Table *table, CompositeKey key); // todo implement
  * результатом поиска должна быть копии
  * всех найденных элементов со значениями ключей
  */
-int findByKey1(Table *table, Key1 key); // todo implement
+int findByKey1(Table *table, Key key); // todo implement
 
 int findByKey2(Table *table, Key2 key); // todo implement
 
@@ -41,7 +41,7 @@ int delete(Table *table, CompositeKey key); // todo implement
  * удаление из таблицы всех элементов,
  * заданного ключом в одном из ключевых пространств
  */
-int deleteByKey1(Table *table, Key1 key1); // todo implement
+int deleteByKey1(Table *table, Key key1); // todo implement
 
 int deleteByKey2(Table *table, Key2 key2); // todo implement
 

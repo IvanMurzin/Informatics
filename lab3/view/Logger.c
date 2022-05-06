@@ -4,7 +4,7 @@
 #include "Errors.h"
 #include "IteratorKS1.h"
 
-void printRowKS1(const Item1 *item) {
+void printRowKS1(const Item *item) {
     printf("╠══════╬══════════════════════════════════════╬══════════════════════╣\n");
     printf("║ %-4d ║ %-9s v%-5d %-3d/ %-14d ║ %-20s ║\n",
            item->busy,
@@ -29,7 +29,7 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
     printf("╔══════╦═══════════════════ KEY SPACE 1 ═════════════════════════════╗\n");
     printHeaderKS1();
     for (int i = 0; i < table->currentSize; ++i) {
-        Item1 *item = table->table[i];
+        Item *item = table->table[i];
         if (item->busy || !busyOnly) printRowKS1(item);
     }
     printFooter();
@@ -37,7 +37,7 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
 }
 
 
-int printSelectResultKS1(KeySpace1 *table, const Item1 *item) {
+int printSelectResultKS1(KeySpace1 *table, const Item *item) {
     if (item == NULL || item->key.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
     printf("╔══════╦══════════════════ SELECT RESULT ════════════════════════════╗\n");
     printHeaderKS1();

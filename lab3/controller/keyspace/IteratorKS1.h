@@ -3,8 +3,8 @@
 
 #include "KeySpace1.h"
 
-int hasNextItem1(const Item1 *item);
+int hasNextItem1(const Item *item);
 
-Item1 *nextItem1(KeySpace1 *table, const Item1 *item);
+Item *nextItem1(KeySpace1 *table, const Item *item);
 
 #endif

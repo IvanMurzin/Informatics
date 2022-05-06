@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "Item1.h"
+#include "Item.h"
 #include "Errors.h"
 
-int getItem1(Item1 **item, Key1 key, const char *data) {
-    *item = malloc(sizeof(Item1));
+int getItem(Item **item, Key key, const char *data) {
+    *item = malloc(sizeof(Item));
     if (*item == NULL) throw ERROR_OUT_OF_MEMORY;
     (*item)->key = key;
     (*item)->data = data;

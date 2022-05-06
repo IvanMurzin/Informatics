@@ -5,8 +5,8 @@
 
 int printKS1(KeySpace1 *table, int busyOnly);
 
-int printFindResultKS1(Key1 key, int result);
+int printFindResultKS1(Key key, int result);
 
-int printSelectResultKS1(KeySpace1 *table,const Item1 *item);
+int printSelectResultKS1(KeySpace1 *table,const Item *item);
 
 #endif

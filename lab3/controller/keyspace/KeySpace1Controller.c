@@ -10,9 +10,9 @@ int putToKS1(KeySpace1 *table, const char *stringKey, const char *stringData) {
 }
 
 int selectFromKS1(KeySpace1 *table, const char *stringKey) {
-    Item1 *item1 = NULL;
-    int result = selectFirstVersionItemKS1(table, stringKey, &item1);
-    if (!result) printSelectResultKS1(table, item1);
+    Item *item = NULL;
+    int result = selectFirstVersionItemKS1(table, stringKey, &item);
+    if (!result) printSelectResultKS1(table, item);
     return result;
 }
 
@@ -24,8 +24,8 @@ int deleteAllKS1(KeySpace1 *table, const char *stringKey) {
 
 
 int deleteByRangeKS1(KeySpace1 *table, const char *floor, const char *selling) {
-    Key1 floorKey = {floor, 0};
-    Key1 sellingKey = {selling, 0};
+    Key floorKey = {floor, 0};
+    Key sellingKey = {selling, 0};
     int result = removeByKeyRange(table, floorKey, sellingKey);
     if (!result) printKS1(table, 0);
     return result;
