@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="lab3" targetName="lab3" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="" />
+    <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Errors.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Key1.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Key1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/Key2.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/Key2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/CompositeKey.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/CompositeKey.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/Table.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/Table.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/item/Info.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/item/Info.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/item/Item.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/table/item/Item.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/Logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-2532cd55d499a3d9f169.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-20T22-35-26-0806.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-484b6b703929e364ec9c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-1d4e21b0140c83d47a8e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ac6a28854aa758cf8c13.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-29T12-09-37-0084.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab3-Debug-0059ce84c1c4654fd1ad.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +79,12 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -24,19 +92,36 @@
     <option name="minorVersion" value="3.4" />
   </component>
   <component name="ProjectId" id="28TIViPl2TmlAZLhg0IEbfywIG4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model" />
+      <recent name="$PROJECT_DIR$/table/item" />
+      <recent name="$PROJECT_DIR$/keyspace/keyspace2" />
+      <recent name="$PROJECT_DIR$/keyspace/KeySpace1" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
@@ -58,10 +143,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651234173701</updated>
+      <workItem from="1651234175204" duration="2324000" />
+      <workItem from="1651741544016" duration="5333000" />
+      <workItem from="1651821465091" duration="20971000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
