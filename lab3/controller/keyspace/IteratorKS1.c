@@ -3,7 +3,7 @@
 
 int hasNextItem1(const Item1 *item) {
     if (item == NULL) return 0;
-    return item->nextIndex >= 0 || item->key1.version == 0;
+    return item->nextIndex >= 0;
 }
 
 Item1 *nextItem1(KeySpace1 *table, const Item1 *item) {

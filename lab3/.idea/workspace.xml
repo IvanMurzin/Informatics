@@ -12,64 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Errors.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Key1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Key1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/Key2.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/Key2.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/CompositeKey.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/CompositeKey.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/Table.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/Table.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/item/Info.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/item/Info.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/item/Item.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/table/item/Item.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/Logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-2532cd55d499a3d9f169.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-20T22-35-26-0806.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-484b6b703929e364ec9c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-1d4e21b0140c83d47a8e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ac6a28854aa758cf8c13.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-29T12-09-37-0084.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab3-Debug-0059ce84c1c4654fd1ad.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/keyspace/IteratorKS1.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +94,7 @@
       <updated>1651234173701</updated>
       <workItem from="1651234175204" duration="2324000" />
       <workItem from="1651741544016" duration="5333000" />
-      <workItem from="1651821465091" duration="20971000" />
+      <workItem from="1651821465091" duration="23046000" />
     </task>
     <servers />
   </component>
@@ -165,5 +114,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c</url>
+          <line>31</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

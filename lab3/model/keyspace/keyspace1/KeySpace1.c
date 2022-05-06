@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "KeySpace1.h"
 #include "Errors.h"
+#include "IteratorKS1.h"
 
 
 int getKeySpase1(KeySpace1 **table, int maxSize) {
@@ -17,7 +18,7 @@ int indexOfByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
         return -1;
     }
     for (int i = 0; i < table->currentSize; ++i) {
-        if (equalsKey1Values(table->table[i]->key1.value, stringKey))
+        if (equalsKey1Values(table->table[i]->key.value, stringKey))
             return i;
     }
     return -1;
@@ -26,9 +27,9 @@ int indexOfByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
 int selectLatestVersionItemKS1(KeySpace1 *table, const char *stringKey, Item1 **item) {
     int index = indexOfByKeyValueKS1(table, stringKey);
     if (index < 0) throw ERROR_NOT_FOUND;
-    while (table->table[index]->nextIndex >= 0)
-        index = table->table[index]->nextIndex;
-    *item = table->table[index];
+    Item1 *next = table->table[index];
+    while (hasNextItem1(next)) next = nextItem1(table, next);
+    *item = next;
     return 0;
 }
 
@@ -49,7 +50,7 @@ int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data) {
     Item1 *lastItem = NULL;
     if (!selectLatestVersionItemKS1(table, stringKey, &lastItem)) {
         lastItem->nextIndex = table->currentSize;
-        version = lastItem->key1.version + 1;
+        version = lastItem->key.version + 1;
     }
     Key1 key = {stringKey, version};
     if (getItem1(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
@@ -63,7 +64,27 @@ int indexOfByKeyKS1(KeySpace1 *table, Key1 key1) {
         return -1;
     }
     for (int i = 0; i < table->currentSize; ++i) {
-        if (equalsKey1(table->table[i]->key1, key1)) return i;
+        if (equalsKey1(table->table[i]->key, key1)) return i;
     }
     return -1;
 }
+
+int removeByKeyKS1(KeySpace1 *table, Key1 key) {
+    if (table == NULL || table->table == NULL || key.value == NULL) {
+        throw ERROR_INCORRECT_INPUT;
+    }
+    int index = indexOfByKeyKS1(table, key);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    table->table[index]->busy = 0;
+    return 0;
+}
+
+//int removeByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
+//    if (table == NULL || table->table == NULL || stringKey == NULL) {
+//        throw ERROR_INCORRECT_INPUT;
+//    }
+//    int index = indexOfByKeyKS1(table, key);
+//    if (index < 0) throw ERROR_NOT_FOUND;
+//    table->table[index]->busy = 0;
+//    return 0;
+//}

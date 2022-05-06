@@ -8,8 +8,8 @@ void printRowKS1(const Item1 *item) {
     printf("╠══════╬═════════════════════════════╬══════════════════════╣\n");
     printf("║ %-4d ║ %-9s v%-5d %-10d ║ %-20s ║\n",
            item->busy,
-           item->key1.value,
-           item->key1.version,
+           item->key.value,
+           item->key.version,
            item->nextIndex,
            item->data);
 }
@@ -36,13 +36,14 @@ int printKS1(KeySpace1 *table) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ �
 
 
 int printSelectResultKS1(KeySpace1 *table, const Item1 *item) {
-    if (item == NULL || item->key1.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
+    if (item == NULL || item->key.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
     printf("╔══════╦══════════════ SELECT RESULT ═══════════════════════╗\n");
     printHeaderKS1();
-    while (hasNextItem1(item)) {
-        item = nextItem1(table, item);
+    do {
         printRowKS1(item);
-    }
+        item = nextItem1(table, item);
+    } while ((hasNextItem1(item)));
+    printRowKS1(item);
     printFooter();
     return 0;
 }
