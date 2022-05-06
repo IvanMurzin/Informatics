@@ -9,4 +9,6 @@ int selectFromKS1(KeySpace1 *table, const char *stringKey);
 
 int deleteAllKS1(KeySpace1 *table, const char *stringKey);
 
+int deleteByRangeKS1(KeySpace1 *table, const char *floor, const char *selling);
+
 #endif

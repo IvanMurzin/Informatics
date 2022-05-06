@@ -23,4 +23,8 @@ int removeByKeyKS1(KeySpace1 *table, Key1 key);
 
 int removeByKeyValueKS1(KeySpace1 *table, const char *stringKey);
 
+int removeByKeyRange(KeySpace1 *table, Key1 floor, Key1 selling);
+
+void destroyKeySpace1(KeySpace1 *table);
+
 #endif

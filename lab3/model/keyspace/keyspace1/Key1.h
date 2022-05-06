@@ -7,6 +7,8 @@ typedef struct Key1 {
 
 int equalsKey1(Key1 first, Key1 second);
 
-int equalsKey1Values(const char * first, const char * second);
+int compareKey1(Key1 first, Key1 second);
+
+int equalsKey1Values(const char *first, const char *second);
 
 #endif

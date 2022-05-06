@@ -9,6 +9,7 @@ int getKeySpase1(KeySpace1 **table, int maxSize) {
     *table = malloc(sizeof(KeySpace1));
     if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
     (*table)->maxSize = maxSize;
+    (*table)->currentSize = 0;
     (*table)->table = malloc(sizeof(Item1 *) * maxSize);
     return 0;
 }
@@ -17,7 +18,9 @@ int collectGarbage(KeySpace1 *table) {
     if (table == NULL) return -1;
     int j = 0;
     for (int i = 0; i < table->currentSize; ++i) {
-        if (table->table[i]->busy) {
+        if (!table->table[i]->busy) {
+            free(table->table[i]);
+        } else {
             table->table[j] = table->table[i];
             ++j;
         }
@@ -121,4 +124,26 @@ int removeByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
     }
     next->busy = 0;
     return 0;
+}
+
+
+int removeByKeyRange(KeySpace1 *table, Key1 floor, Key1 selling) {
+    if (table == NULL || table->table == NULL || floor.value == NULL || selling.value == NULL) {
+        throw ERROR_INCORRECT_INPUT;
+    }
+    for (int i = 0; i < table->currentSize; ++i) {
+        Key1 key = table->table[i]->key;
+        if ((compareKey1(key, floor) >= 0) && (compareKey1(key, selling) <= 0)) {
+            removeByKeyKS1(table, key);
+        }
+    }
+    return 0;
+}
+
+void destroyKeySpace1(KeySpace1 *table) {
+    for (int i = 0; i < table->currentSize; ++i) {
+        free(table->table[i]);
+    }
+    free(table->table);
+    free(table);
 }

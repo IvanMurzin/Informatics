@@ -18,8 +18,18 @@ int selectFromKS1(KeySpace1 *table, const char *stringKey) {
 
 int deleteAllKS1(KeySpace1 *table, const char *stringKey) {
     int result = removeByKeyValueKS1(table, stringKey);
-    if (!result) printKS1(table,0);
+    if (!result) printKS1(table, 0);
     return result;
 }
+
+
+int deleteByRangeKS1(KeySpace1 *table, const char *floor, const char *selling) {
+    Key1 floorKey = {floor, 0};
+    Key1 sellingKey = {selling, 0};
+    int result = removeByKeyRange(table, floorKey, sellingKey);
+    if (!result) printKS1(table, 0);
+    return result;
+}
+
 
 
