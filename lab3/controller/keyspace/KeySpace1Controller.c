@@ -5,7 +5,7 @@
 
 int putToKS1(KeySpace1 *table, const char *stringKey, const char *stringData) {
     int result = insertIntoKS1(table, stringKey, stringData);
-    if (!result) printKS1(table, 1);
+    if (!result) printKS1(table, 0);
     return result;
 }
 
@@ -18,9 +18,8 @@ int selectFromKS1(KeySpace1 *table, const char *stringKey) {
 
 int deleteAllKS1(KeySpace1 *table, const char *stringKey) {
     int result = removeByKeyValueKS1(table, stringKey);
-    if (!result) printKS1(table,1);
+    if (!result) printKS1(table,0);
     return result;
 }
-
 
 

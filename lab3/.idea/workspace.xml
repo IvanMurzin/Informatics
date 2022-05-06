@@ -13,24 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/keyspace/IteratorKS1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/keyspace/IteratorKS1.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/keyspace/KeySpace1Controller.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/keyspace/KeySpace1Controller.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/Item1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/Item1.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab3" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/keyspace/KeySpace1Controller.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/Item1.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/Logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +99,7 @@
       <updated>1651234173701</updated>
       <workItem from="1651234175204" duration="2324000" />
       <workItem from="1651741544016" duration="5333000" />
-      <workItem from="1651821465091" duration="29887000" />
+      <workItem from="1651821465091" duration="30878000" />
     </task>
     <servers />
   </component>

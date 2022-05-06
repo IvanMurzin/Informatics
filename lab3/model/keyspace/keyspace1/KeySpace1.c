@@ -2,7 +2,6 @@
 #include "KeySpace1.h"
 #include "Errors.h"
 #include "IteratorKS1.h"
-#include "Logger.h"
 
 
 int getKeySpase1(KeySpace1 **table, int maxSize) {
@@ -14,6 +13,17 @@ int getKeySpase1(KeySpace1 **table, int maxSize) {
     return 0;
 }
 
+int collectGarbage(KeySpace1 *table) {
+    if (table == NULL) return -1;
+    int j = 0;
+    for (int i = 0; i < table->currentSize; ++i) {
+        if (table->table[i]->busy) {
+            table->table[j] = table->table[i];
+            ++j;
+        }
+    }
+    return table->currentSize - j;
+}
 
 int indexOfByKeyKS1(KeySpace1 *table, Key1 key1) {
     if (table == NULL || table->table == NULL || key1.value == NULL) {
@@ -60,7 +70,11 @@ int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data) {
     if (table == NULL || table->table == NULL || data == NULL || stringKey == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
-    if (table->currentSize == table->maxSize) throw ERROR_TABLE_OVERFLOW;
+    if (table->currentSize == table->maxSize) {
+        int garbage = collectGarbage(table);
+        if (garbage == 0) throw ERROR_TABLE_OVERFLOW;
+        table->currentSize -= garbage;
+    }
     int version = 0;
     Item1 *item = NULL;
     int lastIndex = indexOfLatestVersionItemKS1(table, stringKey);
