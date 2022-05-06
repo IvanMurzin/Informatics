@@ -9,5 +9,6 @@ int getItem1(Item1 **item, Key1 key, const char *data) {
     (*item)->data = data;
     (*item)->busy = 1;
     (*item)->nextIndex = -1;
+    (*item)->previousIndex = -1;
     return 0;
 }

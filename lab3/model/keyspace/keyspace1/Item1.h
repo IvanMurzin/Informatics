@@ -8,6 +8,7 @@ typedef struct Item1 {
     int busy;
     Key1 key;
     int nextIndex;
+    int previousIndex;
     const char *data; // -> Item
 } Item1;
 

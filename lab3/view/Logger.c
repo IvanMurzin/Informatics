@@ -5,30 +5,32 @@
 #include "IteratorKS1.h"
 
 void printRowKS1(const Item1 *item) {
-    printf("╠══════╬═════════════════════════════╬══════════════════════╣\n");
-    printf("║ %-4d ║ %-9s v%-5d %-10d ║ %-20s ║\n",
+    printf("╠══════╬══════════════════════════════════════╬══════════════════════╣\n");
+    printf("║ %-4d ║ %-9s v%-5d %-3d/ %-14d ║ %-20s ║\n",
            item->busy,
            item->key.value,
            item->key.version,
            item->nextIndex,
+           item->previousIndex,
            item->data);
 }
 
 void printHeaderKS1() {
-    printf("║ BUSY ║ KEY1      V      NEXT INDEX ║ VALUE                ║\n");
+    printf("║ BUSY ║ KEY1      V      NEXT/PREVIOUS INDEX ║ VALUE                ║\n");
 }
 
 void printFooter() {
-    printf("╚══════╩═════════════════════════════╩══════════════════════╝\n");
+    printf("╚══════╩══════════════════════════════════════╩══════════════════════╝\n");
 
 }
 
-int printKS1(KeySpace1 *table) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
+int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
     if (table == NULL || table->table == NULL) throw ERROR_INCORRECT_INPUT;
-    printf("╔══════╦═══════════════ KEY SPACE 1 ════════════════════════╗\n");
+    printf("╔══════╦═══════════════════ KEY SPACE 1 ═════════════════════════════╗\n");
     printHeaderKS1();
     for (int i = 0; i < table->currentSize; ++i) {
-        printRowKS1(table->table[i]);
+        Item1 *item = table->table[i];
+        if (item->busy || !busyOnly) printRowKS1(item);
     }
     printFooter();
     return 0;
@@ -37,7 +39,7 @@ int printKS1(KeySpace1 *table) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ �
 
 int printSelectResultKS1(KeySpace1 *table, const Item1 *item) {
     if (item == NULL || item->key.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
-    printf("╔══════╦══════════════ SELECT RESULT ═══════════════════════╗\n");
+    printf("╔══════╦══════════════════ SELECT RESULT ════════════════════════════╗\n");
     printHeaderKS1();
     do {
         printRowKS1(item);

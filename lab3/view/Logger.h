@@ -3,7 +3,7 @@
 
 #include "KeySpace1.h"
 
-int printKS1(KeySpace1 *table);
+int printKS1(KeySpace1 *table, int busyOnly);
 
 int printFindResultKS1(Key1 key, int result);
 
