@@ -1,5 +1,5 @@
 #include <stddef.h>
-#include "KeySpace1Controller.h"
+#include "KeySpaceController.h"
 #include "Logger.h"
 #include "Errors.h"
 
@@ -33,3 +33,21 @@ int deleteByRangeKS1(KeySpace1 *table, const char *floor, const char *selling) {
 
 
 
+int putToKS2(KeySpace2 *table, const char *stringKey, const char *stringData) {
+    int result = insertIntoKS2(table, stringKey, stringData);
+    if (!result) printKS2(table, 0);
+    return result;
+}
+
+int selectFromKS2(KeySpace2 *table, const char *stringKey) {
+    Item *item = NULL;
+    int result = selectFirstVersionItemKS2(table, stringKey, &item);
+    if (!result) printSelectResultKS2(table, item);
+    return result;
+}
+
+int deleteAllKS2(KeySpace2 *table, const char *stringKey) {
+    int result = removeByKeyValueKS2(table, stringKey);
+    if (!result) printKS2(table, 0);
+    return result;
+}

@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include "KeySpace1.h"
 #include "Errors.h"
-#include "IteratorKS1.h"
+#include "IteratorKS.h"
 
 
-int getKeySpase1(KeySpace1 **table, int maxSize) {
+int getKS1(KeySpace1 **table, int maxSize) {
     if (maxSize <= 0 || maxSize > 1000) throw ERROR_WRONG_TABLE_SIZE;
     *table = malloc(sizeof(KeySpace1));
     if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
@@ -28,13 +28,13 @@ int collectGarbage(KeySpace1 *table) {
     return table->currentSize - j;
 }
 
-int indexOfByKeyKS1(KeySpace1 *table, Key key1) {
-    if (table == NULL || table->table == NULL || key1.value == NULL) {
+int indexOfByKeyKS1(KeySpace1 *table, Key key) {
+    if (table == NULL || table->table == NULL || key.value == NULL) {
         return -1;
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKey1(item->key, key1)) return i;
+        if (item->busy && equalsKey(item->key, key)) return i;
     }
     return -1;
 }
@@ -45,7 +45,7 @@ int indexOfByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKey1Values(item->key.value, stringKey))
+        if (item->busy && equalsKeyValues(item->key.value, stringKey))
             return i;
     }
     return -1;
@@ -56,7 +56,7 @@ int indexOfLatestVersionItemKS1(KeySpace1 *table, const char *stringKey) {
     if (index < 0) return -1;
     Item *next = table->table[index];
     while (hasNextItem1(next)) {
-        index = next->nextIndex;
+        index = next->nextIndexKS1;
         next = nextItem1(table, next);
     }
     return index;
@@ -83,12 +83,12 @@ int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char* data) {
     int lastIndex = indexOfLatestVersionItemKS1(table, stringKey);
     if (lastIndex >= 0) {
         Item *lastItem = table->table[lastIndex];
-        lastItem->nextIndex = table->currentSize;
+        lastItem->nextIndexKS1 = table->currentSize;
         version = lastItem->key.version + 1;
     }
     Key key = {stringKey, version};
     if (getItem(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
-    item->previousIndex = lastIndex;
+    item->previousIndexKS1 = lastIndex;
     table->table[table->currentSize] = item;
     table->currentSize++;
     return 0;
@@ -101,11 +101,11 @@ int removeByKeyKS1(KeySpace1 *table, Key key) {
     int index = indexOfByKeyKS1(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     Item *item = table->table[index];
-    if (item->previousIndex >= 0) {
-        table->table[item->previousIndex]->nextIndex = item->nextIndex;
+    if (item->previousIndexKS1 >= 0) {
+        table->table[item->previousIndexKS1]->nextIndexKS1 = item->nextIndexKS1;
     }
-    if (item->nextIndex >= 0) {
-        table->table[item->nextIndex]->previousIndex = item->previousIndex;
+    if (item->nextIndexKS1 >= 0) {
+        table->table[item->nextIndexKS1]->previousIndexKS1 = item->previousIndexKS1;
     }
     table->table[index]->busy = 0;
     return 0;
@@ -133,14 +133,14 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Key key = table->table[i]->key;
-        if ((compareKey1(key, floor) >= 0) && (compareKey1(key, selling) <= 0)) {
+        if ((compareKey(key, floor) >= 0) && (compareKey(key, selling) <= 0)) {
             removeByKeyKS1(table, key);
         }
     }
     return 0;
 }
 
-void destroyKeySpace1(KeySpace1 *table) {
+void destroyKS1(KeySpace1 *table) {
     for (int i = 0; i < table->currentSize; ++i) {
         free(table->table[i]);
     }

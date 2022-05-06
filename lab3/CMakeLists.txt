@@ -7,6 +7,7 @@ include_directories(model/table)
 include_directories(model/keyspace/keyspace1)
 include_directories(model/keyspace/keyspace2)
 include_directories(model/keyspace/item)
+include_directories(model/keyspace/key)
 include_directories(view)
 include_directories(./)
 include_directories(controller/keyspace)
@@ -17,7 +18,7 @@ add_executable(lab3 main.c
         model/table/CompositeKey.c
         model/keyspace/item/Item.c
         view/Logger.c
-        controller/keyspace/KeySpace1Controller.c
+        controller/keyspace/KeySpaceController.c
         model/keyspace/key/Key.c
-        controller/keyspace/IteratorKS1.c
+        controller/keyspace/IteratorKS.c
         )

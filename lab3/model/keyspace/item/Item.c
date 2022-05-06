@@ -8,7 +8,9 @@ int getItem(Item **item, Key key, const char *data) {
     (*item)->key = key;
     (*item)->data = data;
     (*item)->busy = 1;
-    (*item)->nextIndex = -1;
-    (*item)->previousIndex = -1;
+    (*item)->nextIndexKS1 = -1;
+    (*item)->nextIndexKS2 = -1;
+    (*item)->previousIndexKS1 = -1;
+    (*item)->previousIndexKS2 = -1;
     return 0;
 }

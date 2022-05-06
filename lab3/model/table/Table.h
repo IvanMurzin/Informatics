@@ -30,7 +30,7 @@ int find(Table *table, CompositeKey key); // todo implement
  */
 int findByKey1(Table *table, Key key); // todo implement
 
-int findByKey2(Table *table, Key2 key); // todo implement
+int findByKey2(Table *table, Key key); // todo implement
 
 /*
  * удаление из таблицы элемента, заданного составным ключом
@@ -43,7 +43,7 @@ int delete(Table *table, CompositeKey key); // todo implement
  */
 int deleteByKey1(Table *table, Key key1); // todo implement
 
-int deleteByKey2(Table *table, Key2 key2); // todo implement
+int deleteByKey2(Table *table, Key key2); // todo implement
 
 /*
  * вывод содержимого таблицы на экран,

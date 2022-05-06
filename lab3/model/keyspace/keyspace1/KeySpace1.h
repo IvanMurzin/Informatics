@@ -9,7 +9,7 @@ typedef struct KeySpace1 {
     Item **table;
 } KeySpace1;
 
-int getKeySpase1(KeySpace1 **table, int maxSize);
+int getKS1(KeySpace1 **table, int maxSize);
 
 int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data);
 
@@ -25,6 +25,6 @@ int removeByKeyValueKS1(KeySpace1 *table, const char *stringKey);
 
 int removeByKeyRange(KeySpace1 *table, Key floor, Key selling);
 
-void destroyKeySpace1(KeySpace1 *table);
+void destroyKS1(KeySpace1 *table);
 
 #endif

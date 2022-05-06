@@ -7,8 +7,10 @@
 typedef struct Item {
     int busy;
     Key key;
-    int nextIndex;
-    int previousIndex;
+    int nextIndexKS1;
+    int nextIndexKS2;
+    int previousIndexKS1;
+    int previousIndexKS2;
     const char* data;
 } Item;
 
