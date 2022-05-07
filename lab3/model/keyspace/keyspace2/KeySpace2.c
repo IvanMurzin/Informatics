@@ -15,12 +15,12 @@ int hash(const char *data) {
 
 int getKS2(KeySpace2 **table, int maxSize) {
     if (maxSize <= 0 || maxSize > 1000) throw ERROR_WRONG_TABLE_SIZE;
-    *table = malloc(sizeof(KeySpace2));
+    *table = calloc(1, sizeof(KeySpace2));
     if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
     (*table)->maxSize = maxSize;
     (*table)->currentSize = 0;
     (*table)->hash = &hash;
-    (*table)->table = malloc(sizeof(Item *) * maxSize);
+    (*table)->table = calloc(maxSize, sizeof(Item *));
     return 0;
 }
 
@@ -73,7 +73,8 @@ int insertIntoKS2(KeySpace2 *table, const char *stringKey, const char *data) {
                 version++;
             }
         } else {
-            Key key = {stringKey, version};
+            if (item != NULL) free(item);
+                Key key = {stringKey, version};
             if (getItem(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
             if (previousIndex >= 0) {
                 table->table[previousIndex]->nextIndexKS2 = hash;
@@ -123,8 +124,9 @@ int removeByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
 }
 
 void destroyKS2(KeySpace2 *table) {
-    for (int i = 0; i < table->currentSize; ++i) {
-        free(table->table[i]);
+    for (int i = 0; i < table->maxSize; ++i) {
+        if (table->table[i] != NULL)
+            free(table->table[i]);
     }
     free(table->table);
     free(table);

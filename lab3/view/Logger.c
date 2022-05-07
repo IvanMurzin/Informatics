@@ -27,7 +27,7 @@ void printHeader() {
     printf("║ BUSY ║ KEY       V      NEXT/PREVIOUS INDEX ║ VALUE                ║\n");
 }
 
-void printEmptyLine(){
+void printEmptyLine() {
     printf("╠══════╬══════════════════════════════════════╬══════════════════════╣\n");
     printf("║ NULL ║ NULL      NULL   NULL/NULL     NULL  ║ NULL                 ║\n");
 }
