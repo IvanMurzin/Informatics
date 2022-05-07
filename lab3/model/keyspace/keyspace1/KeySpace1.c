@@ -69,7 +69,7 @@ int selectFirstVersionItemKS1(KeySpace1 *table, const char *stringKey, Item **it
     return 0;
 }
 
-int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char* data) {
+int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data) {
     if (table == NULL || table->table == NULL || data == NULL || stringKey == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }

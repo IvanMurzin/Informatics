@@ -6,10 +6,10 @@
 
 int printKS1(KeySpace1 *table, int busyOnly);
 
-int printSelectResultKS1(KeySpace1 *table,const Item *item);
+int printSelectResultKS1(KeySpace1 *table, const Item *item);
 
 int printKS2(KeySpace2 *table, int busyOnly);
 
-int printSelectResultKS2(KeySpace2 *table,const Item *item);
+int printSelectResultKS2(KeySpace2 *table, const Item *item);
 
 #endif

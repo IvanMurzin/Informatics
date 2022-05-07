@@ -32,7 +32,6 @@ int deleteByRangeKS1(KeySpace1 *table, const char *floor, const char *selling) {
 }
 
 
-
 int putToKS2(KeySpace2 *table, const char *stringKey, const char *stringData) {
     int result = insertIntoKS2(table, stringKey, stringData);
     if (!result) printKS2(table, 0);

@@ -11,7 +11,7 @@ typedef struct Item {
     int nextIndexKS2;
     int previousIndexKS1;
     int previousIndexKS2;
-    const char* data;
+    const char *data;
 } Item;
 
 int getItem(Item **item, Key key, const char *data);

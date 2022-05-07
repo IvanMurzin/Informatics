@@ -74,7 +74,7 @@ int insertIntoKS2(KeySpace2 *table, const char *stringKey, const char *data) {
             }
         } else {
             if (item != NULL) free(item);
-                Key key = {stringKey, version};
+            Key key = {stringKey, version};
             if (getItem(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
             if (previousIndex >= 0) {
                 table->table[previousIndex]->nextIndexKS2 = hash;
