@@ -4,16 +4,37 @@
 #include "Errors.h"
 #include "IteratorKS.h"
 
-
-void printSeparator(const char separator) {
-    printf("╠══════╬═══════════════╬═══════════╬══════════════════════╣%c", separator);
+void printHat(int type, const char separator) {
+    printf("╔══════╦═══════════════ KEY SPACE %d ════════════════════╗%c", type, separator);
 }
 
-void printRow(const Item *item, Key key, int previousIndex, int nextIndex, const char separator) {
-    printf("║ %-4d ║ %-8s v%-3d ║ %3d / %-3d ║ %-20s ║%c",
+void printSeparator(const char separator) {
+    printf("╠══════╬═════════════════════════╬═══════════╬══════════╣%c", separator);
+}
+
+
+void printEmptyLine(const char separator) {
+    printf("║ ?    ║ ???                 ?   ║   ? / ?   ║ ????     ║%c", separator);
+}
+
+void printFooter(const char separator) {
+    printf("╚══════╩═════════════════════════╩═══════════╩══════════╝%c", separator);
+
+}
+
+void printHeader(int type, const char separator) {
+    const char *firstKey = type == 1 ? "KEY1" : "KEY2";
+    const char *secondKey = type == 1 ? "KEY2" : "KEY1";
+    printf("║ BUSY ║ (%s  |  %s|V ) v    ║ ↓/↑ INDEX ║ VALUE    ║%c", firstKey, secondKey, separator);
+}
+
+void printRow(const Item *item, int keyType, int previousIndex, int nextIndex, const char separator) {
+    printf("║ %-4d ║ (%-6s|%6s|V%d) v%-3d ║ %3d / %-3d ║ %-8s ║%c",
            item->busy,
-           key.value,
-           key.version,
+           (keyType == 1) ? (item->key.key1.value) : (item->key.key2.value),
+           (keyType == 1) ? (item->key.key2.value) : (item->key.key1.value),
+           item->key.version,
+           (keyType == 1) ? (item->key.key1.version) : (item->key.key2.version),
            nextIndex,
            previousIndex,
            item->data,
@@ -21,30 +42,17 @@ void printRow(const Item *item, Key key, int previousIndex, int nextIndex, const
 }
 
 void printRowKS1(const Item *item, const char separator) {
-    printRow(item, item->key1, item->previousIndexKS1, item->nextIndexKS1, separator);
+    printRow(item, 1, item->waymarkKS1.previous, item->waymarkKS1.next, separator);
 }
 
 void printRowKS2(const Item *item, const char separator) {
-    printRow(item, item->key2, item->previousIndexKS2, item->nextIndexKS2, separator);
-}
-
-void printHeader(const char separator) {
-    printf("║ BUSY ║ KEY       V   ║ ↓/↑ INDEX ║ VALUE                ║%c", separator);
-}
-
-void printEmptyLine(const char separator) {
-    printf("║ ?    ║ ???       ?   ║   ? / ?   ║ ????                 ║%c", separator);
-}
-
-void printFooter(const char separator) {
-    printf("╚══════╩═══════════════╩═══════════╩══════════════════════╝%c", separator);
-
+    printRow(item, 2, item->waymarkKS2.previous, item->waymarkKS2.next, separator);
 }
 
 int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
     if (table == NULL || table->table == NULL) throw ERROR_INCORRECT_INPUT;
-    printf("╔══════╦═══════════════ KEY SPACE 1 ══════════════════════╗\n");
-    printHeader('\n');
+    printHat(1, '\n');
+    printHeader(1, '\n');
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
         if (item->busy || !busyOnly) {
@@ -58,8 +66,8 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
 
 int printKS2(KeySpace2 *table, int busyOnly) {
     if (table == NULL || table->table == NULL) throw ERROR_INCORRECT_INPUT;
-    printf("╔══════╦═══════════════ KEY SPACE 2 ══════════════════════╗\n");
-    printHeader('\n');
+    printHat(2, '\n');
+    printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
         Item *item = table->table[i];
         if (item == NULL) {
@@ -74,37 +82,12 @@ int printKS2(KeySpace2 *table, int busyOnly) {
     return 0;
 }
 
-//int printSelectResultKS1(KeySpace1 *table, const Item *item) {
-//    if (item == NULL || item->key1.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
-//    printf("╔══════╦══════════════════ SELECT RESULT ════════════════════════════╗\n");
-//    printHeader('\n');
-//    do {
-//        printRowKS1(item, '\n');
-//        item = nextItem1(table, item);
-//    } while ((hasNextItem1(item)));
-//    printRowKS1(item, '\n');
-//    printFooter('\n');
-//    return 0;
-//}
-//
-//int printSelectResultKS2(KeySpace2 *table, const Item *item) {
-//    if (item == NULL || item->key2.value == NULL || item->data == NULL) throw ERROR_INCORRECT_INPUT;
-//    printf("╔══════╦══════════════════ SELECT RESULT ════════════════════════════╗\n");
-//    printHeader('\n');
-//    do {
-//        printRowKS2(item, '\n');
-//        item = nextItem2(table, item);
-//    } while ((hasNextItem2(item)));
-//    printRowKS2(item, '\n');
-//    printFooter('\n');
-//    return 0;
-//}
-
 int printTable(Table *table) {
     if (table == NULL || table->keySpace1 == NULL || table->keySpace2 == NULL) throw ERROR_INCORRECT_INPUT;
-    printf("╔══════╦═══════════════ KEY SPACE 1 ══════════════════════╗ ╔══════╦═══════════════ KEY SPACE 2 ══════════════════════╗\n");
-    printHeader(' ');
-    printHeader('\n');
+    printHat(1, ' ');
+    printHat(2, '\n');
+    printHeader(1, ' ');
+    printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
         Item *item1 = table->keySpace1->table[i];
         Item *item2 = table->keySpace2->table[i];

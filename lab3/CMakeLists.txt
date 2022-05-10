@@ -20,4 +20,4 @@ add_executable(lab3 main.c
         view/Logger.c
         model/keyspace/key/Key.c
         controller/keyspace/IteratorKS.c
-        )
+        model/keyspace/item/Waymark.c)

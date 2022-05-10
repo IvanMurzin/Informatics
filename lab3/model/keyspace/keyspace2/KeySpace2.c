@@ -32,7 +32,7 @@ int indexOfByKeyKS2(KeySpace2 *table, Key key) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
-        if (item->busy && equalsKey(item->key2, key)) {
+        if (item->busy && equalsKey(item->key.key2, key)) {
             return hash;
         }
     }
@@ -47,7 +47,7 @@ int indexOfByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
-        if (item->busy && equalsKeyValues(item->key2.value, stringKey)) {
+        if (item->busy && equalsKeyValues(item->key.key2.value, stringKey)) {
             return hash;
         }
     }
@@ -63,21 +63,21 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
     }
     int version = 0;
     int previousIndex = -1;
-    int hashCode = table->hash(item->key2.value);
+    int hashCode = table->hash(item->key.key2.value);
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *temp = table->table[hash];
         if (temp != NULL && temp->busy) {
-            if (equalsKeyValues(temp->key2.value, item->key2.value)) {
+            if (equalsKeyValues(temp->key.key2.value, item->key.key2.value)) {
                 previousIndex = hash;
                 version++;
             }
         } else {
             if (temp != NULL) free(temp);
-            item->key2.version = version;
+            item->key.key2.version = version;
             if (previousIndex >= 0) {
-                table->table[previousIndex]->nextIndexKS2 = hash;
-                item->previousIndexKS2 = previousIndex;
+                table->table[previousIndex]->waymarkKS2.next = hash;
+                item->waymarkKS2.previous = previousIndex;
             }
             table->table[hash] = item;
             table->currentSize++;
@@ -94,11 +94,11 @@ int removeByKeyKS2(KeySpace2 *table, Key key) {
     int index = indexOfByKeyKS2(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     Item *item = table->table[index];
-    if (item->previousIndexKS2 >= 0) {
-        table->table[item->previousIndexKS2]->nextIndexKS2 = item->nextIndexKS2;
+    if (item->waymarkKS2.previous >= 0) {
+        table->table[item->waymarkKS2.previous]->waymarkKS2.next = item->waymarkKS2.next;
     }
-    if (item->nextIndexKS2 >= 0) {
-        table->table[item->nextIndexKS2]->previousIndexKS2 = item->previousIndexKS2;
+    if (item->waymarkKS2.next >= 0) {
+        table->table[item->waymarkKS2.next]->waymarkKS1.previous = item->waymarkKS2.previous;
     }
     table->table[index]->busy = 0;
     table->currentSize--;

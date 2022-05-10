@@ -34,7 +34,7 @@ int indexOfByKeyKS1(KeySpace1 *table, Key key) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKey(item->key1, key)) return i;
+        if (item->busy && equalsKey(item->key.key1, key)) return i;
     }
     return -1;
 }
@@ -45,7 +45,7 @@ int indexOfByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKeyValues(item->key1.value, stringKey))
+        if (item->busy && equalsKeyValues(item->key.key1.value, stringKey))
             return i;
     }
     return -1;
@@ -56,7 +56,7 @@ int indexOfLatestVersionItemKS1(KeySpace1 *table, const char *stringKey) {
     if (index < 0) return -1;
     Item *next = table->table[index];
     while (hasNextItem1(next)) {
-        index = next->nextIndexKS1;
+        index = next->waymarkKS1.next;
         next = nextItem1(table, next);
     }
     return index;
@@ -79,14 +79,14 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
         table->currentSize -= garbage;
     }
     int version = 0;
-    int lastIndex = indexOfLatestVersionItemKS1(table, item->key1.value);
+    int lastIndex = indexOfLatestVersionItemKS1(table, item->key.key1.value);
     if (lastIndex >= 0) {
         Item *lastItem = table->table[lastIndex];
-        lastItem->nextIndexKS1 = table->currentSize;
-        version = lastItem->key1.version + 1;
+        lastItem->waymarkKS1.next = table->currentSize;
+        version = lastItem->key.key1.version + 1;
     }
-    item->key1.version = version;
-    item->previousIndexKS1 = lastIndex;
+    item->key.key1.version = version;
+    item->waymarkKS1.previous = lastIndex;
     table->table[table->currentSize] = item;
     table->currentSize++;
     return 0;
@@ -99,11 +99,11 @@ int removeByKeyKS1(KeySpace1 *table, Key key) {
     int index = indexOfByKeyKS1(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     Item *item = table->table[index];
-    if (item->previousIndexKS1 >= 0) {
-        table->table[item->previousIndexKS1]->nextIndexKS1 = item->nextIndexKS1;
+    if (item->waymarkKS1.previous >= 0) {
+        table->table[item->waymarkKS1.previous]->waymarkKS1.next = item->waymarkKS1.next;
     }
-    if (item->nextIndexKS1 >= 0) {
-        table->table[item->nextIndexKS1]->previousIndexKS1 = item->previousIndexKS1;
+    if (item->waymarkKS1.next >= 0) {
+        table->table[item->waymarkKS1.next]->waymarkKS1.previous = item->waymarkKS1.previous;
     }
     table->table[index]->busy = 0;
     return 0;
@@ -130,7 +130,7 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
         throw ERROR_INCORRECT_INPUT;
     }
     for (int i = 0; i < table->currentSize; ++i) {
-        Key key = table->table[i]->key1;
+        Key key = table->table[i]->key.key1;
         if ((compareKey(key, floor) >= 0) && (compareKey(key, selling) <= 0)) {
             removeByKeyKS1(table, key);
         }

@@ -24,7 +24,7 @@ int put(Table *table, CompositeKey key, const char *data); // todo implement
 /*
  * поиск в таблице элемента, заданного составным ключом
  */
-int find(Table *table, CompositeKey key); // todo implement
+Item* find(Table *table, CompositeKey key); // todo implement
 
 /*
  * поиск в таблице элемента по любому заданному ключу;
