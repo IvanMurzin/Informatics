@@ -14,7 +14,7 @@ typedef struct KeySpace2 {
 
 int getKS2(KeySpace2 **table, int maxSize);
 
-int insertIntoKS2(KeySpace2 *table, const char *stringKey, const char *data);
+int insertIntoKS2(KeySpace2 *table, Item* item);
 
 int indexOfByKeyKS2(KeySpace2 *table, Key key);
 

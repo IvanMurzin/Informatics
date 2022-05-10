@@ -6,17 +6,20 @@
 #include "CompositeKey.h"
 
 typedef struct Table {
+    int size;
+    int maxSize;
     KeySpace1 *keySpace1;
     KeySpace2 *keySpace2;
 } Table;
 
+int getTable(Table** table, int maxSize);
 
 /*
  * включение нового элемента в таблицу с соблюдением
  * ограничений на уникальность ключей всоответствующих
  * ключевых пространствах и уникальность составного ключа
  */
-int put(Table *table, CompositeKey *key); // todo implement
+int put(Table *table, CompositeKey key, const char *data); // todo implement
 
 /*
  * поиск в таблице элемента, заданного составным ключом

@@ -34,7 +34,7 @@ int indexOfByKeyKS1(KeySpace1 *table, Key key) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKey(item->key, key)) return i;
+        if (item->busy && equalsKey(item->key1, key)) return i;
     }
     return -1;
 }
@@ -45,7 +45,7 @@ int indexOfByKeyValueKS1(KeySpace1 *table, const char *stringKey) {
     }
     for (int i = 0; i < table->currentSize; ++i) {
         Item *item = table->table[i];
-        if (item->busy && equalsKeyValues(item->key.value, stringKey))
+        if (item->busy && equalsKeyValues(item->key1.value, stringKey))
             return i;
     }
     return -1;
@@ -69,8 +69,8 @@ int selectFirstVersionItemKS1(KeySpace1 *table, const char *stringKey, Item **it
     return 0;
 }
 
-int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data) {
-    if (table == NULL || table->table == NULL || data == NULL || stringKey == NULL) {
+int insertIntoKS1(KeySpace1 *table, Item *item) {
+    if (table == NULL || table->table == NULL || item == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
     if (table->currentSize == table->maxSize) {
@@ -79,15 +79,13 @@ int insertIntoKS1(KeySpace1 *table, const char *stringKey, const char *data) {
         table->currentSize -= garbage;
     }
     int version = 0;
-    Item *item = NULL;
-    int lastIndex = indexOfLatestVersionItemKS1(table, stringKey);
+    int lastIndex = indexOfLatestVersionItemKS1(table, item->key1.value);
     if (lastIndex >= 0) {
         Item *lastItem = table->table[lastIndex];
         lastItem->nextIndexKS1 = table->currentSize;
-        version = lastItem->key.version + 1;
+        version = lastItem->key1.version + 1;
     }
-    Key key = {stringKey, version};
-    if (getItem(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
+    item->key1.version = version;
     item->previousIndexKS1 = lastIndex;
     table->table[table->currentSize] = item;
     table->currentSize++;
@@ -132,7 +130,7 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
         throw ERROR_INCORRECT_INPUT;
     }
     for (int i = 0; i < table->currentSize; ++i) {
-        Key key = table->table[i]->key;
+        Key key = table->table[i]->key1;
         if ((compareKey(key, floor) >= 0) && (compareKey(key, selling) <= 0)) {
             removeByKeyKS1(table, key);
         }

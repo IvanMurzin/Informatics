@@ -32,7 +32,7 @@ int indexOfByKeyKS2(KeySpace2 *table, Key key) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
-        if (item->busy && equalsKey(item->key, key)) {
+        if (item->busy && equalsKey(item->key2, key)) {
             return hash;
         }
     }
@@ -47,15 +47,15 @@ int indexOfByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
-        if (item->busy && equalsKeyValues(item->key.value, stringKey)) {
+        if (item->busy && equalsKeyValues(item->key2.value, stringKey)) {
             return hash;
         }
     }
     return ERROR_NOT_FOUND;
 }
 
-int insertIntoKS2(KeySpace2 *table, const char *stringKey, const char *data) {
-    if (table == NULL || table->table == NULL || data == NULL || stringKey == NULL) {
+int insertIntoKS2(KeySpace2 *table, Item *item) {
+    if (table == NULL || table->table == NULL || item == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
     if (table->currentSize == table->maxSize) {
@@ -63,19 +63,18 @@ int insertIntoKS2(KeySpace2 *table, const char *stringKey, const char *data) {
     }
     int version = 0;
     int previousIndex = -1;
-    int hashCode = table->hash(stringKey);
+    int hashCode = table->hash(item->key2.value);
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
-        Item *item = table->table[hash];
-        if (item != NULL && item->busy) {
-            if (equalsKeyValues(item->key.value, stringKey)) {
+        Item *temp = table->table[hash];
+        if (temp != NULL && temp->busy) {
+            if (equalsKeyValues(temp->key2.value, item->key2.value)) {
                 previousIndex = hash;
                 version++;
             }
         } else {
-            if (item != NULL) free(item);
-            Key key = {stringKey, version};
-            if (getItem(&item, key, data)) throw ERROR_UNABLE_TO_CREATE_ITEM;
+            if (temp != NULL) free(temp);
+            item->key2.version = version;
             if (previousIndex >= 0) {
                 table->table[previousIndex]->nextIndexKS2 = hash;
                 item->previousIndexKS2 = previousIndex;

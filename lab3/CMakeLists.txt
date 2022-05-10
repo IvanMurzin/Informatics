@@ -18,7 +18,6 @@ add_executable(lab3 main.c
         model/table/CompositeKey.c
         model/keyspace/item/Item.c
         view/Logger.c
-        controller/keyspace/KeySpaceController.c
         model/keyspace/key/Key.c
         controller/keyspace/IteratorKS.c
         )

@@ -6,7 +6,8 @@
 
 typedef struct Item {
     int busy;
-    Key key;
+    Key key1;
+    Key key2;
     int nextIndexKS1;
     int nextIndexKS2;
     int previousIndexKS1;
@@ -14,6 +15,6 @@ typedef struct Item {
     const char *data;
 } Item;
 
-int getItem(Item **item, Key key, const char *data);
+int getItem(Item **item, Key key1, Key key2, const char *data);
 
 #endif
