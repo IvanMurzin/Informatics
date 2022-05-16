@@ -11,4 +11,8 @@ typedef struct CompositeKey {
 
 CompositeKey getSimpleCompositeKey(const char *stringKey1, const char *stringKey2);
 
+CompositeKey getKeyCopy(CompositeKey key);
+
+int compositeKeyEqualsValues(CompositeKey key1, CompositeKey key2);
+
 #endif

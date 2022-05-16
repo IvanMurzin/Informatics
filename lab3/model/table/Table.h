@@ -12,45 +12,46 @@ typedef struct Table {
     KeySpace2 *keySpace2;
 } Table;
 
-int getTable(Table** table, int maxSize);
+int getTable(Table **table, int maxSize);
 
 /*
  * включение нового элемента в таблицу с соблюдением
  * ограничений на уникальность ключей всоответствующих
  * ключевых пространствах и уникальность составного ключа
  */
-int put(Table *table, CompositeKey key, const char *data); // todo implement
+int put(Table *table, Item *item);
 
 /*
  * поиск в таблице элемента, заданного составным ключом
  */
-Item* find(Table *table, CompositeKey key); // todo implement
+int find(Table *table, CompositeKey key, Item **result);
 
 /*
  * поиск в таблице элемента по любому заданному ключу;
  * результатом поиска должна быть копии
  * всех найденных элементов со значениями ключей
  */
-int findByKey1(Table *table, Key key); // todo implement
+int findByKey1(Table *table, Key key, KeySpace1 **result);
 
-int findByKey2(Table *table, Key key); // todo implement
+int findByKey2(Table *table, Key key, KeySpace2 **result);
 
 /*
  * удаление из таблицы элемента, заданного составным ключом
  */
-int delete(Table *table, CompositeKey key); // todo implement
+int delete(Table *table, CompositeKey key);
+
+int deleteAll(Table *table, CompositeKey key);
 
 /*
  * удаление из таблицы всех элементов,
  * заданного ключом в одном из ключевых пространств
  */
-int deleteByKey1(Table *table, Key key1); // todo implement
+int deleteByKey1(Table *table, Key key1);
 
-int deleteByKey2(Table *table, Key key2); // todo implement
+int deleteByKey2(Table *table, Key key2);
 
-/*
- * вывод содержимого таблицы на экран,
- * при этом формат вывода долженсоответствовать элемента таблицы
- */
+void destroyTable(Table *table);
 
+
+int collectGarbage(Table *table);
 #endif

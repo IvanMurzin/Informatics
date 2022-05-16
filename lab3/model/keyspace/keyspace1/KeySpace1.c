@@ -10,22 +10,8 @@ int getKS1(KeySpace1 **table, int maxSize) {
     if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
     (*table)->maxSize = maxSize;
     (*table)->currentSize = 0;
-    (*table)->table = malloc(sizeof(Item *) * maxSize);
+    (*table)->table = calloc(maxSize, sizeof(Item *));
     return 0;
-}
-
-int collectGarbage(KeySpace1 *table) {
-    if (table == NULL) return -1;
-    int j = 0;
-    for (int i = 0; i < table->currentSize; ++i) {
-        if (!table->table[i]->busy) {
-            free(table->table[i]);
-        } else {
-            table->table[j] = table->table[i];
-            ++j;
-        }
-    }
-    return table->currentSize - j;
 }
 
 int indexOfByKeyKS1(KeySpace1 *table, Key key) {
@@ -73,11 +59,12 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
     if (table == NULL || table->table == NULL || item == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
-    if (table->currentSize == table->maxSize) {
-        int garbage = collectGarbage(table);
-        if (garbage == 0) throw ERROR_TABLE_OVERFLOW;
-        table->currentSize -= garbage;
-    }
+//    if (table->currentSize == table->maxSize) {
+//        int garbage = collectGarbage(table);
+//        if (garbage == 0) throw ERROR_TABLE_OVERFLOW;
+//        table->currentSize -= garbage;
+//    }
+    if (table->currentSize == table->maxSize) throw ERROR_TABLE_OVERFLOW;
     int version = 0;
     int lastIndex = indexOfLatestVersionItemKS1(table, item->key.key1.value);
     if (lastIndex >= 0) {
@@ -140,7 +127,7 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
 
 void destroyKS1(KeySpace1 *table) {
     for (int i = 0; i < table->currentSize; ++i) {
-        free(table->table[i]);
+        destroyItem(table->table[i]);
     }
     free(table->table);
     free(table);

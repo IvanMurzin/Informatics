@@ -14,9 +14,11 @@ typedef struct KeySpace2 {
 
 int getKS2(KeySpace2 **table, int maxSize);
 
-int insertIntoKS2(KeySpace2 *table, Item* item);
+int insertIntoKS2(KeySpace2 *table, Item *item);
 
 int indexOfByKeyKS2(KeySpace2 *table, Key key);
+
+int indexOfGarbageByKeyKS2(KeySpace2 *table, Key key);
 
 int selectFirstVersionItemKS2(KeySpace2 *table, const char *stringKey, Item **item);
 

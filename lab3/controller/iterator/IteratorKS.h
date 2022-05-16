@@ -1,8 +1,11 @@
 #ifndef ITERATORKS1_H
 #define ITERATORKS1_H
 
-#include "KeySpace1.h"
-#include "KeySpace2.h"
+#include "Table.h"
+
+int hasNext(const Item *item);
+
+Item *next(const Item *item);
 
 int hasNextItem1(const Item *item);
 

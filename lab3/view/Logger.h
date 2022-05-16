@@ -13,4 +13,8 @@ int printTable(Table *table);
 
 int printSelectResultKS2(KeySpace2 *table, const Item *item);
 
+void handleResult(int result);
+
+void printItem(Item *item);
+
 #endif

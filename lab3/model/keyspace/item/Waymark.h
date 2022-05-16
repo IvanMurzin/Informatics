@@ -6,4 +6,5 @@ typedef struct Waymark {
 } Waymark;
 
 Waymark getWaymark(int next, int previous);
+
 #endif

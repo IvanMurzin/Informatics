@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <limits.h>
+#include <stdio.h>
 #include "KeySpace2.h"
 #include "Errors.h"
 #include "IteratorKS.h"
@@ -32,11 +33,28 @@ int indexOfByKeyKS2(KeySpace2 *table, Key key) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
+        if (item == NULL) return -1;
         if (item->busy && equalsKey(item->key.key2, key)) {
             return hash;
         }
     }
-    return ERROR_NOT_FOUND;
+    return -1;
+}
+
+int indexOfGarbageByKeyKS2(KeySpace2 *table, Key key) {
+    if (table == NULL || table->table == NULL || key.value == NULL) {
+        return -1;
+    }
+    int hashCode = table->hash(key.value);
+    for (int i = 0; i < table->maxSize; ++i) {
+        int hash = (hashCode + i) % table->maxSize;
+        Item *item = table->table[hash];
+        if (item == NULL) continue;
+        if (!item->busy && equalsKeyValues(item->key.key2.value, key.value)) {
+            return hash;
+        }
+    }
+    return -1;
 }
 
 int indexOfByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
@@ -47,11 +65,12 @@ int indexOfByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
     for (int i = 0; i < table->maxSize; ++i) {
         int hash = (hashCode + i) % table->maxSize;
         Item *item = table->table[hash];
+        if (item == NULL) return -1;
         if (item->busy && equalsKeyValues(item->key.key2.value, stringKey)) {
             return hash;
         }
     }
-    return ERROR_NOT_FOUND;
+    return -1;
 }
 
 int insertIntoKS2(KeySpace2 *table, Item *item) {
@@ -73,15 +92,16 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
                 version++;
             }
         } else {
-            if (temp != NULL) free(temp);
-            item->key.key2.version = version;
-            if (previousIndex >= 0) {
-                table->table[previousIndex]->waymarkKS2.next = hash;
-                item->waymarkKS2.previous = previousIndex;
+            if (temp == NULL) {
+                item->key.key2.version = version;
+                if (previousIndex >= 0) {
+                    table->table[previousIndex]->waymarkKS2.next = hash;
+                    item->waymarkKS2.previous = previousIndex;
+                }
+                table->table[hash] = item;
+                table->currentSize++;
+                return 0;
             }
-            table->table[hash] = item;
-            table->currentSize++;
-            return 0;
         }
     }
     return ERROR_TABLE_OVERFLOW;
@@ -125,7 +145,7 @@ int removeByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
 void destroyKS2(KeySpace2 *table) {
     for (int i = 0; i < table->maxSize; ++i) {
         if (table->table[i] != NULL)
-            free(table->table[i]);
+            destroyItem(table->table[i]);
     }
     free(table->table);
     free(table);

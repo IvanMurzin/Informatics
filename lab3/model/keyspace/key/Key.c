@@ -12,3 +12,8 @@ int equalsKeyValues(const char *first, const char *second) {
 int compareKey(Key first, Key second) {
     return strcmp(first.value, second.value);
 }
+
+Key getSimpleKey(const char *value) {
+    Key result = {value, 0};
+    return result;
+}

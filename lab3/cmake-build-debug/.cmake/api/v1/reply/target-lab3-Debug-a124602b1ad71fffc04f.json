@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
@@ -75,6 +75,12 @@
 				"file" : 0,
 				"line" : 13,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
 			}
 		]
 	},
@@ -84,10 +90,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk"
+					"fragment" : "-lreadline -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk"
 				},
 				{
-					"fragment" : "-std=gnu99"
+					"fragment" : "-std=gnu11"
 				}
 			],
 			"includes" : 
@@ -122,7 +128,11 @@
 				},
 				{
 					"backtrace" : 9,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/keyspace"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/iterator"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/dialog"
 				}
 			],
 			"language" : "C",
@@ -132,7 +142,7 @@
 				[
 					1
 				],
-				"standard" : "99"
+				"standard" : "11"
 			},
 			"sourceIndexes" : 
 			[
@@ -145,7 +155,8 @@
 				6,
 				7,
 				8,
-				9
+				9,
+				10
 			]
 		}
 	],
@@ -155,7 +166,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-lreadline -g",
 				"role" : "flags"
 			},
 			{
@@ -187,7 +198,8 @@
 				6,
 				7,
 				8,
-				9
+				9,
+				10
 			]
 		}
 	],
@@ -244,13 +256,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "controller/keyspace/IteratorKS.c",
+			"path" : "controller/iterator/IteratorKS.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "model/keyspace/item/Waymark.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "controller/dialog/Dialog.c",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "Logger.h"
 #include "Errors.h"
-#include "IteratorKS.h"
 
 void printHat(int type, const char separator) {
     printf("╔══════╦═══════════════ KEY SPACE %d ════════════════════╗%c", type, separator);
@@ -19,7 +18,6 @@ void printEmptyLine(const char separator) {
 
 void printFooter(const char separator) {
     printf("╚══════╩═════════════════════════╩═══════════╩══════════╝%c", separator);
-
 }
 
 void printHeader(int type, const char separator) {
@@ -102,4 +100,40 @@ int printTable(Table *table) {
     printFooter(' ');
     printFooter('\n');
     return 0;
+}
+
+void handleResult(int result) {
+    switch (result) {
+        case ERROR_INCORRECT_INPUT:
+            puts("Incorrect input");
+            break;
+        case ERROR_UNABLE_TO_CREATE_ITEM:
+            puts("Unable to create item");
+            break;
+        case ERROR_TABLE_OVERFLOW:
+            puts("Table overflow");
+            break;
+        case ERROR_NOT_FOUND:
+            puts("Element not found");
+            break;
+        case 0:
+            puts("Ok");
+            break;
+        default:
+            printf("Unhandled exception: N%d\n", result);
+    }
+}
+
+void printItem(Item *item) {
+    printf("╔══════╦═══════════ Item ══════════════╗\n");
+    printf("║ BUSY ║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
+    printf("╠══════╬════════════════════╬══════════╣\n");
+    printf("║ %-4d ║ (%-6s|%6s|V%d) ║ %-8s ║\n",
+           item->busy,
+           item->key.key1.value,
+           item->key.key2.value,
+           item->key.version,
+           item->data);
+    printf("╚══════╩════════════════════╩══════════╝\n");
+
 }
