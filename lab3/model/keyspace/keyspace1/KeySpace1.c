@@ -39,7 +39,6 @@ int indexOfKS1(KeySpace1 *table, Key key) {
 
 int insertIntoKS1(KeySpace1 *table, Item *item) {
     if (table == NULL || table->containers == NULL || item == NULL) {
-        destroyItem(item);
         throw ERROR_INCORRECT_INPUT;
     }
     Key key = item->key.key1;
@@ -48,7 +47,6 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
         if (table->size == table->maxSize) {
             int garbage = collectGarbage(table);
             if (garbage == 0) {
-                destroyItem(item);
                 throw ERROR_TABLE_OVERFLOW;
             }
             table->size -= garbage;
@@ -73,17 +71,6 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
     return 0;
 }
 
-void destroyContainer(Container *container) {
-    Node *node = container->node;
-    while (node != NULL) {
-        Node *next = node->next;
-        destroyItem(node->item);
-        node = next;
-    }
-    container->busy = -1;
-    container->node = NULL;
-}
-
 int removeByKeyKS1(KeySpace1 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         throw ERROR_INCORRECT_INPUT;
@@ -91,7 +78,6 @@ int removeByKeyKS1(KeySpace1 *table, Key key) {
     int index = indexOfKS1(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     destroyContainer(&table->containers[index]);
-    destroyKey(key);
     return 0;
 }
 
@@ -105,8 +91,6 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
             destroyContainer(&table->containers[i]);
         }
     }
-    destroyKey(floor);
-    destroyKey(selling);
     return 0;
 }
 

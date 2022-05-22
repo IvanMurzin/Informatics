@@ -8,5 +8,5 @@ typedef struct Container {
     int busy;
     Node *node;
 } Container;
-
+void destroyContainer(Container *container);
 #endif

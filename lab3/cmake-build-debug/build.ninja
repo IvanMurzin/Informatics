@@ -121,6 +121,13 @@ build CMakeFiles/lab3.dir/model/keyspace/container/Container.c.o: C_COMPILER__la
   OBJECT_DIR = CMakeFiles/lab3.dir
   OBJECT_FILE_DIR = CMakeFiles/lab3.dir/model/keyspace/container
 
+build CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o: C_COMPILER__lab3_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace2/KeySpace2.c || cmake_object_order_depends_target_lab3
+  DEP_FILE = CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o.d
+  FLAGS = -lreadline -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu11
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/table -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace1 -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace2 -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/table/item -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/key -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/view -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/. -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/iterator -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/dialog
+  OBJECT_DIR = CMakeFiles/lab3.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab3.dir/model/keyspace/keyspace2
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab3
@@ -129,7 +136,7 @@ build CMakeFiles/lab3.dir/model/keyspace/container/Container.c.o: C_COMPILER__la
 #############################################
 # Link the executable lab3
 
-build lab3: C_EXECUTABLE_LINKER__lab3_Debug CMakeFiles/lab3.dir/main.c.o CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o CMakeFiles/lab3.dir/model/table/CompositeKey.c.o CMakeFiles/lab3.dir/model/table/item/Item.c.o CMakeFiles/lab3.dir/model/keyspace/key/Key.c.o CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o CMakeFiles/lab3.dir/model/keyspace/container/Container.c.o
+build lab3: C_EXECUTABLE_LINKER__lab3_Debug CMakeFiles/lab3.dir/main.c.o CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o CMakeFiles/lab3.dir/model/table/CompositeKey.c.o CMakeFiles/lab3.dir/model/table/item/Item.c.o CMakeFiles/lab3.dir/model/keyspace/key/Key.c.o CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o CMakeFiles/lab3.dir/model/keyspace/container/Container.c.o CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o
   FLAGS = -lreadline -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/lab3.dir
   POST_BUILD = :

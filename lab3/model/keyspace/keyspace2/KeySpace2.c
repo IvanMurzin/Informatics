@@ -33,7 +33,8 @@ int indexOfKS2(KeySpace2 *table, Key key) {
         int hash = (hashCode + i) % table->maxSize;
         Container container = table->containers[hash];
         if (container.busy == 0) return -1;
-        if ((container.busy == 1) && equalsKey(container.node->key, key)) {
+        if (container.busy == -1) continue;
+        if (equalsKey(container.node->key, key)) {
             return hash;
         }
     }
@@ -44,100 +45,56 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
     if (table == NULL || table->containers == NULL || item == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
-    if (table->size == table->maxSize) {
-        throw ERROR_TABLE_OVERFLOW;
-    }
     Key key = item->key.key2;
     int index = indexOfKS2(table, key);
     if (index < 0) {
-        Container container = table->containers[table->size];
-        container.busy = 1;
-        container.node = calloc(1, sizeof(Node));
-        container.node->version = 0;
-        container.node->key = key;
-        return 0;
+        if (table->size == table->maxSize) {
+            throw ERROR_TABLE_OVERFLOW;
+        }
+        for (int i = 0; i < table->maxSize; ++i) {
+            int hashCode = table->hash(key.value);
+            int hash = (hashCode + i) % table->maxSize;
+            if (table->containers[hash].busy != 1) {
+                table->containers[hash].busy = 1;
+                table->containers[hash].node = calloc(1, sizeof(Node));
+                table->containers[hash].node->version = 0;
+                table->containers[hash].node->key = key;
+                item->nodeKS2 = table->containers[hash].node;
+                table->containers[hash].node->item = item;
+                table->size++;
+                return 0;
+            }
+        }
     }
-    Container container = table->containers[table->size];
-    Node *temp = container.node;
-    container.node = calloc(1, sizeof(Node));
-    container.node->version = temp->version + 1;
-    container.node->key = item->key.key1;
-    container.node->next = temp;
-    temp->previous = container.node;
+    Node *temp = table->containers[index].node;
+    table->containers[index].node = calloc(1, sizeof(Node));
+    table->containers[index].node->version = temp->version + 1;
+    table->containers[index].node->key = key;
+    table->containers[index].node->item = item;
+    item->nodeKS2 = table->containers[index].node;
+    table->containers[index].node->next = temp;
+    temp->previous = table->containers[index].node;
     return 0;
 }
-//int indexOfGarbageByKeyKS2(KeySpace2 *table, Key key) {
-//    if (table == NULL || table->containers == NULL || key.value == NULL) {
-//        return -1;
-//    }
-//    int hashCode = table->hash(key.value);
-//    for (int i = 0; i < table->maxSize; ++i) {
-//        int hash = (hashCode + i) % table->maxSize;
-//        Item *item = table->containers[hash];
-//        if (item == NULL) continue;
-//        if (!item->busy && equalsKeyValues(item->key.key2.value, key.value)) {
-//            return hash;
-//        }
-//    }
-//    return -1;
-//}
-//
-//int indexOfByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
-//    if (table == NULL || table->containers == NULL || stringKey == NULL) {
-//        return -1;
-//    }
-//    int hashCode = table->hash(stringKey);
-//    for (int i = 0; i < table->maxSize; ++i) {
-//        int hash = (hashCode + i) % table->maxSize;
-//        Item *item = table->containers[hash];
-//        if (item == NULL) return -1;
-//        if (item->busy && equalsKeyValues(item->key.key2.value, stringKey)) {
-//            return hash;
-//        }
-//    }
-//    return -1;
-//}
-//int removeByKeyKS2(KeySpace2 *table, Key key) {
-//    if (table == NULL || table->containers == NULL || key.value == NULL) {
-//        throw ERROR_INCORRECT_INPUT;
-//    }
-//    int index = indexOfKS2(table, key);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *item = table->containers[index];
-//    if (item->waymarkKS2.previous >= 0) {
-//        table->containers[item->waymarkKS2.previous]->waymarkKS2.next = item->waymarkKS2.next;
-//    }
-//    if (item->waymarkKS2.next >= 0) {
-//        table->containers[item->waymarkKS2.next]->waymarkKS1.previous = item->waymarkKS2.previous;
-//    }
-//    table->containers[index]->busy = 0;
-//    table->size--;
-//    return 0;
-//}
-//
-//int removeByKeyValueKS2(KeySpace2 *table, const char *stringKey) {
-//    if (table == NULL || table->containers == NULL || stringKey == NULL) {
-//        throw ERROR_INCORRECT_INPUT;
-//    }
-//    int index = indexOfByKeyValueKS2(table, stringKey);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *next = table->containers[index];
-//    while (hasNextItem2(next)) {
-//        next->busy = 0;
-//        table->size--;
-//        next = nextItem2(table, next);
-//    }
-//    next->busy = 0;
-//    table->size--;
-//    return 0;
-//}
-//
-//void destroyKS2(KeySpace2 *table) {
-//    for (int i = 0; i < table->maxSize; ++i) {
-//        if (table->containers[i] != NULL)
-//            destroyItem(table->containers[i]);
-//    }
-//    free(table->containers);
-//    free(table);
-//}
+
+int removeByKeyKS2(KeySpace2 *table, Key key) {
+    if (table == NULL || table->containers == NULL || key.value == NULL) {
+        throw ERROR_INCORRECT_INPUT;
+    }
+    int index = indexOfKS2(table, key);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    destroyContainer(&table->containers[index]);
+    table->size--;
+    return 0;
+}
+
+void destroyKS2(KeySpace2 *table) {
+    for (int i = 0; i < table->maxSize; ++i) {
+        if (table->containers[i].busy == 1) {
+            destroyContainer(&table->containers[i]);
+        }
+    }
+    free(table->containers);
+    free(table);
+}
 
