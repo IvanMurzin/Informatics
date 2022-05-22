@@ -23,7 +23,7 @@ add_executable(lab3
         model/keyspace/node/Node.c
         model/keyspace/container/Container.c
         model/keyspace/keyspace2/KeySpace2.c
-        #        model/table/Table.c
+        model/table/Table.c
         #        view/Logger.c
         #        controller/iterator/IteratorKS.c
         #        model/keyspace/container/Waymark.c

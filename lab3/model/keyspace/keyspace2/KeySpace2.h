@@ -1,7 +1,6 @@
 #ifndef KEYSPACE2_H
 #define KEYSPACE2_H
 
-#include "Item.h"
 #include "Container.h"
 
 typedef struct KeySpace2 {

@@ -3,7 +3,6 @@
 
 #include "KeySpace1.h"
 #include "KeySpace2.h"
-#include "CompositeKey.h"
 
 typedef struct Table {
     int size;

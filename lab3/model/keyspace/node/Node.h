@@ -1,7 +1,6 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Key.h"
 #include "Item.h"
 
 typedef struct Node {

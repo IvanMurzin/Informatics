@@ -1,7 +1,7 @@
 #ifndef KEY1_H
 #define KEY1_H
 typedef struct Key {
-    const char *value; //key1 key2; key1 key3
+    const char *value;
 } Key;
 
 int equalsKey(Key first, Key second);

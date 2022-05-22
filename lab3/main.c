@@ -1,8 +1,21 @@
 #include <stdio.h>
 #include "KeySpace2.h"
+#include "KeySpace1.h"
 
 
-void printTable(KeySpace2 *table) {
+void printTable1(KeySpace1 *table) {
+    for (int i = 0; i < 5; ++i) {
+        Node *node = table->containers[i].node;
+        printf("busy: %d, NULL: %d   ", table->containers[i].busy, node == NULL);
+        while (node != NULL) {
+            printf("node.data: %s  ", node->item->data);
+            node = node->next;
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+void printTable2(KeySpace2 *table) {
     for (int i = 0; i < 5; ++i) {
         Node *node = table->containers[i].node;
         printf("busy: %d, NULL: %d   ", table->containers[i].busy, node == NULL);
@@ -27,33 +40,18 @@ int main() {
 //    }
 //    printf("That's all. Bye!\n");
 //    destroyTable(table);
-    KeySpace2 *table;
-    getKS2(&table, 5);
-    insertIntoKS2(table, getMockItem("1.1", "2.1", "data1"));
-    insertIntoKS2(table, getMockItem("1.2", "2.2", "data2"));
-    insertIntoKS2(table, getMockItem("1.3", "2.3", "data3"));
-    insertIntoKS2(table, getMockItem("1.2", "2.4", "data4"));
-    insertIntoKS2(table, getMockItem("1.2", "2.5", "data5"));
-    insertIntoKS2(table, getMockItem("1.3", "2.1", "data6"));
-    insertIntoKS2(table, getMockItem("1.4", "2.7", "data7"));
-    insertIntoKS2(table, getMockItem("1.5", "2.2", "data8"));
-    insertIntoKS2(table, getMockItem("1.6", "2.9", "data9"));
-    insertIntoKS2(table, getMockItem("1.7", "2.1", "data10"));
-    printTable(table);
-    removeByKeyKS2(table, getMockKey("2.1"));
-    removeByKeyKS2(table, getMockKey("2.3"));
-    printTable(table);
-    insertIntoKS2(table, getMockItem("1.1", "2.1", "data11"));
-    insertIntoKS2(table, getMockItem("1.2", "2.2", "data12"));
-    insertIntoKS2(table, getMockItem("1.3", "2.11", "data13"));
-    printTable(table);
-    insertIntoKS2(table, getMockItem("1.1", "2.10", "data14"));
-    insertIntoKS2(table, getMockItem("1.2", "2.4", "data15"));
-    insertIntoKS2(table, getMockItem("1.3", "2.7", "data16"));
-    insertIntoKS2(table, getMockItem("1.1", "2.8", "data17"));
-    insertIntoKS2(table, getMockItem("1.2", "2.9", "data18"));
-    insertIntoKS2(table, getMockItem("1.3", "2.0", "data19"));
-    printTable(table);
-    destroyKS2(table);
+    KeySpace1 *table1;
+    KeySpace2 *table2;
+    getKS1(&table1, 5);
+    getKS2(&table2, 5);
+    insertIntoKS1(table1, getMockItem("1.1", "2.1", "data1"));
+    insertIntoKS1(table1, getMockItem("1.2", "2.2", "data2"));
+    insertIntoKS2(table2, getMockItem("1.1", "2.1", "data1"));
+    insertIntoKS2(table2, getMockItem("1.2", "2.2", "data2"));
+    printTable1(table1);
+    printTable2(table2);
+    removeByKeyKS1(table1, getMockKey("1.1"));
+    printTable1(table1);
+    printTable2(table2);
     return 0;
 }
