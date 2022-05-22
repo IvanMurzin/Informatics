@@ -1,19 +1,29 @@
 #include <string.h>
+#include <stdlib.h>
 #include "Key.h"
 
-int equalsKey(Key first, Key second) {
-    return (first.version == second.version) && !strcmp(first.value, second.value);
-}
-
-int equalsKeyValues(const char *first, const char *second) {
-    return !strcmp(first, second);
-}
 
 int compareKey(Key first, Key second) {
     return strcmp(first.value, second.value);
 }
 
-Key getSimpleKey(const char *value) {
-    Key result = {value, 0};
+Key getKey(const char *value) {
+    Key result = {value};
     return result;
+}
+
+int equalsKey(Key first, Key second) {
+    return !compareKey(first, second);
+}
+
+Key getMockKey(const char *value) {
+    Key result;
+    char *data = malloc(strlen(value) + 1);
+    strcpy(data, value);
+    result.value = data;
+    return result;
+}
+
+void destroyKey(Key key) {
+    free((char *) key.value);
 }

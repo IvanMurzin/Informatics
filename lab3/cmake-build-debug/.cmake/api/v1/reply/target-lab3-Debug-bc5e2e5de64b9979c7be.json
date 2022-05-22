@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 15,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
@@ -81,6 +81,18 @@
 				"file" : 0,
 				"line" : 14,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
 			}
 		]
 	},
@@ -104,34 +116,42 @@
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace1"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/container"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace2"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/node"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/item"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace1"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/key"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/keyspace2"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/view"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/table/item"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/."
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/model/keyspace/key"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/iterator"
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/view"
 				},
 				{
 					"backtrace" : 10,
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/."
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/iterator"
+				},
+				{
+					"backtrace" : 12,
 					"path" : "/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3/controller/dialog"
 				}
 			],
@@ -152,11 +172,7 @@
 				3,
 				4,
 				5,
-				6,
-				7,
-				8,
-				9,
-				10
+				6
 			]
 		}
 	],
@@ -195,11 +211,7 @@
 				3,
 				4,
 				5,
-				6,
-				7,
-				8,
-				9,
-				10
+				6
 			]
 		}
 	],
@@ -214,19 +226,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "model/table/Table.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "model/keyspace/keyspace1/KeySpace1.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "model/keyspace/keyspace2/KeySpace2.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -238,13 +238,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "model/keyspace/item/Item.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "view/Logger.c",
+			"path" : "model/table/item/Item.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -256,19 +250,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "controller/iterator/IteratorKS.c",
+			"path" : "model/keyspace/node/Node.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "model/keyspace/item/Waymark.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "controller/dialog/Dialog.c",
+			"path" : "model/keyspace/container/Container.c",
 			"sourceGroupIndex" : 0
 		}
 	],

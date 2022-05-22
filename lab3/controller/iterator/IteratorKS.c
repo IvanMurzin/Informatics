@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include "IteratorKS.h"
+#include "Item.h"
 
 
 int hasNextItem1(const Item *item) {
@@ -9,7 +10,7 @@ int hasNextItem1(const Item *item) {
 
 Item *nextItem1(KeySpace1 *table, const Item *item) {
     if (!hasNextItem1(item)) return NULL;
-    return table->table[item->waymarkKS1.next];
+    return table->containers[item->waymarkKS1.next];
 }
 
 int hasNextItem2(const Item *item) {
@@ -19,7 +20,7 @@ int hasNextItem2(const Item *item) {
 
 Item *nextItem2(KeySpace2 *table, const Item *item) {
     if (!hasNextItem2(item)) return NULL;
-    return table->table[item->waymarkKS2.next];
+    return table->containers[item->waymarkKS2.next];
 }
 
 int hasNext(const Item *item) {

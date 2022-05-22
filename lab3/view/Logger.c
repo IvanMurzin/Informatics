@@ -48,11 +48,11 @@ void printRowKS2(const Item *item, const char separator) {
 }
 
 int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
-    if (table == NULL || table->table == NULL) throw ERROR_INCORRECT_INPUT;
+    if (table == NULL || table->containers == NULL) throw ERROR_INCORRECT_INPUT;
     printHat(1, '\n');
     printHeader(1, '\n');
-    for (int i = 0; i < table->currentSize; ++i) {
-        Item *item = table->table[i];
+    for (int i = 0; i < table->size; ++i) {
+        Item *item = table->containers[i];
         if (item->busy || !busyOnly) {
             printSeparator('\n');
             printRowKS1(item, '\n');
@@ -63,11 +63,11 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
 }
 
 int printKS2(KeySpace2 *table, int busyOnly) {
-    if (table == NULL || table->table == NULL) throw ERROR_INCORRECT_INPUT;
+    if (table == NULL || table->containers == NULL) throw ERROR_INCORRECT_INPUT;
     printHat(2, '\n');
     printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
-        Item *item = table->table[i];
+        Item *item = table->containers[i];
         if (item == NULL) {
             printSeparator('\n');
             printEmptyLine('\n');
@@ -87,8 +87,8 @@ int printTable(Table *table) {
     printHeader(1, ' ');
     printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
-        Item *item1 = table->keySpace1->table[i];
-        Item *item2 = table->keySpace2->table[i];
+        Item *item1 = table->keySpace1->containers[i];
+        Item *item2 = table->keySpace2->containers[i];
         printSeparator(' ');
         printSeparator('\n');
         if (item1 == NULL)printEmptyLine(' ');

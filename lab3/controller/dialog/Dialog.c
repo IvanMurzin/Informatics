@@ -95,7 +95,7 @@ int D_FindByKey1(Table *table) {
     puts("Enter first key: -->");
     key1 = readline("");
     KeySpace1 *keySpace1;
-    int findResult = findByKey1(table, getSimpleKey(key1), &keySpace1);
+    int findResult = findByKey1(table, getKey(key1), &keySpace1);
     handleResult(findResult);
     if (!findResult) {
         printKS1(keySpace1, 0);
@@ -110,7 +110,7 @@ int D_FindByKey2(Table *table) {
     puts("Enter second key: -->");
     key2 = readline("");
     KeySpace2 *keySpace2;
-    int findResult = findByKey2(table, getSimpleKey(key2), &keySpace2);
+    int findResult = findByKey2(table, getKey(key2), &keySpace2);
     handleResult(findResult);
     if (!findResult) {
         printKS2(keySpace2, 0);
@@ -135,7 +135,7 @@ int D_DeleteByKey1(Table *table) {
     char *key1 = NULL;
     puts("Enter first key: -->");
     key1 = readline("");
-    int deleteResult = deleteByKey1(table, getSimpleKey(key1));
+    int deleteResult = deleteByKey1(table, getKey(key1));
     handleResult(deleteResult);
     free(key1);
     return 1;
@@ -146,7 +146,7 @@ int D_DeleteByKey2(Table *table) {
     char *key2 = NULL;
     puts("Enter second key: -->");
     key2 = readline("");
-    int deleteResult = deleteByKey2(table, getSimpleKey(key2));
+    int deleteResult = deleteByKey2(table, getKey(key2));
     handleResult(deleteResult);
     free(key2);
     return 1;

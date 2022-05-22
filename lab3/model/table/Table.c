@@ -52,9 +52,9 @@ int put(Table *table, Item *item) {
 
 int find(Table *table, CompositeKey key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
-    int index = indexOfByKeyKS2(table->keySpace2, key.key2);
+    int index = indexOfKS2(table->keySpace2, key.key2);
     if (index < 0) throw ERROR_NOT_FOUND;
-    Item *item = table->keySpace2->table[index];
+    Item *item = table->keySpace2->containers[index];
     while (!compositeKeyEqualsValues(item->key, key) && hasNextItem2(item)) {
         item = nextItem2(table->keySpace2, item);
     }
@@ -68,16 +68,16 @@ int find(Table *table, CompositeKey key, Item **result) {
 
 int findByKey1(Table *table, Key key, KeySpace1 **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
-    int index = indexOfByKeyKS1(table->keySpace1, key);
+    int index = indexOfKS1(table->keySpace1, key);
     if (index < 0) throw ERROR_NOT_FOUND;
-    Item *latestVersionItem = table->keySpace1->table[index];
+    Item *latestVersionItem = table->keySpace1->containers[index];
     while (hasNextItem1(latestVersionItem)) {
         latestVersionItem = nextItem1(table->keySpace1, latestVersionItem);
     }
     int countItems = latestVersionItem->key.key1.version + 1;
     int creationResult = getKS1(result, countItems);
     if (creationResult) throw creationResult;
-    Item *item = table->keySpace1->table[index];
+    Item *item = table->keySpace1->containers[index];
     while (hasNextItem1(item)) {
         insertIntoKS1((*result), getItemCopy(item));
         item = nextItem1(table->keySpace1, item);
@@ -88,16 +88,16 @@ int findByKey1(Table *table, Key key, KeySpace1 **result) {
 
 int findByKey2(Table *table, Key key, KeySpace2 **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
-    int index = indexOfByKeyKS2(table->keySpace2, key);
+    int index = indexOfKS2(table->keySpace2, key);
     if (index < 0) throw ERROR_NOT_FOUND;
-    Item *latestVersionItem = table->keySpace2->table[index];
+    Item *latestVersionItem = table->keySpace2->containers[index];
     while (hasNextItem2(latestVersionItem)) {
         latestVersionItem = nextItem2(table->keySpace2, latestVersionItem);
     }
     int countItems = latestVersionItem->key.key2.version + 1;
     int creationResult = getKS2(result, countItems);
     if (creationResult) throw creationResult;
-    Item *item = table->keySpace2->table[index];
+    Item *item = table->keySpace2->containers[index];
     while (hasNextItem2(item)) {
         insertIntoKS2((*result), getItemCopy(item));
         item = nextItem2(table->keySpace2, item);
@@ -107,8 +107,8 @@ int findByKey2(Table *table, Key key, KeySpace2 **result) {
 }
 
 void removeItem(Table *table, Item *item) {
-    Item **tableKS1 = table->keySpace1->table;
-    Item **tableKS2 = table->keySpace2->table;
+    Item **tableKS1 = table->keySpace1->containers;
+    Item **tableKS2 = table->keySpace2->containers;
     if (item->waymarkKS1.previous >= 0) {
         tableKS1[item->waymarkKS1.previous]->waymarkKS1.next = item->waymarkKS1.next;
     }
@@ -122,7 +122,7 @@ void removeItem(Table *table, Item *item) {
         tableKS2[item->waymarkKS2.next]->waymarkKS1.previous = item->waymarkKS2.previous;
     }
     item->busy = 0;
-    table->keySpace2->currentSize--;
+    table->keySpace2->size--;
     table->size--;
 }
 
@@ -148,9 +148,9 @@ int deleteAll(Table *table, CompositeKey key) {
 
 int deleteByKey1(Table *table, Key key1) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
-    int index = indexOfByKeyKS1(table->keySpace1, key1);
+    int index = indexOfKS1(table->keySpace1, key1);
     if (index < 0) throw ERROR_NOT_FOUND;
-    Item *item = table->keySpace1->table[index];
+    Item *item = table->keySpace1->containers[index];
     while (hasNextItem1(item)) {
         removeItem(table, item);
         item = nextItem1(table->keySpace1, item);
@@ -161,9 +161,9 @@ int deleteByKey1(Table *table, Key key1) {
 
 int deleteByKey2(Table *table, Key key2) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
-    int index = indexOfByKeyKS2(table->keySpace2, key2);
+    int index = indexOfKS2(table->keySpace2, key2);
     if (index < 0) throw ERROR_NOT_FOUND;
-    Item *item = table->keySpace2->table[index];
+    Item *item = table->keySpace2->containers[index];
     while (hasNextItem2(item)) {
         removeItem(table, item);
         item = nextItem2(table->keySpace2, item);
@@ -174,14 +174,14 @@ int deleteByKey2(Table *table, Key key2) {
 
 void destroyTable(Table *table) {
     for (int i = 0; i < table->size; ++i) {
-        free(table->keySpace1->table[i]->key.key1.value);
-        free(table->keySpace1->table[i]->key.key2.value);
-        free((char *) table->keySpace1->table[i]->data);
-        free(table->keySpace1->table[i]);
+        free(table->keySpace1->containers[i]->key.key1.value);
+        free(table->keySpace1->containers[i]->key.key2.value);
+        free((char *) table->keySpace1->containers[i]->data);
+        free(table->keySpace1->containers[i]);
     }
-    free(table->keySpace1->table);
+    free(table->keySpace1->containers);
     free(table->keySpace1);
-    free(table->keySpace2->table);
+    free(table->keySpace2->containers);
     free(table->keySpace2);
     free(table);
 }
@@ -191,21 +191,21 @@ int collectGarbage(Table *table) {
     int j = 0;
 
     for (int i1 = 0; i1 < table->maxSize; ++i1) {
-        Item *item = table->keySpace1->table[i1];
+        Item *item = table->keySpace1->containers[i1];
         printf("garbage i1: %d\n", i1);
         if (!item->busy) {
             int i2 = indexOfGarbageByKeyKS2(table->keySpace2, item->key.key2);
             printf("garbage i2: %d\n", i2);
-            table->keySpace1->table[i1] = NULL;
-            table->keySpace2->table[i2] = NULL;
+            table->keySpace1->containers[i1] = NULL;
+            table->keySpace2->containers[i2] = NULL;
             destroyItem(item);
             table->size--;
-            table->keySpace1->currentSize--;
-            table->keySpace2->currentSize--;
+            table->keySpace1->size--;
+            table->keySpace2->size--;
             printTable(table);
         } else {
             printf("j: %d i: %d\n", j, i1);
-            table->keySpace1->table[j] = item;
+            table->keySpace1->containers[j] = item;
             ++j;
         }
     }

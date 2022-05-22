@@ -3,16 +3,14 @@
 #include "Item.h"
 #include "Errors.h"
 #include "CompositeKey.h"
+#include "Node.h"
 
 int getItem(Item **item, CompositeKey key, const char *data) {
-    *item = malloc(sizeof(Item));
+    *item = calloc(1, sizeof(Item));
     if (*item == NULL) throw ERROR_OUT_OF_MEMORY;
     (*item)->key = key;
     (*item)->data = data;
-    (*item)->busy = 1;
     (*item)->next = NULL;
-    (*item)->waymarkKS1 = getWaymark(-1, -1);
-    (*item)->waymarkKS2 = getWaymark(-1, -1);
     return 0;
 }
 
@@ -32,18 +30,21 @@ Item *getSimpleItem(const char *key1, const char *key2, const char *data) {
 }
 
 void destroyItem(Item *item) {
-    free(item->key.key1.value);
-    free(item->key.key2.value);
+    if (item == NULL) return;
+    destroyKey(item->key.key1);
+    destroyKey(item->key.key2);
     free((char *) item->data);
+    destroyNode(item->nodeKS1);
+    destroyNode(item->nodeKS2);
     free(item);
 }
 
 Item *getMockItem(char *strKey1, char *strKey2, char *strData) {
-    char *key1 = malloc(4);
+    char *key1 = malloc(strlen(strKey1) + 1);
     strcpy(key1, strKey1);
-    char *key2 = malloc(4);
+    char *key2 = malloc(strlen(strKey2) + 1);
     strcpy(key2, strKey2);
-    char *data = malloc(6);
+    char *data = malloc(strlen(strData) + 1);
     strcpy(data, strData);
     return getSimpleItem(key1, key2, data);
 }
