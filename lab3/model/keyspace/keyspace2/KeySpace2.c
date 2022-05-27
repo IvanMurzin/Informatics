@@ -33,7 +33,8 @@ int indexOfKS2(KeySpace2 *table, Key key) {
         int hash = (hashCode + i) % table->maxSize;
         Container container = table->containers[hash];
         if (container.busy == 0) return -1;
-        if (container.busy == -1) continue;
+        if (container.busy == 1 && container.node->item->data == NULL) table->containers[hash].busy = -1;
+        if (table->containers[hash].busy == -1) continue;
         if (equalsKey(container.node->key, key)) {
             return hash;
         }
@@ -54,7 +55,7 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
         for (int i = 0; i < table->maxSize; ++i) {
             int hashCode = table->hash(key.value);
             int hash = (hashCode + i) % table->maxSize;
-            if (table->containers[hash].busy != 1) {
+            if (table->containers[hash].busy != 1 || table->containers[hash].node->item->data == NULL) {
                 table->containers[hash].busy = 1;
                 table->containers[hash].node = calloc(1, sizeof(Node));
                 table->containers[hash].node->version = 0;

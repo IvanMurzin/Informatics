@@ -1,107 +1,75 @@
-//#include <stdlib.h>
-//#include "Table.h"
-//#include "Errors.h"
-//
-//int getTable(Table **table, int maxSize) {
-//    *table = malloc(sizeof(Table));
-//    if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
-//    int resultKS1 = getKS1(&(*table)->keySpace1, maxSize);
-//    if (resultKS1) return resultKS1;
-//    int resultKS2 = getKS2(&(*table)->keySpace2, maxSize);
-//    if (resultKS2) return resultKS2;
-//    (*table)->size = 0;
-//    (*table)->maxSize = maxSize;
-//    return 0;
-//}
-//
-//int put(Table *table, Item *item) {
-//    if (table == NULL || item == NULL) throw ERROR_INCORRECT_INPUT;
-//    CompositeKey key = item->key;
-//    Item *lastCompositeItem = NULL;
-//    int findCompositeResult = find(table, key, &lastCompositeItem);
-//    if (!findCompositeResult) {
-//        while (hasNext(lastCompositeItem))
-//            lastCompositeItem = next(lastCompositeItem);
-//        item->key.version = lastCompositeItem->key.version + 1;
-//        lastCompositeItem->next = item;
-//    }
-//    int insert1Result = insertIntoKS1(table->keySpace1, item);
-//    if (insert1Result == ERROR_TABLE_OVERFLOW) {
-//        printf("collect: %d", collectGarbage(table));
-//        lastCompositeItem->next = NULL;
-//        insert1Result = insertIntoKS1(table->keySpace1, item);
-//    }
-//    if (insert1Result) {
-//        if (lastCompositeItem != NULL)
-//            lastCompositeItem->next = NULL;
-//        throw insert1Result;
-//    }
-//    int insert2Result = insertIntoKS2(table->keySpace2, item);
-//    if (insert2Result) {
-//        if (lastCompositeItem != NULL)
-//            lastCompositeItem->next = NULL;
-//        throw insert2Result;
-//    }
-//    table->size++;
-//    return 0;
-//}
-//
-//int find(Table *table, CompositeKey key, Item **result) {
-//    if (table == NULL) throw ERROR_INCORRECT_INPUT;
-//    int index = indexOfKS2(table->keySpace2, key.key2);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *item = table->keySpace2->containers[index];
-//    while (!compositeKeyEqualsValues(item->key, key) && hasNextItem2(item)) {
-//        item = nextItem2(table->keySpace2, item);
-//    }
-//    if (compositeKeyEqualsValues(item->key, key)) {
-//        *result = item;
-//        return 0;
-//    }
-//    throw ERROR_NOT_FOUND;
-//}
-//
-//
-//int findByKey1(Table *table, Key key, KeySpace1 **result) {
-//    if (table == NULL) throw ERROR_INCORRECT_INPUT;
-//    int index = indexOfKS1(table->keySpace1, key);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *latestVersionItem = table->keySpace1->containers[index];
-//    while (hasNextItem1(latestVersionItem)) {
-//        latestVersionItem = nextItem1(table->keySpace1, latestVersionItem);
-//    }
-//    int countItems = latestVersionItem->key.key1.version + 1;
-//    int creationResult = getKS1(result, countItems);
-//    if (creationResult) throw creationResult;
-//    Item *item = table->keySpace1->containers[index];
-//    while (hasNextItem1(item)) {
-//        insertIntoKS1((*result), getItemCopy(item));
-//        item = nextItem1(table->keySpace1, item);
-//    }
-//    insertIntoKS1((*result), getItemCopy(item));
-//    return 0;
-//}
-//
-//int findByKey2(Table *table, Key key, KeySpace2 **result) {
-//    if (table == NULL) throw ERROR_INCORRECT_INPUT;
-//    int index = indexOfKS2(table->keySpace2, key);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *latestVersionItem = table->keySpace2->containers[index];
-//    while (hasNextItem2(latestVersionItem)) {
-//        latestVersionItem = nextItem2(table->keySpace2, latestVersionItem);
-//    }
-//    int countItems = latestVersionItem->key.key2.version + 1;
-//    int creationResult = getKS2(result, countItems);
-//    if (creationResult) throw creationResult;
-//    Item *item = table->keySpace2->containers[index];
-//    while (hasNextItem2(item)) {
-//        insertIntoKS2((*result), getItemCopy(item));
-//        item = nextItem2(table->keySpace2, item);
-//    }
-//    insertIntoKS2((*result), getItemCopy(item));
-//    return 0;
-//}
-//
+#include <stdlib.h>
+#include <printf.h>
+#include "Table.h"
+#include "Errors.h"
+#include "Iterator.h"
+
+int getTable(Table **table, int maxSize) {
+    *table = malloc(sizeof(Table));
+    if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
+    int resultKS1 = getKS1(&(*table)->keySpace1, maxSize);
+    if (resultKS1) throw resultKS1;
+    int resultKS2 = getKS2(&(*table)->keySpace2, maxSize);
+    if (resultKS2) throw resultKS2;
+    (*table)->size = 0;
+    (*table)->maxSize = maxSize;
+    return 0;
+}
+
+int put(Table *table, Item *item) {
+    if (table == NULL || item == NULL) throw ERROR_INCORRECT_INPUT;
+    CompositeKey key = item->key;
+    Item *lastCompositeItem = NULL;
+    int findCompositeResult = find(table, key, &lastCompositeItem);
+    if (!findCompositeResult) {
+        while (hasNext(lastCompositeItem))
+            lastCompositeItem = next(lastCompositeItem);
+        item->version = lastCompositeItem->version + 1;
+    }
+    int insert1Result = insertIntoKS1(table->keySpace1, item);
+    if (insert1Result) throw insert1Result;
+    int insert2Result = insertIntoKS2(table->keySpace2, item);
+    if (insert2Result) {
+        removeLastByKeyKS1(table->keySpace1, item->key.key1);
+        throw insert2Result;
+    }
+    if (lastCompositeItem != NULL) lastCompositeItem->next = item;
+    table->size++;
+    return 0;
+}
+
+int find(Table *table, CompositeKey key, Item **result) {
+    if (table == NULL) throw ERROR_INCORRECT_INPUT;
+    int index = indexOfKS2(table->keySpace2, key.key2);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    Node *node = table->keySpace2->containers[index].node;
+    while (!equalsCompositeKey(node->item->key, key) && hasNextNode(node)) {
+        node = nextNode(node);
+    }
+    if (equalsCompositeKey(node->item->key, key)) {
+        *result = node->item;
+        return 0;
+    }
+    throw ERROR_NOT_FOUND;
+}
+
+
+int findByKey1(Table *table, Key key, Node **result) {
+    if (table == NULL) throw ERROR_INCORRECT_INPUT;
+    int index = indexOfKS1(table->keySpace1, key);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    *result = table->keySpace1->containers[index].node;
+    return 0;
+}
+
+int findByKey2(Table *table, Key key, Node **result) {
+    if (table == NULL) throw ERROR_INCORRECT_INPUT;
+    int index = indexOfKS2(table->keySpace2, key);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    *result = table->keySpace2->containers[index].node;
+    return 0;
+}
+
 //void removeItem(Table *table, Item *item) {
 //    Item **tableKS1 = table->keySpace1->containers;
 //    Item **tableKS2 = table->keySpace2->containers;
@@ -168,19 +136,18 @@
 //    return 0;
 //}
 //
-//void destroyTable(Table *table) {
-//    for (int i = 0; i < table->size; ++i) {
-//        free(table->keySpace1->containers[i]->key.key1.value);
-//        free(table->keySpace1->containers[i]->key.key2.value);
-//        free((char *) table->keySpace1->containers[i]->data);
-//        free(table->keySpace1->containers[i]);
-//    }
-//    free(table->keySpace1->containers);
-//    free(table->keySpace1);
-//    free(table->keySpace2->containers);
-//    free(table->keySpace2);
-//    free(table);
-//}
+void destroyTable(Table *table) {
+    for (int i = 0; i < table->maxSize; ++i) {
+        if (table->keySpace1->containers[i].busy == 1) {
+            destroyContainer(&table->keySpace1->containers[i]);
+        }
+    }
+    free(table->keySpace1->containers);
+    free(table->keySpace1);
+    free(table->keySpace2->containers);
+    free(table->keySpace2);
+    free(table);
+}
 //
 //int collectGarbage(Table *table) {
 //    if (table == NULL) return -1;
@@ -210,4 +177,4 @@
 //
 //    return table->size - j;
 //}
-//
+

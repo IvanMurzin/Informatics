@@ -17,6 +17,8 @@ int indexOfKS1(KeySpace1 *table, Key key);
 
 int removeByKeyKS1(KeySpace1 *containers, Key key);
 
+int removeLastByKeyKS1(KeySpace1 *table, Key key);
+
 int removeByKeyRange(KeySpace1 *containers, Key floor, Key selling);
 
 void destroyKS1(KeySpace1 *table);

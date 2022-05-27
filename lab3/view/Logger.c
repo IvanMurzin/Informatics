@@ -2,49 +2,54 @@
 #include <stdio.h>
 #include "Logger.h"
 #include "Errors.h"
+#include "Iterator.h"
 
+// ║ BUSY ║ v   ║ (%s  |  %s|V ) ║ ↓/↑ INDEX ║ VALUE    ║%c
 void printHat(int type, const char separator) {
-    printf("╔══════╦═══════════════ KEY SPACE %d ════════════════════╗%c", type, separator);
+    printf("╔══════╦═════╦═════ KEY SPACE %d ══════════════╗%c", type, separator);
 }
 
 void printSeparator(const char separator) {
-    printf("╠══════╬═════════════════════════╬═══════════╬══════════╣%c", separator);
+    printf("╠══════╬═════╬════════════════════╬═══════════╣%c", separator);
 }
 
 
 void printEmptyLine(const char separator) {
-    printf("║ ?    ║ ???                 ?   ║   ? / ?   ║ ????     ║%c", separator);
+    printf("║ ?    ║ v?  ║ (????  |  ????|V?) ║ ????      ║%c", separator);
 }
 
 void printFooter(const char separator) {
-    printf("╚══════╩═════════════════════════╩═══════════╩══════════╝%c", separator);
+    printf("╚══════╩═════╩════════════════════╩═══════════╝%c", separator);
 }
 
 void printHeader(int type, const char separator) {
     const char *firstKey = type == 1 ? "KEY1" : "KEY2";
     const char *secondKey = type == 1 ? "KEY2" : "KEY1";
-    printf("║ BUSY ║ (%s  |  %s|V ) v    ║ ↓/↑ INDEX ║ VALUE    ║%c", firstKey, secondKey, separator);
+    printf("║ BUSY ║ v   ║ (%s  |  %s|V ) ║ VALUE     ║%c", firstKey, secondKey, separator);
 }
 
-void printRow(const Item *item, int keyType, int previousIndex, int nextIndex, const char separator) {
-    printf("║ %-4d ║ (%-6s|%6s|V%d) v%-3d ║ %3d / %-3d ║ %-8s ║%c",
-           item->busy,
-           (keyType == 1) ? (item->key.key1.value) : (item->key.key2.value),
-           (keyType == 1) ? (item->key.key2.value) : (item->key.key1.value),
-           item->key.version,
-           (keyType == 1) ? (item->key.key1.version) : (item->key.key2.version),
-           nextIndex,
-           previousIndex,
-           item->data,
-           separator);
+void printRowKS2(Container container, const char separator) {
+    Node *node = container.node;
+    Item *item = node->item;
+    printf("║ %-4d ║ v%-2d ║ (%-6s|%6s|V%d) ║ %-9s ║%c", container.busy, node->version, item->key.key2.value, item->key.key1.value, item->version, item->data, separator);
+    while (hasNextNode(node)) {
+        node = nextNode(node);
+        item = node->item;
+        printf("\n║      ║     ║                    ║           ║ ");
+        printf("║ %-4d ║ v%-2d ║ (%-6s|%6s|V%d) ║ %-9s ║%c", container.busy, node->version, item->key.key2.value, item->key.key1.value, item->version, item->data, separator);
+    }
 }
 
-void printRowKS1(const Item *item, const char separator) {
-    printRow(item, 1, item->waymarkKS1.previous, item->waymarkKS1.next, separator);
-}
-
-void printRowKS2(const Item *item, const char separator) {
-    printRow(item, 2, item->waymarkKS2.previous, item->waymarkKS2.next, separator);
+void printRowKS1(Container container, const char separator) {
+    Node *node = container.node;
+    Item *item = node->item;
+    printf("║ %-4d ║ v%-2d ║ (%-6s|%6s|V%d) ║ %-9s ║%c", container.busy, node->version, item->key.key1.value, item->key.key2.value, item->version, item->data, separator);
+    while (hasNextNode(node)) {
+        node = nextNode(node);
+        item = node->item;
+        printf("║      ║     ║                    ║           ║\n");
+        printf("║ %-4d ║ v%-2d ║ (%-6s|%6s|V%d) ║ %-9s ║%c", container.busy, node->version, item->key.key1.value, item->key.key2.value, item->version, item->data, separator);
+    }
 }
 
 int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
@@ -52,10 +57,10 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
     printHat(1, '\n');
     printHeader(1, '\n');
     for (int i = 0; i < table->size; ++i) {
-        Item *item = table->containers[i];
-        if (item->busy || !busyOnly) {
+        Container container = table->containers[i];
+        if (container.busy == 1 || !busyOnly) {
             printSeparator('\n');
-            printRowKS1(item, '\n');
+            printRowKS1(container, '\n');
         }
     }
     printFooter('\n');
@@ -67,13 +72,13 @@ int printKS2(KeySpace2 *table, int busyOnly) {
     printHat(2, '\n');
     printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
-        Item *item = table->containers[i];
-        if (item == NULL) {
+        Container container = table->containers[i];
+        if (container.node == NULL) {
             printSeparator('\n');
             printEmptyLine('\n');
-        } else if (item->busy || !busyOnly) {
+        } else if (container.busy == 1 || !busyOnly) {
             printSeparator('\n');
-            printRowKS2(item, '\n');
+            printRowKS2(container, '\n');
         }
     }
     printFooter('\n');
@@ -87,14 +92,14 @@ int printTable(Table *table) {
     printHeader(1, ' ');
     printHeader(2, '\n');
     for (int i = 0; i < table->maxSize; ++i) {
-        Item *item1 = table->keySpace1->containers[i];
-        Item *item2 = table->keySpace2->containers[i];
+        Container container1 = table->keySpace1->containers[i];
+        Container container2 = table->keySpace2->containers[i];
         printSeparator(' ');
         printSeparator('\n');
-        if (item1 == NULL)printEmptyLine(' ');
-        else printRowKS1(item1, ' ');
-        if (item2 == NULL)printEmptyLine(' ');
-        else printRowKS2(item2, ' ');
+        if (container1.node == NULL) printEmptyLine(' ');
+        else printRowKS1(container1, ' ');
+        if (container2.node == NULL)printEmptyLine(' ');
+        else printRowKS2(container2, ' ');
         printf("\n");
     }
     printFooter(' ');
@@ -124,16 +129,16 @@ void handleResult(int result) {
     }
 }
 
-void printItem(Item *item) {
-    printf("╔══════╦═══════════ Item ══════════════╗\n");
-    printf("║ BUSY ║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
-    printf("╠══════╬════════════════════╬══════════╣\n");
-    printf("║ %-4d ║ (%-6s|%6s|V%d) ║ %-8s ║\n",
-           item->busy,
-           item->key.key1.value,
-           item->key.key2.value,
-           item->key.version,
-           item->data);
-    printf("╚══════╩════════════════════╩══════════╝\n");
-
-}
+//void printItem(Item *item) {
+//    printf("╔══════╦═══════════ Item ══════════════╗\n");
+//    printf("║ BUSY ║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
+//    printf("╠══════╬════════════════════╬══════════╣\n");
+//    printf("║ %-4d ║ (%-6s|%6s|V%d) ║ %-8s ║\n",
+//           item->busy,
+//           item->key.key1.value,
+//           item->key.key2.value,
+//           item->key.version,
+//           item->data);
+//    printf("╚══════╩════════════════════╩══════════╝\n");
+//
+//}

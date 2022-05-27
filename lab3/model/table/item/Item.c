@@ -25,17 +25,17 @@ Item *getItemCopy(Item *item) {
 
 Item *getSimpleItem(const char *key1, const char *key2, const char *data) {
     Item *item = NULL;
-    getItem(&item, getSimpleCompositeKey(key1, key2), data);
+    getItem(&item, getCompositeKey(key1, key2), data);
     return item;
 }
 
 void destroyItem(Item *item) {
     if (item == NULL) return;
-    destroyKey(item->key.key1);
-    destroyKey(item->key.key2);
+    if (item->key.key1.value != NULL)destroyKey(item->key.key1);
+    if (item->key.key2.value != NULL) destroyKey(item->key.key2);
     free((char *) item->data);
-    destroyNode(item->nodeKS1);
-    destroyNode(item->nodeKS2);
+    if (item->nodeKS1 != NULL) destroyNode(item->nodeKS1);
+    if (item->nodeKS2 != NULL) destroyNode(item->nodeKS2);
     free(item);
 }
 

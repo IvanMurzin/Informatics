@@ -15,19 +15,36 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-738fde65f21960429a85.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-22T14-21-24-0817.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab3-Debug-dbd1ea670bef4bc414b1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-2a59ec48a1792b2bbf14.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-22T14-55-28-0231.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab3-Debug-eac19e81dd19e437ba9e.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/CompositeKey.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/CompositeKey.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/key/Key.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/key/Key.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab3" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dialog/Dialog.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/iterator/IteratorKS.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/iterator/Iterator.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/iterator/IteratorKS.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/iterator/Iterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/keyspace/node/Node.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/node/Node.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace2/KeySpace2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/table/CompositeKey.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/CompositeKey.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/table/CompositeKey.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/CompositeKey.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/table/Table.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/Table.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/table/Table.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/Table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/table/item/Item.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/item/Item.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/view/Logger.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,9 +112,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="lab3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab3" TARGET_NAME="lab3" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab3" RUN_TARGET_NAME="lab3">
@@ -124,7 +141,8 @@
       <workItem from="1652508547105" duration="26442000" />
       <workItem from="1652680460144" duration="13270000" />
       <workItem from="1652855127890" duration="1004000" />
-      <workItem from="1653218741822" duration="12011000" />
+      <workItem from="1653218741822" duration="18511000" />
+      <workItem from="1653635856785" duration="7491000" />
     </task>
     <servers />
   </component>

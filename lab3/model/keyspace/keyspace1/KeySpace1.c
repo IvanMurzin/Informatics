@@ -17,7 +17,7 @@ int collectGarbage(KeySpace1 *table) {
     if (table == NULL) return -1;
     int j = 0;
     for (int i = 0; i < table->size; ++i) {
-        if (table->containers[i].busy == 1) {
+        if (table->containers[i].busy == 1 && table->containers[i].node->item->data != NULL) {
             table->containers[j] = table->containers[i];
             ++j;
         }
@@ -31,7 +31,8 @@ int indexOfKS1(KeySpace1 *table, Key key) {
     }
     for (int i = 0; i < table->size; ++i) {
         Container container = table->containers[i];
-        if ((container.busy == 1) && equalsKey(container.node->key, key))
+        if (container.busy == 1 && container.node->item->data == NULL) table->containers[i].busy = -1;
+        if ((table->containers[i].busy == 1) && equalsKey(table->containers[i].node->key, key))
             return i;
     }
     return -1;
@@ -78,6 +79,22 @@ int removeByKeyKS1(KeySpace1 *table, Key key) {
     int index = indexOfKS1(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     destroyContainer(&table->containers[index]);
+    return 0;
+}
+
+int removeLastByKeyKS1(KeySpace1 *table, Key key) {
+    if (table == NULL || table->containers == NULL || key.value == NULL) {
+        throw ERROR_INCORRECT_INPUT;
+    }
+    int index = indexOfKS1(table, key);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    Node *node = table->containers[index].node;
+    if (node->next == NULL) {
+        destroyContainer(&table->containers[index]);
+        return 0;
+    }
+    table->containers[index].node = node->next;
+    destroyNode(node);
     return 0;
 }
 

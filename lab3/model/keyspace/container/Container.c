@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include "Container.h"
+
 void destroyContainer(Container *container) {
     Node *node = container->node;
     while (node != NULL) {

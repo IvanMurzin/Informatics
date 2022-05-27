@@ -30,9 +30,9 @@ int find(Table *table, CompositeKey key, Item **result);
  * результатом поиска должна быть копии
  * всех найденных элементов со значениями ключей
  */
-int findByKey1(Table *table, Key key, KeySpace1 **result);
+int findByKey1(Table *table, Key key, Node **result);
 
-int findByKey2(Table *table, Key key, KeySpace2 **result);
+int findByKey2(Table *table, Key key, Node **result);
 
 /*
  * удаление из таблицы элемента, заданного составным ключом
@@ -53,4 +53,5 @@ void destroyTable(Table *table);
 
 
 int collectGarbage(Table *table);
+
 #endif
