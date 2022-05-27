@@ -57,19 +57,34 @@ int find(Table *table, CompositeKey key, Item **result) {
 }
 
 
-int findByKey1(Table *table, Key key, Node **result) {
+int findByKey1(Table *table, Key key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS1(table->keySpace1, key);
     if (index < 0) throw ERROR_NOT_FOUND;
-    *result = table->keySpace1->containers[index].node;
+    Node *node = table->keySpace1->containers[index].node;
+    *result = getItemCopy(node->item);
+    Item *cursor = *result;
+    while (hasNextNode(node)) {
+        node = nextNode(node);
+        cursor->next = getItemCopy(node->item);
+        cursor = cursor->next;
+    }
     return 0;
 }
 
-int findByKey2(Table *table, Key key, Node **result) {
+
+int findByKey2(Table *table, Key key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS2(table->keySpace2, key);
     if (index < 0) throw ERROR_NOT_FOUND;
-    *result = table->keySpace2->containers[index].node;
+    Node *node = table->keySpace2->containers[index].node;
+    *result = getItemCopy(node->item);
+    Item *cursor = *result;
+    while (hasNextNode(node)) {
+        node = nextNode(node);
+        cursor->next = getItemCopy(node->item);
+        cursor = cursor->next;
+    }
     return 0;
 }
 

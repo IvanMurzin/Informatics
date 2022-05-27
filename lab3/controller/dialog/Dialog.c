@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "Dialog.h"
 #include "readline/readline.h"
+#include "Iterator.h"
 
 int getInt(int *a) {
     int n;
@@ -90,35 +91,45 @@ int D_Find(Table *table) {
     return 1;
 }
 
-//int D_FindByKey1(Table *table) {
-//    char *key1 = NULL;
-//    puts("Enter first key: -->");
-//    key1 = readline("");
-//    Node *node;
-//    int findResult = findByKey1(table, getKey(key1), &node);
-//    handleResult(findResult);
-//    if (!findResult) {
-//        printKS(keySpace1, 0);
-//        destroyKS1(keySpace1);
-//    }
-//    free(key1);
-//    return 1;
-//}
+void destroyItems(Item *item) {
+    Item *tmp;
+    while (hasNext(item)) {
+        tmp = item;
+        item = next(item);
+        destroyItem(tmp);
+    }
+    destroyItem(item);
+}
 
-//int D_FindByKey2(Table *table) {
-//    char *key2 = NULL;
-//    puts("Enter second key: -->");
-//    key2 = readline("");
-//    KeySpace2 *keySpace2;
-//    int findResult = findByKey2(table, getKey(key2), &keySpace2);
-//    handleResult(findResult);
-//    if (!findResult) {
-//        printKS2(keySpace2, 0);
-//        destroyKS2(keySpace2);
-//    }
-//    free(key2);
-//    return 1;
-//}
+int D_FindByKey1(Table *table) {
+    char *key1 = NULL;
+    puts("Enter first key: -->");
+    key1 = readline("");
+    Item *item;
+    int findResult = findByKey1(table, getKey(key1), &item);
+    handleResult(findResult);
+    if (!findResult) {
+        printItems(item);
+        destroyItems(item);
+    }
+    free(key1);
+    return 1;
+}
+
+int D_FindByKey2(Table *table) {
+    char *key2 = NULL;
+    puts("Enter second key: -->");
+    key2 = readline("");
+    Item *item;
+    int findResult = findByKey2(table, getKey(key2), &item);
+    handleResult(findResult);
+    if (!findResult) {
+        printItems(item);
+        destroyItems(item);
+    }
+    free(key2);
+    return 1;
+}
 
 
 //int D_Delete(Table *table) {

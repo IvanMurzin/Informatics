@@ -21,6 +21,7 @@ Item *getItemCopy(Item *item) {
     char *dataCopy = malloc(strlen(item->data) + 1);
     strcpy(dataCopy, item->data);
     getItem(&itemCopy, keyCopy, dataCopy);
+    itemCopy->version = item->version;
     return itemCopy;
 }
 

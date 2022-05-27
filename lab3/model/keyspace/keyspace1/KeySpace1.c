@@ -93,6 +93,7 @@ int removeLastByKeyKS1(KeySpace1 *table, Key key) {
         destroyContainer(&table->containers[index]);
         return 0;
     }
+    node->item->nodeKS1 = NULL;
     table->containers[index].node = node->next;
     destroyNode(node);
     return 0;

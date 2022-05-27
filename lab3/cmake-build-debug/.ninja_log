@@ -58,3 +58,13 @@
 5	243	1653650103670840693	CMakeFiles/lab3.dir/view/Logger.c.o	7c9b9fd03dc738f4
 6	246	1653650103673507639	CMakeFiles/lab3.dir/model/table/Table.c.o	8c35d366cd6e6529
 246	305	1653650103733895844	lab3	e5b6ac5741b83054
+1	229	1653654380925558586	CMakeFiles/lab3.dir/main.c.o	44df6bf043680e86
+1	229	1653654380925955574	CMakeFiles/lab3.dir/controller/iterator/Iterator.c.o	f6b3424115d760a1
+1	230	1653654380926591138	CMakeFiles/lab3.dir/model/table/Table.c.o	8c35d366cd6e6529
+2	230	1653654380927233785	CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o	bbc4f7cc2d219a53
+1	230	1653654380928249004	CMakeFiles/lab3.dir/view/Logger.c.o	7c9b9fd03dc738f4
+230	284	1653654380982583352	lab3	e5b6ac5741b83054
+2	227	1653656775769505006	CMakeFiles/lab3.dir/main.c.o	44df6bf043680e86
+2	227	1653656775770437112	CMakeFiles/lab3.dir/model/table/Table.c.o	8c35d366cd6e6529
+2	228	1653656775771355093	CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o	d0444633dae25a58
+2	228	1653656775770841312	CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o	bbc4f7cc2d219a53
