@@ -129,16 +129,16 @@ void handleResult(int result) {
     }
 }
 
-//void printItem(Item *item) {
-//    printf("╔══════╦═══════════ Item ══════════════╗\n");
-//    printf("║ BUSY ║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
-//    printf("╠══════╬════════════════════╬══════════╣\n");
-//    printf("║ %-4d ║ (%-6s|%6s|V%d) ║ %-8s ║\n",
-//           item->busy,
-//           item->key.key1.value,
-//           item->key.key2.value,
-//           item->key.version,
-//           item->data);
-//    printf("╚══════╩════════════════════╩══════════╝\n");
-//
-//}
+void printItems(Item *item) {
+    printf("╔═════════════ Item ═╦══════════╗\n");
+    printf("║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
+    printf("╠════════════════════╬══════════╣\n");
+    while (item->previous != NULL) item = item->previous;
+    while (hasNext(item)) {
+        printf("║ (%-6s|%6s|V%d) ║ %-8s ║\n", item->key.key1.value, item->key.key2.value, item->version, item->data);
+        item = next(item);
+    }
+    printf("║ (%-6s|%6s|V%d) ║ %-8s ║\n", item->key.key1.value, item->key.key2.value, item->version, item->data);
+    printf("╚════════════════════╩══════════╝\n");
+
+}

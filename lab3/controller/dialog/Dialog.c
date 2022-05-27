@@ -79,16 +79,16 @@ int D_Add(Table *table) {
     return 1;
 }
 
-//int D_Find(Table *table) {
-//    CompositeKey key = readCompositeKey();
-//    Item *item;
-//    int findResult = find(table, key, &item);
-//    handleResult(findResult);
-//    if (!findResult) printItem(item);
-//    free((char *) key.key1.value);
-//    free((char *) key.key2.value);
-//    return 1;
-//}
+int D_Find(Table *table) {
+    CompositeKey key = readCompositeKey();
+    Item *item;
+    int findResult = find(table, key, &item);
+    handleResult(findResult);
+    if (!findResult) printItems(item);
+    free((char *) key.key1.value);
+    free((char *) key.key2.value);
+    return 1;
+}
 
 //int D_FindByKey1(Table *table) {
 //    char *key1 = NULL;

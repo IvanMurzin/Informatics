@@ -11,6 +11,6 @@ int printTable(Table *table);
 
 void handleResult(int result);
 
-void printItem(Item *item);
+void printItems(Item *item);
 
 #endif

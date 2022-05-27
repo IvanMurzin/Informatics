@@ -33,7 +33,10 @@ int put(Table *table, Item *item) {
         removeLastByKeyKS1(table->keySpace1, item->key.key1);
         throw insert2Result;
     }
-    if (lastCompositeItem != NULL) lastCompositeItem->next = item;
+    if (lastCompositeItem != NULL) {
+        lastCompositeItem->next = item;
+        item->previous = lastCompositeItem;
+    }
     table->size++;
     return 0;
 }

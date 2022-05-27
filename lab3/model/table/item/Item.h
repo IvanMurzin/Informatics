@@ -12,6 +12,7 @@ typedef struct Item {
     struct Node *nodeKS1;
     struct Node *nodeKS2;
     struct Item *next;  // указатель на элемент со следующей версией составного ключа
+    struct Item *previous;  // указатель на элемент с предыдущей версией составного ключа
 } Item;
 
 int getItem(Item **item, CompositeKey key, const char *data);

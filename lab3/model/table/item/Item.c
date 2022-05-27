@@ -11,6 +11,7 @@ int getItem(Item **item, CompositeKey key, const char *data) {
     (*item)->key = key;
     (*item)->data = data;
     (*item)->next = NULL;
+    (*item)->previous = NULL;
     return 0;
 }
 
@@ -31,7 +32,7 @@ Item *getSimpleItem(const char *key1, const char *key2, const char *data) {
 
 void destroyItem(Item *item) {
     if (item == NULL) return;
-    if (item->key.key1.value != NULL)destroyKey(item->key.key1);
+    if (item->key.key1.value != NULL) destroyKey(item->key.key1);
     if (item->key.key2.value != NULL) destroyKey(item->key.key2);
     free((char *) item->data);
     if (item->nodeKS1 != NULL) destroyNode(item->nodeKS1);
