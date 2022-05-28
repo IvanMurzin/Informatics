@@ -17,7 +17,7 @@ int collectGarbage(KeySpace1 *table) {
     if (table == NULL) return -1;
     int j = 0;
     for (int i = 0; i < table->size; ++i) {
-        if (table->containers[i].busy == 1 && table->containers[i].node->item->data != NULL) {
+        if (table->containers[i].busy == 1 && table->containers[i].node != NULL) {
             table->containers[j] = table->containers[i];
             ++j;
         }

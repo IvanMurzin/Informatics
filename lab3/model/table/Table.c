@@ -105,27 +105,14 @@ int deleteAll(Table *table, CompositeKey key) {
 }
 
 
-//int delete(Table *table, CompositeKey key) {
-//    Item *item;
-//    int findResult = find(table, key, &item);
-//    if (findResult) throw findResult;
-//    removeItem(table, item);
-//    return 0;
-//}
-//
-//
-//int deleteByKey1(Table *table, Key key1) {
-//    if (table == NULL) throw ERROR_INCORRECT_INPUT;
-//    int index = indexOfKS1(table->keySpace1, key1);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *item = table->keySpace1->containers[index];
-//    while (hasNextItem1(item)) {
-//        removeItem(table, item);
-//        item = nextItem1(table->keySpace1, item);
-//    }
-//    removeItem(table, item);
-//    return 0;
-//}
+int deleteByKey1(Table *table, Key key1) {
+    if (table == NULL) throw ERROR_INCORRECT_INPUT;
+    int index = indexOfKS1(table->keySpace1, key1);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    destroyContainer(&table->keySpace1->containers[index]);
+    return 0;
+}
+
 //
 //int deleteByKey2(Table *table, Key key2) {
 //    if (table == NULL) throw ERROR_INCORRECT_INPUT;
