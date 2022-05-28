@@ -8,7 +8,7 @@ EXECUTABLE=program
 all: $(SOURCES)  $(EXECUTABLE)
 
 .c.o:
-	$(CC) $(DIRS) $(CFLAGS) $< -o $@
+	@($(CC) $(DIRS) $(CFLAGS) $< -o $@)
 
 clean:
 	find . -type f -name '*.o' -delete

@@ -113,25 +113,19 @@ int deleteByKey1(Table *table, Key key1) {
     return 0;
 }
 
-//
-//int deleteByKey2(Table *table, Key key2) {
-//    if (table == NULL) throw ERROR_INCORRECT_INPUT;
-//    int index = indexOfKS2(table->keySpace2, key2);
-//    if (index < 0) throw ERROR_NOT_FOUND;
-//    Item *item = table->keySpace2->containers[index];
-//    while (hasNextItem2(item)) {
-//        removeItem(table, item);
-//        item = nextItem2(table->keySpace2, item);
-//    }
-//    removeItem(table, item);
-//    return 0;
-//}
-//
+
+int deleteByKey2(Table *table, Key key2) {
+    if (table == NULL) throw ERROR_INCORRECT_INPUT;
+    int index = indexOfKS2(table->keySpace2, key2);
+    if (index < 0) throw ERROR_NOT_FOUND;
+    destroyContainer(&table->keySpace2->containers[index]);
+    return 0;
+}
+
 void destroyTable(Table *table) {
     for (int i = 0; i < table->maxSize; ++i) {
-        if (table->keySpace1->containers[i].busy == 1) {
-            destroyContainer(&table->keySpace1->containers[i]);
-        }
+        destroyContainer(&table->keySpace1->containers[i]);
+        destroyContainer(&table->keySpace2->containers[i]);
     }
     free(table->keySpace1->containers);
     free(table->keySpace1);

@@ -1,5 +1,6 @@
 #include "KeySpace1.h"
 #include <stdlib.h>
+#include <printf.h>
 #include "Errors.h"
 
 
@@ -17,7 +18,7 @@ int collectGarbage(KeySpace1 *table) {
     if (table == NULL) return -1;
     int j = 0;
     for (int i = 0; i < table->size; ++i) {
-        if (table->containers[i].busy == 1 && table->containers[i].node != NULL) {
+        if (table->containers[i].busy == 1) {
             table->containers[j].node = table->containers[i].node;
             table->containers[j].busy = 1;
             ++j;

@@ -48,4 +48,5 @@ int deleteByKey1(Table *table, Key key1);
 int deleteByKey2(Table *table, Key key2);
 
 void destroyTable(Table *table);
+
 #endif

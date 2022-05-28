@@ -153,15 +153,15 @@ int D_DeleteByKey1(Table *table) {
 }
 
 
-//int D_DeleteByKey2(Table *table) {
-//    char *key2 = NULL;
-//    puts("Enter second key: -->");
-//    key2 = readline("");
-//    int deleteResult = deleteByKey2(table, getKey(key2));
-//    handleResult(deleteResult);
-//    free(key2);
-//    return 1;
-//}
+int D_DeleteByKey2(Table *table) {
+    char *key2 = NULL;
+    puts("Enter second key: -->");
+    key2 = readline("");
+    int deleteResult = deleteByKey2(table, getKey(key2));
+    handleResult(deleteResult);
+    free(key2);
+    return 1;
+}
 
 int D_Show(Table *table) {
     printTable(table);
