@@ -12,10 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dialog/Dialog.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/table/Table.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/Table.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/table/Table.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/table/Table.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1652855127890" duration="1004000" />
       <workItem from="1653218741822" duration="18511000" />
       <workItem from="1653635856785" duration="18273000" />
-      <workItem from="1653745339510" duration="4264000" />
+      <workItem from="1653745339510" duration="5306000" />
     </task>
     <servers />
   </component>
