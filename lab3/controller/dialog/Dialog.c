@@ -163,6 +163,22 @@ int D_DeleteByKey2(Table *table) {
     return 1;
 }
 
+
+int D_DeleteByRangeKey1(Table *table) {
+    char *floor = NULL;
+    char *selling = NULL;
+    puts("Enter floor key1: -->");
+    floor = readline("");
+    puts("Enter selling key1: -->");
+    selling = readline("");
+    int deleteResult = deleteByRangeKey1(table, getKey(floor), getKey(selling));
+    handleResult(deleteResult);
+    free(floor);
+    free(selling);
+    return 1;
+}
+
+
 int D_Show(Table *table) {
     printTable(table);
     return 1;

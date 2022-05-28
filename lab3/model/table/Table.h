@@ -47,6 +47,8 @@ int deleteByKey1(Table *table, Key key1);
 
 int deleteByKey2(Table *table, Key key2);
 
+int deleteByRangeKey1(Table *table, Key floor, Key selling);
+
 void destroyTable(Table *table);
 
 #endif

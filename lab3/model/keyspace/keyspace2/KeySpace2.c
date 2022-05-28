@@ -33,7 +33,7 @@ int indexOfKS2(KeySpace2 *table, Key key) {
         int hash = (hashCode + i) % table->maxSize;
         Container container = table->containers[hash];
         if (container.busy == 0) return -1;
-        if (container.busy == 1 && container.node == NULL) table->containers[hash].busy = -1;
+//        if (container.busy == 1 && container.node == NULL) table->containers[hash].busy = -1;
         if (table->containers[hash].busy == -1) continue;
         if (equalsKey(container.node->key, key)) {
             return hash;

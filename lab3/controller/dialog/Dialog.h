@@ -20,6 +20,8 @@ int D_DeleteByKey1(Table *table);
 
 int D_DeleteByKey2(Table *table);
 
+int D_DeleteByRangeKey1(Table *table);
+
 int D_Show(Table *table);
 
 int D_Mock(Table *table);

@@ -33,7 +33,7 @@ int indexOfKS1(KeySpace1 *table, Key key) {
     }
     for (int i = 0; i < table->size; ++i) {
         Container container = table->containers[i];
-        if (container.busy == 1 && container.node == NULL) table->containers[i].busy = -1;
+//        if (container.busy == 1 && container.node == NULL) table->containers[i].busy = -1;
         if ((table->containers[i].busy == 1) && equalsKey(table->containers[i].node->key, key))
             return i;
     }
@@ -110,9 +110,11 @@ int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
         throw ERROR_INCORRECT_INPUT;
     }
     for (int i = 0; i < table->size; ++i) {
-        Key key = table->containers[i].node->key;
-        if ((compareKey(key, floor) >= 0) && (compareKey(key, selling) <= 0)) {
-            destroyContainer(&table->containers[i]);
+        if (table->containers[i].busy == 1) {
+            Key key = table->containers[i].node->key;
+            if ((compareKey(key, floor) >= 0) && (compareKey(key, selling) <= 0)) {
+                destroyContainer(&table->containers[i]);
+            }
         }
     }
     return 0;

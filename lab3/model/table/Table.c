@@ -122,6 +122,10 @@ int deleteByKey2(Table *table, Key key2) {
     return 0;
 }
 
+int deleteByRangeKey1(Table *table, Key floor, Key selling) {
+    return removeByKeyRange(table->keySpace1, floor, selling);
+}
+
 void destroyTable(Table *table) {
     for (int i = 0; i < table->maxSize; ++i) {
         destroyContainer(&table->keySpace1->containers[i]);
@@ -133,33 +137,4 @@ void destroyTable(Table *table) {
     free(table->keySpace2);
     free(table);
 }
-//
-//int collectGarbage(Table *table) {
-//    if (table == NULL) return -1;
-//    int j = 0;
-//
-//    for (int i1 = 0; i1 < table->maxSize; ++i1) {
-//        Item *item = table->keySpace1->containers[i1];
-//        printf("garbage i1: %d\n", i1);
-//        if (!item->busy) {
-//            int i2 = indexOfGarbageByKeyKS2(table->keySpace2, item->key.key2);
-//            printf("garbage i2: %d\n", i2);
-//            table->keySpace1->containers[i1] = NULL;
-//            table->keySpace2->containers[i2] = NULL;
-//            destroyItem(item);
-//            table->size--;
-//            table->keySpace1->size--;
-//            table->keySpace2->size--;
-//            printTable(table);
-//        } else {
-//            printf("j: %d i: %d\n", j, i1);
-//            table->keySpace1->containers[j] = item;
-//            ++j;
-//        }
-//    }
-//    printf("return\n");
-//    printTable(table);
-//
-//    return table->size - j;
-//}
 

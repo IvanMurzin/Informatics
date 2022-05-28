@@ -5,6 +5,7 @@
 
 void destroyNode(Node *node) {
     if (node == NULL) return;
+    if (node->next == NULL && node->previous == NULL) ((Container *) node->parent)->busy = -1;
     if (node->next != NULL) node->next->previous = node->previous;
     if (node->previous == NULL) {
         if (node->parent != NULL) {
