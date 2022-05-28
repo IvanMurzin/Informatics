@@ -41,7 +41,7 @@ int put(Table *table, Item *item) {
     return 0;
 }
 
-int find(Table *table, CompositeKey key, Item **result) {
+int find(const Table *table, CompositeKey key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS2(table->keySpace2, key.key2);
     if (index < 0) throw ERROR_NOT_FOUND;
@@ -57,7 +57,7 @@ int find(Table *table, CompositeKey key, Item **result) {
 }
 
 
-int findByKey1(Table *table, Key key, Item **result) {
+int findByKey1(const Table *table, Key key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS1(table->keySpace1, key);
     if (index < 0) throw ERROR_NOT_FOUND;
@@ -73,7 +73,7 @@ int findByKey1(Table *table, Key key, Item **result) {
 }
 
 
-int findByKey2(Table *table, Key key, Item **result) {
+int findByKey2(const Table *table, Key key, Item **result) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS2(table->keySpace2, key);
     if (index < 0) throw ERROR_NOT_FOUND;
@@ -89,7 +89,7 @@ int findByKey2(Table *table, Key key, Item **result) {
 }
 
 
-int deleteAll(Table *table, CompositeKey key) {
+int deleteAll(const Table *table, CompositeKey key) {
     Item *item;
     int findResult = find(table, key, &item);
     if (findResult) throw findResult;
@@ -105,7 +105,7 @@ int deleteAll(Table *table, CompositeKey key) {
 }
 
 
-int deleteByKey1(Table *table, Key key1) {
+int deleteByKey1(const Table *table, Key key1) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS1(table->keySpace1, key1);
     if (index < 0) throw ERROR_NOT_FOUND;
@@ -114,7 +114,7 @@ int deleteByKey1(Table *table, Key key1) {
 }
 
 
-int deleteByKey2(Table *table, Key key2) {
+int deleteByKey2(const Table *table, Key key2) {
     if (table == NULL) throw ERROR_INCORRECT_INPUT;
     int index = indexOfKS2(table->keySpace2, key2);
     if (index < 0) throw ERROR_NOT_FOUND;
@@ -122,7 +122,7 @@ int deleteByKey2(Table *table, Key key2) {
     return 0;
 }
 
-int deleteByRangeKey1(Table *table, Key floor, Key selling) {
+int deleteByRangeKey1(const Table *table, Key floor, Key selling) {
     return removeByKeyRange(table->keySpace1, floor, selling);
 }
 

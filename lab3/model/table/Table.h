@@ -23,31 +23,31 @@ int put(Table *table, Item *item);
 /*
  * поиск в таблице элемента, заданного составным ключом
  */
-int find(Table *table, CompositeKey key, Item **result);
+int find(const Table *table, CompositeKey key, Item **result);
 
 /*
  * поиск в таблице элемента по любому заданному ключу;
  * результатом поиска должна быть копии
  * всех найденных элементов со значениями ключей
  */
-int findByKey1(Table *table, Key key, Item **result);
+int findByKey1(const Table *table, Key key, Item **result);
 
-int findByKey2(Table *table, Key key, Item **result);
+int findByKey2(const Table *table, Key key, Item **result);
 
 /*
  * удаление из таблицы элемента, заданного составным ключом
  */
-int deleteAll(Table *table, CompositeKey key);
+int deleteAll(const Table *table, CompositeKey key);
 
 /*
  * удаление из таблицы всех элементов,
  * заданного ключом в одном из ключевых пространств
  */
-int deleteByKey1(Table *table, Key key1);
+int deleteByKey1(const Table *table, Key key1);
 
-int deleteByKey2(Table *table, Key key2);
+int deleteByKey2(const Table *table, Key key2);
 
-int deleteByRangeKey1(Table *table, Key floor, Key selling);
+int deleteByRangeKey1(const Table *table, Key floor, Key selling);
 
 void destroyTable(Table *table);
 

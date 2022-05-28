@@ -13,13 +13,13 @@ int getKS1(KeySpace1 **table, int maxSize);
 
 int insertIntoKS1(KeySpace1 *table, Item *item);
 
-int indexOfKS1(KeySpace1 *table, Key key);
+int indexOfKS1(const KeySpace1 *table, Key key);
 
-int removeByKeyKS1(KeySpace1 *table, Key key);
+int removeByKeyKS1(const KeySpace1 *table, Key key);
 
-int removeLastByKeyKS1(KeySpace1 *table, Key key);
+int removeLastByKeyKS1(const KeySpace1 *table, Key key);
 
-int removeByKeyRange(KeySpace1 *table, Key floor, Key selling);
+int removeByKeyRange(const KeySpace1 *table, Key floor, Key selling);
 
 void destroyKS1(KeySpace1 *table);
 

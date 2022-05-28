@@ -17,7 +17,7 @@ typedef struct Item {
 
 int getItem(Item **item, CompositeKey key, const char *data);
 
-Item *getItemCopy(Item *item);
+Item *getItemCopy(const Item *item);
 
 Item *getSimpleItem(const char *key1, const char *key2, const char *data);
 

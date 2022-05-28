@@ -3,14 +3,14 @@
 
 #include "Table.h"
 
-int printKS1(KeySpace1 *table, int busyOnly);
+int printKS1(const KeySpace1 *table, int busyOnly);
 
-int printKS2(KeySpace2 *table, int busyOnly);
+int printKS2(const KeySpace2 *table, int busyOnly);
 
-int printTable(Table *table);
+int printTable(const Table *table);
 
 void handleResult(int result);
 
-void printItems(Item *item);
+void printItems(const Item *item);
 
 #endif

@@ -27,12 +27,12 @@ int collectGarbage(KeySpace1 *table) {
     return table->size - j;
 }
 
-int indexOfKS1(KeySpace1 *table, Key key) {
+int indexOfKS1(const KeySpace1 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         return -1;
     }
     for (int i = 0; i < table->size; ++i) {
-        Container container = table->containers[i];
+//        Container container = table->containers[i];
 //        if (container.busy == 1 && container.node == NULL) table->containers[i].busy = -1;
         if ((table->containers[i].busy == 1) && equalsKey(table->containers[i].node->key, key))
             return i;
@@ -76,7 +76,7 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
     return 0;
 }
 
-int removeByKeyKS1(KeySpace1 *table, Key key) {
+int removeByKeyKS1(const KeySpace1 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
@@ -86,7 +86,7 @@ int removeByKeyKS1(KeySpace1 *table, Key key) {
     return 0;
 }
 
-int removeLastByKeyKS1(KeySpace1 *table, Key key) {
+int removeLastByKeyKS1(const KeySpace1 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
@@ -105,7 +105,7 @@ int removeLastByKeyKS1(KeySpace1 *table, Key key) {
     return 0;
 }
 
-int removeByKeyRange(KeySpace1 *table, Key floor, Key selling) {
+int removeByKeyRange(const KeySpace1 *table, Key floor, Key selling) {
     if (table == NULL || table->containers == NULL || floor.value == NULL || selling.value == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }

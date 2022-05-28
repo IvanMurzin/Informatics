@@ -18,13 +18,12 @@ int getKS2(KeySpace2 **table, int maxSize) {
     *table = calloc(1, sizeof(KeySpace2));
     if (*table == NULL) throw ERROR_OUT_OF_MEMORY;
     (*table)->maxSize = maxSize;
-    (*table)->size = 0;
     (*table)->hash = &hash;
     (*table)->containers = calloc(maxSize, sizeof(Container));
     return 0;
 }
 
-int indexOfKS2(KeySpace2 *table, Key key) {
+int indexOfKS2(const KeySpace2 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         return -1;
     }
@@ -60,7 +59,6 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
                 table->containers[hash].node->parent = &table->containers[hash];
                 item->nodeKS2 = table->containers[hash].node;
                 table->containers[hash].node->item = item;
-                table->size++;
                 return 0;
             }
         }
@@ -78,14 +76,13 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
     return 0;
 }
 
-int removeByKeyKS2(KeySpace2 *table, Key key) {
+int removeByKeyKS2(const KeySpace2 *table, Key key) {
     if (table == NULL || table->containers == NULL || key.value == NULL) {
         throw ERROR_INCORRECT_INPUT;
     }
     int index = indexOfKS2(table, key);
     if (index < 0) throw ERROR_NOT_FOUND;
     destroyContainer(&table->containers[index]);
-    table->size--;
     return 0;
 }
 
@@ -98,4 +95,3 @@ void destroyKS2(KeySpace2 *table) {
     free(table->containers);
     free(table);
 }
-

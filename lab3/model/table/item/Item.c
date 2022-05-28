@@ -15,7 +15,7 @@ int getItem(Item **item, CompositeKey key, const char *data) {
     return 0;
 }
 
-Item *getItemCopy(Item *item) {
+Item *getItemCopy(const Item *item) {
     Item *itemCopy = NULL;
     CompositeKey keyCopy = getKeyCopy(item->key);
     char *dataCopy = malloc(strlen(item->data) + 1);

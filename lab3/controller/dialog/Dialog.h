@@ -6,7 +6,7 @@
 
 int dialog(const char *messages[], int messageSize);
 
-int D_Add(Table *table);
+int D_Add(const Table *table);
 
 int D_Find(Table *table);
 

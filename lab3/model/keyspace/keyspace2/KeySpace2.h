@@ -5,7 +5,6 @@
 
 typedef struct KeySpace2 {
     int maxSize;
-    int size;
     Container *containers;
 
     int (*hash)(const char *data);
@@ -15,9 +14,9 @@ int getKS2(KeySpace2 **table, int maxSize);
 
 int insertIntoKS2(KeySpace2 *table, Item *item);
 
-int indexOfKS2(KeySpace2 *table, Key key);
+int indexOfKS2(const KeySpace2 *table, Key key);
 
-int removeByKeyKS2(KeySpace2 *containers, Key key);
+int removeByKeyKS2(const KeySpace2 *containers, Key key);
 
 void destroyKS2(KeySpace2 *table);
 

@@ -60,7 +60,7 @@ int dialog(const char *messages[], int messageSize) {
     return actionIndex;
 }
 
-int D_Add(Table *table) {
+int D_Add(const Table *table) {
     char *info = NULL;
     CompositeKey key = readCompositeKey();
     puts("Enter info:");

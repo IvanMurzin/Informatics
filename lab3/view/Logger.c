@@ -4,7 +4,6 @@
 #include "Errors.h"
 #include "Iterator.h"
 
-// ║ BUSY ║ v   ║ (%s  |  %s|V ) ║ ↓/↑ INDEX ║ VALUE    ║%c
 void printHat(int type, const char separator) {
     printf("╔══════╦═════╦═════ KEY SPACE %d ══════════════╗%c", type, separator);
 }
@@ -52,7 +51,7 @@ void printRowKS1(Container container, const char separator) {
     }
 }
 
-int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
+int printKS1(const KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ ╣ ║ ╗ ╝
     if (table == NULL || table->containers == NULL) throw ERROR_INCORRECT_INPUT;
     printHat(1, '\n');
     printHeader(1, '\n');
@@ -67,7 +66,7 @@ int printKS1(KeySpace1 *table, int busyOnly) {  //  ╚ ╔ ╩ ╦ ╠ ═ ╬ 
     return 0;
 }
 
-int printKS2(KeySpace2 *table, int busyOnly) {
+int printKS2(const KeySpace2 *table, int busyOnly) {
     if (table == NULL || table->containers == NULL) throw ERROR_INCORRECT_INPUT;
     printHat(2, '\n');
     printHeader(2, '\n');
@@ -85,7 +84,7 @@ int printKS2(KeySpace2 *table, int busyOnly) {
     return 0;
 }
 
-int printTable(Table *table) {
+int printTable(const Table *table) {
     if (table == NULL || table->keySpace1 == NULL || table->keySpace2 == NULL) throw ERROR_INCORRECT_INPUT;
     printHat(1, ' ');
     printHat(2, '\n');
@@ -129,7 +128,7 @@ void handleResult(int result) {
     }
 }
 
-void printItems(Item *item) {
+void printItems(const Item *item) {
     printf("╔═════════════ Item ═╦══════════╗\n");
     printf("║ (KEY1  |  KEY2|V ) ║ VALUE    ║\n");
     printf("╠════════════════════╬══════════╣\n");
