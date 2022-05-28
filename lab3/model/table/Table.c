@@ -88,26 +88,23 @@ int findByKey2(Table *table, Key key, Item **result) {
     return 0;
 }
 
-//void removeItem(Table *table, Item *item) {
-//    Item **tableKS1 = table->keySpace1->containers;
-//    Item **tableKS2 = table->keySpace2->containers;
-//    if (item->waymarkKS1.previous >= 0) {
-//        tableKS1[item->waymarkKS1.previous]->waymarkKS1.next = item->waymarkKS1.next;
-//    }
-//    if (item->waymarkKS1.next >= 0) {
-//        tableKS1[item->waymarkKS1.next]->waymarkKS1.previous = item->waymarkKS1.previous;
-//    }
-//    if (item->waymarkKS2.previous >= 0) {
-//        tableKS2[item->waymarkKS2.previous]->waymarkKS2.next = item->waymarkKS2.next;
-//    }
-//    if (item->waymarkKS2.next >= 0) {
-//        tableKS2[item->waymarkKS2.next]->waymarkKS1.previous = item->waymarkKS2.previous;
-//    }
-//    item->busy = 0;
-//    table->keySpace2->size--;
-//    table->size--;
-//}
-//
+
+int deleteAll(Table *table, CompositeKey key) {
+    Item *item;
+    int findResult = find(table, key, &item);
+    if (findResult) throw findResult;
+    Item *tmp;
+    while (item->previous != NULL) item = item->previous;
+    while (hasNext(item)) {
+        tmp = item;
+        item = next(item);
+        destroyItem(tmp);
+    }
+    destroyItem(item);
+    return 0;
+}
+
+
 //int delete(Table *table, CompositeKey key) {
 //    Item *item;
 //    int findResult = find(table, key, &item);
@@ -116,17 +113,6 @@ int findByKey2(Table *table, Key key, Item **result) {
 //    return 0;
 //}
 //
-//int deleteAll(Table *table, CompositeKey key) {
-//    Item *item;
-//    int findResult = find(table, key, &item);
-//    if (findResult) throw findResult;
-//    while (hasNext(item)) {
-//        removeItem(table, item);
-//        item = next(item);
-//    }
-//    removeItem(table, item);
-//    return 0;
-//}
 //
 //int deleteByKey1(Table *table, Key key1) {
 //    if (table == NULL) throw ERROR_INCORRECT_INPUT;

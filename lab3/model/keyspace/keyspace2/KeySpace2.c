@@ -33,7 +33,7 @@ int indexOfKS2(KeySpace2 *table, Key key) {
         int hash = (hashCode + i) % table->maxSize;
         Container container = table->containers[hash];
         if (container.busy == 0) return -1;
-        if (container.busy == 1 && container.node->item->data == NULL) table->containers[hash].busy = -1;
+        if (container.busy == 1 && container.node == NULL) table->containers[hash].busy = -1;
         if (table->containers[hash].busy == -1) continue;
         if (equalsKey(container.node->key, key)) {
             return hash;
@@ -49,9 +49,6 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
     Key key = item->key.key2;
     int index = indexOfKS2(table, key);
     if (index < 0) {
-        if (table->size == table->maxSize) {
-            throw ERROR_TABLE_OVERFLOW;
-        }
         for (int i = 0; i < table->maxSize; ++i) {
             int hashCode = table->hash(key.value);
             int hash = (hashCode + i) % table->maxSize;
@@ -60,17 +57,20 @@ int insertIntoKS2(KeySpace2 *table, Item *item) {
                 table->containers[hash].node = calloc(1, sizeof(Node));
                 table->containers[hash].node->version = 0;
                 table->containers[hash].node->key = key;
+                table->containers[hash].node->parent = &table->containers[hash];
                 item->nodeKS2 = table->containers[hash].node;
                 table->containers[hash].node->item = item;
                 table->size++;
                 return 0;
             }
         }
+        throw ERROR_TABLE_OVERFLOW;
     }
     Node *temp = table->containers[index].node;
     table->containers[index].node = calloc(1, sizeof(Node));
     table->containers[index].node->version = temp->version + 1;
     table->containers[index].node->key = key;
+    table->containers[index].node->parent = &table->containers[index];
     table->containers[index].node->item = item;
     item->nodeKS2 = table->containers[index].node;
     table->containers[index].node->next = temp;

@@ -132,14 +132,14 @@ int D_FindByKey2(Table *table) {
 }
 
 
-//int D_Delete(Table *table) {
-//    CompositeKey key = readCompositeKey();
-//    int deleteResult = deleteAll(table, key);
-//    handleResult(deleteResult);
-//    free(key.key1.value);
-//    free(key.key2.value);
-//    return 1;
-//}
+int D_Delete(Table *table) {
+    CompositeKey key = readCompositeKey();
+    int deleteResult = deleteAll(table, key);
+    handleResult(deleteResult);
+    destroyKey(key.key1);
+    destroyKey(key.key2);
+    return 1;
+}
 
 
 //int D_DeleteByKey1(Table *table) {
@@ -168,31 +168,20 @@ int D_Show(Table *table) {
     return 1;
 }
 
-//int D_Mock(Table *table) {
-//    Item *item = getMockItem("1.1", "2.1", "data1");
-//    puts("1");
-//    if (put(table, item)) destroyItem(item);
-//    item = getMockItem("1.2", "2.2", "data2");
-//    puts("2");
-//    if (put(table, item)) destroyItem(item);
-//    item = getMockItem("1.3", "2.2", "data3");
-//    puts("3");
-//    if (put(table, item)) destroyItem(item);
-//    item = getMockItem("1.1", "2.3", "data4");
-//    puts("4");
-//    printTable(table);
-//    if (put(table, item)) destroyItem(item);
-//    item = getMockItem("1.4", "2.4", "data5");
-//    printTable(table);
-//    puts("5");
-//    if (put(table, item)) destroyItem(item);
-//    printTable(table);
-//    item = getMockItem("1.1", "2.1", "data6");
-//    puts("6");
-//    if (put(table, item)) destroyItem(item);
-//    item = getMockItem("1.2", "2.1", "data7");
-//    puts("7");
-//    if (put(table, item)) destroyItem(item);
-//    puts("9");
-//    return 1;
-//}
+int D_Mock(Table *table) {
+    Item *item = getMockItem("1.1", "2.1", "data1");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.2", "2.2", "data2");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.3", "2.2", "data3");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.1", "2.3", "data4");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.4", "2.4", "data5");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.1", "2.1", "data6");
+    if (put(table, item)) destroyItem(item);
+    item = getMockItem("1.2", "2.1", "data7");
+    if (put(table, item)) destroyItem(item);
+    return 1;
+}

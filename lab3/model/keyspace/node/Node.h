@@ -7,6 +7,7 @@ typedef struct Node {
     Key key;
     Item *item;
     int version;
+    void *parent;
     struct Node *next;
     struct Node *previous;
 } Node;

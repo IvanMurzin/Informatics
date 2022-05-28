@@ -31,7 +31,7 @@ int indexOfKS1(KeySpace1 *table, Key key) {
     }
     for (int i = 0; i < table->size; ++i) {
         Container container = table->containers[i];
-        if (container.busy == 1 && container.node->item->data == NULL) table->containers[i].busy = -1;
+        if (container.busy == 1 && container.node == NULL) table->containers[i].busy = -1;
         if ((table->containers[i].busy == 1) && equalsKey(table->containers[i].node->key, key))
             return i;
     }
@@ -56,6 +56,7 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
         table->containers[table->size].node = calloc(1, sizeof(Node));
         table->containers[table->size].node->version = 0;
         table->containers[table->size].node->key = key;
+        table->containers[table->size].node->parent = &table->containers[table->size];
         item->nodeKS1 = table->containers[table->size].node;
         table->containers[table->size].node->item = item;
         table->size++;
@@ -65,6 +66,7 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
     table->containers[index].node = calloc(1, sizeof(Node));
     table->containers[index].node->version = temp->version + 1;
     table->containers[index].node->key = key;
+    table->containers[index].node->parent = &table->containers[index];
     table->containers[index].node->item = item;
     item->nodeKS1 = table->containers[index].node;
     table->containers[index].node->next = temp;
@@ -90,7 +92,9 @@ int removeLastByKeyKS1(KeySpace1 *table, Key key) {
     if (index < 0) throw ERROR_NOT_FOUND;
     Node *node = table->containers[index].node;
     if (node->next == NULL) {
-        destroyContainer(&table->containers[index]);
+        destroyItem(node->item);
+        table->containers[index].node = NULL;
+        table->containers[index].busy = 0;
         return 0;
     }
     node->item->nodeKS1 = NULL;

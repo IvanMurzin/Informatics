@@ -37,8 +37,6 @@ int findByKey2(Table *table, Key key, Item **result);
 /*
  * удаление из таблицы элемента, заданного составным ключом
  */
-int delete(Table *table, CompositeKey key);
-
 int deleteAll(Table *table, CompositeKey key);
 
 /*
