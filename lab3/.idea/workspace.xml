@@ -11,23 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../lab4/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/.idea/lab4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/docs/lab4a.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/docs/lab4b.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/docs/task4a.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/docs/task4b.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-    </list>
+    <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +106,7 @@
       <workItem from="1653635856785" duration="18273000" />
       <workItem from="1653745339510" duration="10186000" />
       <workItem from="1653774194804" duration="49000" />
-      <workItem from="1653777186274" duration="352000" />
+      <workItem from="1653777186274" duration="2862000" />
     </task>
     <servers />
   </component>
