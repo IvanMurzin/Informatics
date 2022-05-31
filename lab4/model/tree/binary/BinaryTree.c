@@ -80,6 +80,31 @@ int addBT(BinaryTree *tree, unsigned int key, const char *data) {
     return 0;
 }
 
+int _findMinNodeBT(BNode *ptr, BNode ***result, int *size) {
+    BNode *parent;
+    while (ptr != NULL) {
+        parent = ptr;
+        ptr = ptr->left;
+    }
+    int minKey = parent->key;
+    while (parent->parent != NULL && parent->parent->key == minKey) {
+        parent = parent->parent;
+    }
+    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
+    *size = parent->generation + 1;
+    while (parent != NULL) {
+        (*result)[parent->generation] = parent;
+        parent = parent->left;
+    }
+    return 0;
+}
+
+int findMinBT(const BinaryTree *tree, BNode ***result, int *size) {
+    if (tree == NULL || tree->root == NULL) return 1;
+    return _findMinNodeBT(tree->root, result, size);
+}
+
+
 int deleteBT(BinaryTree *tree, unsigned int key) {
     int size;
     BNode **targetsArray;
@@ -88,6 +113,12 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
     BNode *target = targetsArray[size - 1];
     free(targetsArray);
     if (target->left == NULL && target->right == NULL) {
+        if (tree->root == target) {
+            tree->root = NULL;
+            free(target);
+            //        free((char *)target->data) // todo replace with deep
+            return 0;
+        }
         if (target->parent->left == target) {
             target->parent->left = NULL;
         } else {
@@ -98,29 +129,84 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
         return 0;
     }
     if (target->left == NULL) { // target->right != NULL
+        if (tree->root == target) {
+            tree->root = target->right;
+            free(target);
+            //        free((char *)target->data) // todo replace with deep
+            return 0;
+        }
         if (target->parent->left == target) {
             target->parent->left = target->right;
-            target->right->parent = target->parent;
         } else {
             target->parent->right = target->right;
-            target->right->parent = target->parent;
         }
+        target->right->parent = target->parent;
         free(target);
         //        free((char *)target->data) // todo replace with deep
         return 0;
     }
     if (target->right == NULL) { // target->left != NULL
+        if (tree->root == target) {
+            tree->root = target->left;
+            free(target);
+            //        free((char *)target->data) // todo replace with deep
+            return 0;
+        }
         if (target->parent->left == target) {
             target->parent->left = target->left;
-            target->left->parent = target->parent;
         } else {
             target->parent->right = target->left;
-            target->left->parent = target->parent;
         }
+        target->left->parent = target->parent;
         free(target);
         //        free((char *)target->data) // todo replace with deep
         return 0;
     }
+    // target->right != NULL && target->left != NULL
+    BNode **minData;
+    int minDataSize = 0;
+    _findMinNodeBT(target->right, &minData, &minDataSize);
+    BNode *victim = minData[minDataSize - 1];
+
+    if (victim->parent != target && victim->parent->left == victim) {
+        if (minDataSize == 1) {
+            victim->parent->left = NULL;
+        } else {
+            victim->parent->left = victim->right;
+            victim->right->parent = victim->parent;
+        }
+    }
+
+    if (victim->parent != target) {
+        victim->right = target->right;
+        target->right->parent = victim;
+    }
+
+    if (victim->parent == target && victim->left != NULL || minDataSize != 1) {
+        BNode *ptr = victim->left;
+        BNode *parent;
+        while (ptr != NULL) {
+            parent = ptr;
+            ptr = ptr->left;
+        }
+        target->left->parent = parent;
+        parent->left = target->left;
+    } else {
+        victim->left = target->left;
+        target->left->parent = victim;
+    }
+    if (target->parent != NULL) {
+        if (target->parent->left == target) {
+            target->parent->left = victim;
+        } else {
+            target->parent->right = victim;
+        }
+        victim->parent = target->parent;
+    }
+    if (tree->root == target) tree->root = victim;
+    free(target);
+    free(minData);
+    //free((char *)target->data) // todo replace with deep
     return 0;
 }
 
@@ -158,26 +244,6 @@ int findBT(const BinaryTree *tree, unsigned int key, BNode ***result, int *size)
             ptr = ptr->right;
         }
     }
-    return 0;
-}
-
-int findMinBT(const BinaryTree *tree, BNode ***result, int *size) {
-    if (tree == NULL || tree->root == NULL) return 1;
-    BNode *ptr = tree->root;
-    BNode *parent;
-    while (ptr != NULL) {
-        parent = ptr;
-        ptr = ptr->left;
-    }
-    int minKey = parent->key;
-    while (parent->parent != NULL && parent->parent->key == minKey) {
-        parent = parent->parent;
-    }
-    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
-    *size = parent->generation + 1;
-    while (parent != NULL) {
-        (*result)[parent->generation] = parent;
-        parent = parent->left;
-    }
+    if (found == 0) return 1;
     return 0;
 }

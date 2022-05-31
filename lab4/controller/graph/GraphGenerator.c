@@ -30,10 +30,13 @@ void _writeDotNLR(FILE *file, const BNode *node, int *leaves) {
 }
 
 int createPngGraph(const BinaryTree *tree) {
+    if (tree == NULL || tree->root == NULL) return 1;
     FILE *file = fopen("../output/binary_tree.dot", "w");
     if (file == NULL) return 1;
     fprintf(file, DOT_HEADER);
     int leaves = 0;
+
+    fprintf(file, "%d.%d", tree->root->key, tree->root->generation);
     _writeDotNLR(file, tree->root, &leaves);
     for (int i = 0; i < leaves; ++i) {
         fprintf(file, DOT_EMPTY, i);
