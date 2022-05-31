@@ -4,4 +4,5 @@
 #include "BinaryTree.h"
 
 int createPngGraph(const BinaryTree *tree);
+
 #endif

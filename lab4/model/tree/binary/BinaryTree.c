@@ -6,6 +6,32 @@ BinaryTree *getBinaryTree() {
     return calloc(1, sizeof(BinaryTree));
 }
 
+void _destroyBNode(BNode *node) {
+    if (node == NULL) return;
+    _destroyBNode(node->left);
+    _destroyBNode(node->right);
+    free(node);
+}
+
+void destroyBinaryTree(BinaryTree *tree) {
+    _destroyBNode(tree->root);
+    free(tree);
+}
+
+void _destroyBNodeDeep(BNode *node) {
+    if (node == NULL) return;
+    _destroyBNode(node->left);
+    _destroyBNode(node->right);
+    free((char *) node->data);
+    free(node);
+}
+
+void destroyBinaryTreeDeep(BinaryTree *tree) {
+    _destroyBNodeDeep(tree->root);
+    free(tree);
+}
+
+
 void _putBoundElements(const BNode *root, unsigned key, BinaryTree *to) {
     if (root == NULL) return;
     if (root->key <= key) addBT(to, root->key, root->data);
@@ -55,7 +81,46 @@ int addBT(BinaryTree *tree, unsigned int key, const char *data) {
 }
 
 int deleteBT(BinaryTree *tree, unsigned int key) {
-    exit(-1);
+    int size;
+    BNode **targetsArray;
+    int findRes = findBT(tree, key, &targetsArray, &size);
+    if (findRes) return findRes;
+    BNode *target = targetsArray[size - 1];
+    free(targetsArray);
+    if (target->left == NULL && target->right == NULL) {
+        if (target->parent->left == target) {
+            target->parent->left = NULL;
+        } else {
+            target->parent->right = NULL;
+        }
+        free(target);
+//        free((char *)target->data) // todo replace with deep
+        return 0;
+    }
+    if (target->left == NULL) { // target->right != NULL
+        if (target->parent->left == target) {
+            target->parent->left = target->right;
+            target->right->parent = target->parent;
+        } else {
+            target->parent->right = target->right;
+            target->right->parent = target->parent;
+        }
+        free(target);
+        //        free((char *)target->data) // todo replace with deep
+        return 0;
+    }
+    if (target->right == NULL) { // target->left != NULL
+        if (target->parent->left == target) {
+            target->parent->left = target->left;
+            target->left->parent = target->parent;
+        } else {
+            target->parent->right = target->left;
+            target->left->parent = target->parent;
+        }
+        free(target);
+        //        free((char *)target->data) // todo replace with deep
+        return 0;
+    }
     return 0;
 }
 
@@ -73,37 +138,46 @@ int printNLR_BT(const BinaryTree *tree) {
     return 0;
 }
 
-int findBT(const BinaryTree *tree, unsigned int key, int **result, int *size) {
-    exit(-1);
+int findBT(const BinaryTree *tree, unsigned int key, BNode ***result, int *size) {
+    if (tree == NULL || tree->root == NULL) return 1;
+    BNode *ptr = tree->root;
+    int found = 0;
+    while (ptr != NULL) {
+        if (ptr->key == key) {
+            if (!found) {
+                *result = malloc(sizeof(BNode *) * (ptr->generation + 1));
+                *size = ptr->generation + 1;
+                found = 1;
+            }
+            (*result)[ptr->generation] = ptr;
+            if (ptr->generation == 0) return 0;
+        }
+        if (ptr->key >= key) {
+            ptr = ptr->left;
+        } else {
+            ptr = ptr->right;
+        }
+    }
     return 0;
 }
 
-int findMinBT(const BinaryTree *tree, int **result, int *size) {
-    exit(-1);
+int findMinBT(const BinaryTree *tree, BNode ***result, int *size) {
+    if (tree == NULL || tree->root == NULL) return 1;
+    BNode *ptr = tree->root;
+    BNode *parent;
+    while (ptr != NULL) {
+        parent = ptr;
+        ptr = ptr->left;
+    }
+    int minKey = parent->key;
+    while (parent->parent != NULL && parent->parent->key == minKey) {
+        parent = parent->parent;
+    }
+    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
+    *size = parent->generation + 1;
+    while (parent != NULL) {
+        (*result)[parent->generation] = parent;
+        parent = parent->left;
+    }
     return 0;
-}
-
-void _destroyBNode(BNode *node) {
-    if (node == NULL) return;
-    _destroyBNode(node->left);
-    _destroyBNode(node->right);
-    free(node);
-}
-
-void destroyBinaryTree(BinaryTree *tree) {
-    _destroyBNode(tree->root);
-    free(tree);
-}
-
-void _destroyBNodeDeep(BNode *node) {
-    if (node == NULL) return;
-    _destroyBNode(node->left);
-    _destroyBNode(node->right);
-    free((char *) node->data);
-    free(node);
-}
-
-void destroyBinaryTreeDeep(BinaryTree *tree) {
-    _destroyBNodeDeep(tree->root);
-    free(tree);
 }

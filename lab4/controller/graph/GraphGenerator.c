@@ -15,12 +15,15 @@ void _writeDotNLR(FILE *file, const BNode *node, int *leaves) {
         (*leaves)++;
     } else {
         fprintf(file, DOT_LEAVE, node->key, node->generation, node->left->key, node->left->generation);
+        fprintf(file, DOT_LEAVE, node->left->key, node->left->generation, node->left->parent->key, node->left->parent->generation);
     }
     if (node->right == NULL) {
         fprintf(file, DOT_EMPTY_LEAVE, node->key, node->generation, *leaves);
         (*leaves)++;
     } else {
         fprintf(file, DOT_LEAVE, node->key, node->generation, node->right->key, node->right->generation);
+        fprintf(file, DOT_LEAVE, node->right->key, node->right->generation, node->right->parent->key, node->right->parent->generation);
+
     }
     _writeDotNLR(file, node->left, leaves);
     _writeDotNLR(file, node->right, leaves);

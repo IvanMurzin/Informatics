@@ -39,13 +39,14 @@ int printNLR_BT(const BinaryTree *tree);
  * Возврат необходимо осуществлять при помощи вектора указателей,
  * возврат копий элементов не допускается.
  */
-int findBT(const BinaryTree *tree, unsigned key, int **result, int *size);
+int findBT(const BinaryTree *tree, unsigned key, BNode ***result, int *size);
 
 /*
  * Поиск элемента c наименьшим значением ключа
  * (если таких элементов несколько — действовать по аналогии с операцией поиска по ключу)
  */
-int findMinBT(const BinaryTree *tree, int **result, int *size);
+int findMinBT(const BinaryTree *tree, BNode ***result, int *size);
 
-void destroyBinaryTree(BinaryTree * tree);
+void destroyBinaryTree(BinaryTree *tree);
+
 #endif

@@ -14,4 +14,4 @@ clean:
 	find . -type f -name '*.o' -delete
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) -o $@]
