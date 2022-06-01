@@ -1,5 +1,9 @@
 #include <stdlib.h>
+
+#define  _GNU_SOURCE
+
 #include <stdio.h>
+#include <string.h>
 #include "BinaryTree.h"
 #include "GraphGenerator.h"
 
@@ -11,14 +15,18 @@ BinaryTree *getBinaryTreeFromFile(const char *fileName) {
     FILE *file = fopen(fileName, "r");
     if (file == NULL) return NULL;
     BinaryTree *tree = getBinaryTree();
+    char *line = NULL;
     while (!feof(file)) {
         unsigned key;
-        char *line;
         size_t len;
         if (fscanf(file, "%d\n", &key) <= 0) break;
         if (getline(&line, &len, file) <= 0) break;
-        addBT(tree, key, line);
+        char *data = malloc(len + 1);
+        strcpy(data, line);
+        addBT(tree, key, data);
     }
+    free(line);
+    fclose(file);
     return tree;
 }
 
@@ -44,6 +52,7 @@ void _destroyBNodeDeep(BNode *node) {
 }
 
 void destroyBinaryTreeDeep(BinaryTree *tree) {
+    if (tree == NULL) return;
     _destroyBNodeDeep(tree->root);
     free(tree);
 }

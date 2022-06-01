@@ -133,11 +133,13 @@ int D_MockBT(BinaryTree *tree) {
 int D_GetFromFile(BinaryTree **tree) {
     char *fileName = readline("Enter File path -->\n");
     BinaryTree *newTree = getBinaryTreeFromFile(fileName);
+    free(fileName);
     if (newTree == NULL) {
         puts("Error reading from file");
         return 0;
     }
-    if (tree != NULL) destroyBinaryTreeDeep(*tree);
+    destroyBinaryTreeDeep(*tree);
     *tree = newTree;
+    puts("Ok");
     return 1;
 }
