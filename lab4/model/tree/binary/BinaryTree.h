@@ -12,6 +12,8 @@ typedef struct BinaryTree {
 
 BinaryTree *getBinaryTree();
 
+BinaryTree *getBinaryTreeFromFile(const char *fileName);
+
 BinaryTree *getBoundBinaryTree(const BinaryTree *tree, unsigned key);
 
 /*

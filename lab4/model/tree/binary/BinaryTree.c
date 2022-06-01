@@ -7,6 +7,22 @@ BinaryTree *getBinaryTree() {
     return calloc(1, sizeof(BinaryTree));
 }
 
+BinaryTree *getBinaryTreeFromFile(const char *fileName) {
+    FILE *file = fopen(fileName, "r");
+    if (file == NULL) return NULL;
+    BinaryTree *tree = getBinaryTree();
+    while (!feof(file)) {
+        unsigned key;
+        char *line;
+        size_t len;
+        if (fscanf(file, "%d\n", &key) <= 0) break;
+        if (getline(&line, &len, file) <= 0) break;
+        addBT(tree, key, line);
+    }
+    return tree;
+}
+
+
 void _destroyBNode(BNode *node) {
     if (node == NULL) return;
     _destroyBNode(node->left);

@@ -17,4 +17,6 @@ int D_ShowBT(BinaryTree *tree);
 
 int D_MockBT(BinaryTree *tree);
 
+int D_GetFromFile(BinaryTree **tree);
+
 #endif
