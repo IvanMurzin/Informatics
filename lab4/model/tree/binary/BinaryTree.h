@@ -6,7 +6,6 @@
 enum DrawMode;
 
 typedef struct BinaryTree {
-    int size;
     BNode *root;
 } BinaryTree;
 

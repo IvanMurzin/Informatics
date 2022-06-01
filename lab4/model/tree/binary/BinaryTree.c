@@ -1,7 +1,4 @@
 #include <stdlib.h>
-
-#define  _GNU_SOURCE
-
 #include <stdio.h>
 #include <string.h>
 #include "BinaryTree.h"
@@ -142,7 +139,6 @@ BNode *_nextElement(BNode *node) {
 
 int addBT(BinaryTree *tree, unsigned int key, const char *data) {
     if (tree == NULL) return 1;
-    tree->size++;
     BNode *newNode = getBNode(key, data);
     if (tree->root == NULL) {
         tree->root = newNode;
