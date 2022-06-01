@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "BinaryTree.h"
 #include "GraphGenerator.h"
 
@@ -20,8 +21,8 @@ void destroyBinaryTree(BinaryTree *tree) {
 
 void _destroyBNodeDeep(BNode *node) {
     if (node == NULL) return;
-    _destroyBNode(node->left);
-    _destroyBNode(node->right);
+    _destroyBNodeDeep(node->left);
+    _destroyBNodeDeep(node->right);
     free((char *) node->data);
     free(node);
 }
@@ -39,10 +40,79 @@ void _putBoundElements(const BNode *root, unsigned key, BinaryTree *to) {
     _putBoundElements(root->right, key, to);
 }
 
+int _findMinNodeBT(BNode *node, BNode ***result, int *size) {
+    BNode *parent;
+    while (node != NULL) {
+        parent = node;
+        node = node->left;
+    }
+    int minKey = parent->key;
+    while (parent->parent != NULL && parent->parent->key == minKey) {
+        parent = parent->parent;
+    }
+    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
+    *size = parent->generation + 1;
+    while (parent != NULL) {
+        (*result)[parent->generation] = parent;
+        parent = parent->left;
+    }
+    return 0;
+}
+
+int _findMaxNodeBT(BNode *node, BNode ***result, int *size) {
+    BNode *parent;
+    while (node != NULL) {
+        parent = node;
+        node = node->right;
+    }
+    int minKey = parent->key;
+    while (parent->parent != NULL && parent->parent->key == minKey) {
+        parent = parent->parent;
+    }
+    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
+    *size = parent->generation + 1;
+    while (parent != NULL) {
+        (*result)[parent->generation] = parent;
+        parent = parent->right;
+    }
+    return 0;
+}
+
 BinaryTree *getBoundBinaryTree(const BinaryTree *tree, unsigned int key) {
     BinaryTree *newTree = getBinaryTree();
     _putBoundElements(tree->root, key, newTree);
     return newTree;
+}
+
+BNode *_previousElement(BNode *node) {
+    if (node->left != NULL) {
+        BNode **resultArray;
+        int size = 0;
+        _findMaxNodeBT(node->left, &resultArray, &size);
+        return resultArray[size - 1];
+    }
+    BNode *cursor = node;
+    BNode *ptr = node->parent;
+    while (cursor->parent != NULL && ptr->left == cursor) {
+        cursor = ptr;
+        ptr = cursor->parent;
+    }
+    return ptr;
+}
+
+BNode *_nextElement(BNode *node) {
+    if (node->right != NULL) {
+        BNode **resultArray;
+        int size = 0;
+        _findMinNodeBT(node->right, &resultArray, &size);
+        return resultArray[size - 1];
+    }
+    BNode *ptr = node->parent;
+    while (node->parent != NULL && ptr->right == node) {
+        node = ptr;
+        ptr = node->parent;
+    }
+    return ptr;
 }
 
 int addBT(BinaryTree *tree, unsigned int key, const char *data) {
@@ -70,53 +140,36 @@ int addBT(BinaryTree *tree, unsigned int key, const char *data) {
     } else {
         parent->right = newNode;
     }
-    BNode *tmp = newNode;
-    ptr = tmp->parent;
-    while (ptr != NULL && tmp == ptr->right) {
-        tmp = ptr;
-        ptr = tmp->parent;
-    }
-    newNode->next = ptr;
+    BNode *previous = _previousElement(newNode);
+    BNode *next = _nextElement(newNode);
+    if (previous != NULL) previous->next = newNode;
+    newNode->previous = previous;
+    newNode->next = next;
+    if (next != NULL) next->previous = newNode;
     return 0;
 }
 
-int _findMinNodeBT(BNode *ptr, BNode ***result, int *size) {
-    BNode *parent;
-    while (ptr != NULL) {
-        parent = ptr;
-        ptr = ptr->left;
-    }
-    int minKey = parent->key;
-    while (parent->parent != NULL && parent->parent->key == minKey) {
-        parent = parent->parent;
-    }
-    *result = malloc(sizeof(BNode *) * (parent->generation + 1));
-    *size = parent->generation + 1;
-    while (parent != NULL) {
-        (*result)[parent->generation] = parent;
-        parent = parent->left;
-    }
-    return 0;
+void _swapRoutes(BNode *node) {
+    BNode *previous = node->previous;
+    BNode *next = node->next;
+    if (previous != NULL) previous->next = node->next;
+    if (next != NULL) next->previous = node->previous;
 }
-
-int findMinBT(const BinaryTree *tree, BNode ***result, int *size) {
-    if (tree == NULL || tree->root == NULL) return 1;
-    return _findMinNodeBT(tree->root, result, size);
-}
-
 
 int deleteBT(BinaryTree *tree, unsigned int key) {
     int size;
     BNode **targetsArray;
+
     int findRes = findBT(tree, key, &targetsArray, &size);
     if (findRes) return findRes;
     BNode *target = targetsArray[size - 1];
     free(targetsArray);
+    _swapRoutes(target);
     if (target->left == NULL && target->right == NULL) {
         if (tree->root == target) {
             tree->root = NULL;
+            free((char *) target->data);
             free(target);
-            //        free((char *)target->data) // todo replace with deep
             return 0;
         }
         if (target->parent->left == target) {
@@ -124,15 +177,16 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
         } else {
             target->parent->right = NULL;
         }
+        free((char *) target->data);
         free(target);
-//        free((char *)target->data) // todo replace with deep
         return 0;
     }
     if (target->left == NULL) { // target->right != NULL
         if (tree->root == target) {
             tree->root = target->right;
+            target->right->parent = NULL;
+            free((char *) target->data);
             free(target);
-            //        free((char *)target->data) // todo replace with deep
             return 0;
         }
         if (target->parent->left == target) {
@@ -141,15 +195,16 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
             target->parent->right = target->right;
         }
         target->right->parent = target->parent;
+        free((char *) target->data);
         free(target);
-        //        free((char *)target->data) // todo replace with deep
         return 0;
     }
     if (target->right == NULL) { // target->left != NULL
         if (tree->root == target) {
             tree->root = target->left;
+            target->left->parent = NULL;
+            free((char *) target->data);
             free(target);
-            //        free((char *)target->data) // todo replace with deep
             return 0;
         }
         if (target->parent->left == target) {
@@ -158,8 +213,8 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
             target->parent->right = target->left;
         }
         target->left->parent = target->parent;
+        free((char *) target->data);
         free(target);
-        //        free((char *)target->data) // todo replace with deep
         return 0;
     }
     // target->right != NULL && target->left != NULL
@@ -167,7 +222,7 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
     int minDataSize = 0;
     _findMinNodeBT(target->right, &minData, &minDataSize);
     BNode *victim = minData[minDataSize - 1];
-
+    free(minData);
     if (victim->parent != target && victim->parent->left == victim) {
         if (minDataSize == 1) {
             victim->parent->left = NULL;
@@ -181,7 +236,6 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
         victim->right = target->right;
         target->right->parent = victim;
     }
-
     if (victim->parent == target && victim->left != NULL || minDataSize != 1) {
         BNode *ptr = victim->left;
         BNode *parent;
@@ -203,24 +257,39 @@ int deleteBT(BinaryTree *tree, unsigned int key) {
         }
         victim->parent = target->parent;
     }
-    if (tree->root == target) tree->root = victim;
+    if (tree->root == target) {
+        tree->root = victim;
+        victim->parent = NULL;
+    }
+    free((char *) target->data);
     free(target);
-    free(minData);
-    //free((char *)target->data) // todo replace with deep
     return 0;
 }
 
-int printBoundNLR_BT(const BinaryTree *tree, unsigned key) {
+void _simplePrint(BNode *node, int space) {
+    if (node == NULL) return;
+    space += 5;
+    _simplePrint(node->right, space);
+    printf("\n");
+    for (int i = 5; i < space; i++)
+        printf(" ");
+    printf("%d.%d \n", node->key, node->generation);
+    _simplePrint(node->left, space);
+}
+
+int printBoundNLR_BT(const BinaryTree *tree, unsigned key, DrawMode mode) {
     if (tree == NULL) return 1;
     BinaryTree *printTree = getBoundBinaryTree(tree, key);
-    createPngGraph(printTree);
+    createPngGraph(printTree, mode);
+    _simplePrint(printTree->root, 0);
     destroyBinaryTree(printTree);
     return 0;
 }
 
-int printNLR_BT(const BinaryTree *tree) {
+int printNLR_BT(const BinaryTree *tree, DrawMode mode) {
     if (tree == NULL) return 1;
-    createPngGraph(tree);
+    createPngGraph(tree, mode);
+    _simplePrint(tree->root, 0);
     return 0;
 }
 
@@ -247,3 +316,10 @@ int findBT(const BinaryTree *tree, unsigned int key, BNode ***result, int *size)
     if (found == 0) return 1;
     return 0;
 }
+
+int findMinBT(const BinaryTree *tree, BNode ***result, int *size) {
+    if (tree == NULL || tree->root == NULL) return 1;
+    return _findMinNodeBT(tree->root, result, size);
+}
+
+

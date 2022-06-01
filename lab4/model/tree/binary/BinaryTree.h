@@ -3,6 +3,8 @@
 
 #include "BNode.h"
 
+enum DrawMode;
+
 typedef struct BinaryTree {
     int size;
     BNode *root;
@@ -28,9 +30,9 @@ int deleteBT(BinaryTree *tree, unsigned key);
  * Вывод содержимого дерева в прямом порядке следования ключей,
  * не превышающих заданный (если ключ не указан — вывод содержимого всего дерева).
  */
-int printBoundNLR_BT(const BinaryTree *tree, unsigned key);
+int printBoundNLR_BT(const BinaryTree *tree, unsigned key, enum DrawMode mode);
 
-int printNLR_BT(const BinaryTree *tree);
+int printNLR_BT(const BinaryTree *tree, enum DrawMode mode);
 
 /*
  * Поиск информации по заданному ключу.
@@ -48,5 +50,7 @@ int findBT(const BinaryTree *tree, unsigned key, BNode ***result, int *size);
 int findMinBT(const BinaryTree *tree, BNode ***result, int *size);
 
 void destroyBinaryTree(BinaryTree *tree);
+
+void destroyBinaryTreeDeep(BinaryTree *tree);
 
 #endif

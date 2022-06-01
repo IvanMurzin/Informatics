@@ -1,58 +1,15 @@
-#include <printf.h>
-#include <stdlib.h>
-#include "BinaryTree.h"
-#include "readline/readline.h"
-
-void a(int **a) {
-    *a = malloc(sizeof(int) * 5);
-    *a[0] = 0;
-    *a[1] = 1;
-    *a[2] = 2;
-    *a[3] = 3;
-    *a[4] = 4;
-}
+#include "Dialog.h"
 
 int main() {
+    const char *messages[] = {"0. Quit", "1. Add", "2. Find", "3. Delete", "4. Show", "5. Mock data"};
+    const int messageSize = sizeof(messages) / sizeof(messages[0]);
+    int (*functions[])(BinaryTree *) = {NULL, D_AddBT, D_FindBT, D_DeleteBT, D_ShowBT, D_MockBT};
     BinaryTree *tree = getBinaryTree();
-    addBT(tree, 5, "1");
-    addBT(tree, 1, "2");
-    addBT(tree, 6, "3");
-//    addBT(tree, 7, "4");
-//    addBT(tree, 8, "5");
-    addBT(tree, 3, "6");
-    addBT(tree, 5, "7");
-    addBT(tree, 5, "7");
-    addBT(tree, 4, "8");
-    addBT(tree, 4, "9");
-    addBT(tree, 4, "9");
-    addBT(tree, 4, "9");
-    addBT(tree, 5, "10");
-    addBT(tree, 5, "10");
-    addBT(tree, 2, "10");
-    addBT(tree, 0, "1");
-    addBT(tree, 0, "2");
-    addBT(tree, 4, "10");
-    deleteBT(tree, 1);
-    deleteBT(tree, 2);
-    deleteBT(tree, 5);
-    deleteBT(tree, 3);
-    deleteBT(tree, 4);
-    deleteBT(tree, 5);
-    deleteBT(tree, 1);
-    deleteBT(tree, 7);
-    deleteBT(tree, 4);
-    deleteBT(tree, 8);
-    deleteBT(tree, 5);
-    deleteBT(tree, 4);
-    deleteBT(tree, 0);
-    deleteBT(tree, 4);
-    deleteBT(tree, 4);
-    deleteBT(tree, 4);
-    deleteBT(tree, 0);
-    deleteBT(tree, 6);
-    deleteBT(tree, 5);
-
-    printNLR_BT(tree);
-    destroyBinaryTree(tree);
+    int actionIndex;
+    while ((actionIndex = dialog(messages, messageSize))) {
+        if (!functions[actionIndex](tree)) break;
+    }
+    puts("That's all. Bye!\n");
+    destroyBinaryTreeDeep(tree);
     return 0;
 }

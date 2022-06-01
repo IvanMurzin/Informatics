@@ -3,6 +3,13 @@
 
 #include "BinaryTree.h"
 
-int createPngGraph(const BinaryTree *tree);
+typedef enum DrawMode {
+    DEFAULT,
+    PARENT,
+    FLASHED,
+    FLASHED_ONLY,
+} DrawMode;
+
+int createPngGraph(const BinaryTree *tree, DrawMode mode);
 
 #endif

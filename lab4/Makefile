@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-c -std=c99
-DIRS=-Imodel/tree/binary -Icontroller/graph
-SOURCES=main.c model/tree/binary/BinaryTree.c model/tree/binary/BNode.c controller/graph/GraphGenerator.c
+DIRS=-Icontroller/dialog -Imodel/tree/binary -Icontroller/graph
+SOURCES=main.c controller/dialog/Dialog.c model/tree/binary/BinaryTree.c model/tree/binary/BNode.c controller/graph/GraphGenerator.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=program
 
@@ -14,4 +14,4 @@ clean:
 	find . -type f -name '*.o' -delete
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) -lreadline -o $@
