@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <time.h>
 #include "Dialog.h"
 #include "test/test.h"
 
@@ -8,16 +10,21 @@ int main() {
 //    BinaryTree *tree = getBinaryTree();
 //    int actionIndex;
 //    while ((actionIndex = dialog(messages, messageSize))) {
-//        if (actionIndex == 6) {0
+//        if (actionIndex == 6) {
 //            if (!D_GetFromFile(&tree)) break;
 //        } else if (!functions[actionIndex](tree)) break;
 //    }
 //    puts("That's all. Bye!\n");
 //    destroyBinaryTreeDeep(tree);
-    for (int i = 10000; i < 1000000; i += 10000) {
-        int time = deleteInRandomFilledTree(i);
-        printf("%d %d \n", i, time);
+    srand(time(NULL));
+    for (int size = 1000; size < 100000; size += 1000) {
+        int time = 0;
+        for (int i = 0; i < 100; ++i) {
+            BinaryTree *tree = getBinaryTree();
+            for (int j = 0; j < size; ++j) addBT(tree, rand(), "data");
+            time += find(tree);
+        }
+        printf(",%d\n", time/100);
     }
-
     return 0;
 }

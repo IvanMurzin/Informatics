@@ -21,10 +21,16 @@ int collectGarbage(KeySpace1 *table) {
         if (table->containers[i].busy == 1) {
             table->containers[j].node = table->containers[i].node;
             table->containers[j].busy = 1;
+            if (i != j) {
+                table->containers[i].busy = 0;
+                table->containers[i].node = NULL;
+            }
             ++j;
         }
     }
-    return table->size - j;
+    int garbage = table->size - j;
+    table->size -= garbage;
+    return garbage;
 }
 
 int indexOfKS1(const KeySpace1 *table, Key key) {
@@ -48,11 +54,7 @@ int insertIntoKS1(KeySpace1 *table, Item *item) {
     int index = indexOfKS1(table, key);
     if (index < 0) {
         if (table->size == table->maxSize) {
-            int garbage = collectGarbage(table);
-            if (garbage == 0) {
-                throw ERROR_TABLE_OVERFLOW;
-            }
-            table->size -= garbage;
+            throw ERROR_TABLE_OVERFLOW;
         }
         table->containers[table->size].busy = 1;
         table->containers[table->size].node = calloc(1, sizeof(Node));

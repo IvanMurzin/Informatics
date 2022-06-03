@@ -23,4 +23,6 @@ int removeByKeyRange(const KeySpace1 *table, Key floor, Key selling);
 
 void destroyKS1(KeySpace1 *table);
 
+int collectGarbage(KeySpace1 *table);
+
 #endif

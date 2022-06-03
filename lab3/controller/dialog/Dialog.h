@@ -26,4 +26,6 @@ int D_Show(Table *table);
 
 int D_Mock(Table *table);
 
+int D_CollectGarbage(Table *table);
+
 #endif

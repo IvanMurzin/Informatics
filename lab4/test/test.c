@@ -1,106 +1,39 @@
-#include <string.h>
 #include <stdlib.h>
-#include <printf.h>
+#include "test.h"
 #include "sys/time.h"
 #include "BinaryTree.h"
 
-int insertSortedElements(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    gettimeofday(&start, NULL);
-    for (int i = 0; i < count; ++i) {
-        addBT(tree, i, "data");
+int insert(BinaryTree *tree) {
+    int a[1000];
+    for (int i = 0; i < 1000; ++i) a[i] = rand();
+    clock_t start = clock();
+    for (int i = 0; i < 1000; ++i) {
+        addBT(tree, a[i], "data");
     }
-    gettimeofday(&stop, NULL);
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec) / 1000;
+    clock_t stop = clock();
+    return stop - start;
 }
 
-int insertRandomElements(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    gettimeofday(&start, NULL);
-    for (int i = 0; i < count; ++i) {
-        addBT(tree, rand(), "data");
+int find(BinaryTree *tree) {
+    int a[1000];
+    for (int i = 0; i < 1000; ++i) a[i] = rand();
+    clock_t start = clock();
+    BNode **res;
+    int s;
+    for (int i = 0; i < 1000; ++i) {
+        findBT(tree, a[i], &res, &s);
     }
-    gettimeofday(&stop, NULL);
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec) / 1000;
+    clock_t stop = clock();
+    return stop - start;
 }
 
-int findInSortedFilledTree(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    for (int i = 0; i < 1000000; ++i) {
-        addBT(tree, i, "data");
+int delete(BinaryTree *tree) {
+    int a[1000];
+    for (int i = 0; i < 1000; ++i) a[i] = rand();
+    clock_t start = clock();
+    for (int i = 0; i < 1000; ++i) {
+        deleteBT(tree, a[i]);
     }
-    BNode **result;
-    int size = 0;
-    int key = rand() % count;
-    while (size == 0) {
-        key = rand() % count;
-        gettimeofday(&start, NULL);
-        findBT(tree, key, &result, &size);
-//        printf("key: %d, found: %d \n", key, size);
-        gettimeofday(&stop, NULL);
-    }
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
-}
-
-int findInRandomFilledTree(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    for (int i = 0; i < count; ++i) {
-        int key = rand() % 1000;
-        addBT(tree, key, "data");
-    }
-    BNode **result;
-    int size = 0;
-    int key = rand() % count;
-    while (size == 0) {
-        key = rand() % 1000;
-        gettimeofday(&start, NULL);
-        findBT(tree, key, &result, &size);
-//        printf("key: %d, found: %d \n", key, size);
-        gettimeofday(&stop, NULL);
-    }
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
-}
-
-int deleteInSortedFilledTree(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    for (int i = 0; i < count; ++i) {
-        char *data = malloc(5 * sizeof(char));
-        strcpy(data, "data");
-        addBT(tree, i, data);
-    }
-    int key;
-    int res = 1;
-    while (res) {
-        key = rand() % 1000;
-        gettimeofday(&start, NULL);
-        res = deleteBT(tree, key);
-        gettimeofday(&stop, NULL);
-    }
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
-}
-
-int deleteInRandomFilledTree(int count) {
-    struct timeval stop, start;
-    BinaryTree *tree = getBinaryTree();
-    srand(NULL);
-    for (int i = 0; i < count; ++i) {
-        int key = rand() % 1000;
-        char *data = malloc(5 * sizeof(char));
-        strcpy(data, "data");
-        addBT(tree, key, data);
-    }
-    int key;
-    int res = 1;
-    while (res) {
-        key = rand() % 1000;
-        gettimeofday(&start, NULL);
-        res = deleteBT(tree, key);
-        gettimeofday(&stop, NULL);
-    }
-    return ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+    clock_t stop = clock();
+    return stop - start;
 }

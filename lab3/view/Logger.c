@@ -13,8 +13,8 @@ void printSeparator(const char separator) {
 }
 
 
-void printEmptyLine(const char separator) {
-    printf("║ ?    ║ v?  ║ (????  |  ????|V?) ║ ????      ║%c", separator);
+void printEmptyLine(int busy, const char separator) {
+    printf("║ %2d   ║ v?  ║ (????  |  ????|V?) ║ ????      ║%c", busy, separator);
 }
 
 void printFooter(const char separator) {
@@ -74,7 +74,7 @@ int printKS2(const KeySpace2 *table, int busyOnly) {
         Container container = table->containers[i];
         if (container.node == NULL) {
             printSeparator('\n');
-            printEmptyLine('\n');
+            printEmptyLine(0, '\n');
         } else if (container.busy == 1 || !busyOnly) {
             printSeparator('\n');
             printRowKS2(container, '\n');
@@ -95,9 +95,11 @@ int printTable(const Table *table) {
         Container container2 = table->keySpace2->containers[i];
         printSeparator(' ');
         printSeparator('\n');
-        if (container1.node == NULL) printEmptyLine(' ');
+        if (container1.busy == -1) printEmptyLine(-1, ' ');
+        else if (container1.node == NULL) printEmptyLine(0, ' ');
         else printRowKS1(container1, ' ');
-        if (container2.node == NULL)printEmptyLine(' ');
+        if (container2.busy == -1)printEmptyLine(-1, ' ');
+        else if (container2.node == NULL)printEmptyLine(0, ' ');
         else printRowKS2(container2, ' ');
         printf("\n");
     }

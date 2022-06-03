@@ -1,16 +1,12 @@
 #ifndef LAB4_TEST_H
 #define LAB4_TEST_H
 
-int insertSortedElements(int count);
+#include "BinaryTree.h"
 
-int insertRandomElements(int count);
+int insert(BinaryTree* tree);
 
-int findInSortedFilledTree(int count);
+int find(BinaryTree* tree);
 
-int findInRandomFilledTree(int count);
-
-int deleteInSortedFilledTree(int count);
-
-int deleteInRandomFilledTree(int count);
+int delete(BinaryTree* tree);
 
 #endif

@@ -201,3 +201,9 @@ int D_Mock(Table *table) {
     if (put(table, item)) destroyItem(item);
     return 1;
 }
+
+int D_CollectGarbage(Table *table) {
+    int garbage = collectGarbage(table->keySpace1);
+    printf("Ok. Collected: %d\n", garbage);
+    return 1;
+}

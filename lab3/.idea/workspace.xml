@@ -12,9 +12,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcda512-0350-4c22-af05-2035472b3ba8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../lab4/timing/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4/timing/find.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4/timing/insert.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/controller/dialog/Dialog.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/model/tree/binary/BinaryTree.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/model/tree/binary/BinaryTree.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab3" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dialog/Dialog.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/dialog/Dialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dialog/Dialog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/keyspace/node/Node.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/keyspace/node/Node.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/test/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/test/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/test/test.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/test/test.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/delete_in_random_filled_tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/delete_in_sorted_filled_tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/find_in_random_filled_array.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/find_in_sorted_filled_array.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/insert_random_elements.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/timing/insert_sorted_elements.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +143,8 @@
       <workItem from="1654029735839" duration="68000" />
       <workItem from="1654046262780" duration="3049000" />
       <workItem from="1654070804069" duration="598000" />
+      <workItem from="1654078124511" duration="3227000" />
+      <workItem from="1654086448229" duration="2686000" />
     </task>
     <servers />
   </component>
