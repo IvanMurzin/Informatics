@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <printf.h>
 #include "Errors.h"
+#include "Iterator.h"
 
 
 int getKS1(KeySpace1 **table, int maxSize) {
@@ -24,6 +25,12 @@ int collectGarbage(KeySpace1 *table) {
             if (i != j) {
                 table->containers[i].busy = 0;
                 table->containers[i].node = NULL;
+                Node *tmp = table->containers[j].node;
+                tmp->item->nodeKS1 = table->containers[i].node;
+                while (hasNextNode(tmp)) {
+                    tmp = nextNode(tmp);
+                    tmp->item->nodeKS1 = table->containers[i].node;
+                }
             }
             ++j;
         }

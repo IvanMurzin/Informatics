@@ -12,103 +12,111 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f623f02-07a8-47da-9974-5e6c04895a1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../lab4/timing/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/timing/find.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab4/timing/insert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/lab5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-c6893fd65c6bc8676ebf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-14503b3c35cea689edbe.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-bc5bfbba808d12583e4a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-03T00-35-05-0380.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab5-Debug-fc46a9a7e69bf0250e4f.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/main.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/container/Container.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/edge/Edge.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/matrix/Matrix.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/vertex/Vertex.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/view/Logger.c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lab5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/graph/GraphGenerator.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/graph/GraphGenerator.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/lab5.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/task.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/container/Container.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/container/Container.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/edge/Edge.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/edge/Edge.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/matrix/Matrix.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/matrix/Matrix.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/node/Node.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/node/Node.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/vertex/Vertex.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/vertex/Vertex.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/graph.dot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output/graph.dot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/Logger.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/Logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/.idea/lab4b.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/controller/dialog/Dialog.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/controller/dialog/Dialog.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/controller/graph/GraphGenerator.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/controller/graph/GraphGenerator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/docs/lab4a.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/docs/lab4b.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/docs/task4a.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/docs/task4b.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/main.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/model/tree/Q/QNode.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/model/tree/Q/QNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/model/tree/Q/QTree.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/model/tree/Q/QTree.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/output/binary_tree.dot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/output/binary_tree.dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/test/test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/test/test.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/timing/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/timing/find.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab4b/timing/insert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/cache-v2-29ca777bea4511565c7a.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-4ad3c7b9f1a696810fae.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6c78b45e9ee900b8e8fd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-03T15-00-01-0988.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/target-untitled-Debug-bb2ae9144b4a77621b39.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../untitled/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/main.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/table/Table.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/model/table/item/Item.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/view/Logger.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/controller/dialog/Dialog.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/controller/dialog/Dialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/controller/dialog/Dialog.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab3/model/keyspace/keyspace1/KeySpace1.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/model/keyspace/keyspace1/KeySpace1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/model/keyspace/keyspace1/KeySpace1.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/model/keyspace/keyspace1/KeySpace1.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/model/keyspace/node/Node.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/model/keyspace/node/Node.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/view/Logger.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/view/Logger.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab4/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/test/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/test/test.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/test/test.h" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/test/test.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/delete_in_random_filled_tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/delete_in_sorted_filled_tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/find_in_random_filled_array.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/find_in_sorted_filled_array.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/insert_random_elements.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4/timing/insert_sorted_elements.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/output/binary_tree.dot" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/output/binary_tree.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4/output/binary_tree.dot.png" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4/output/binary_tree.dot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-bc5bfbba808d12583e4a.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-5ebcdd75be5fa34fce4f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-03T00-35-05-0380.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-06-03T01-29-30-0162.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab5-Debug-fc46a9a7e69bf0250e4f.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab5-Debug-48a29582b3ac7138978b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab5" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/graph.dot" beforeDir="false" afterPath="$PROJECT_DIR$/output/graph.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/graph.dot.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/graph.dot.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,11 +168,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab5" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab5" TARGET_NAME="lab5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab5" RUN_TARGET_NAME="lab5">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -180,7 +183,12 @@
       <option name="presentableId" value="Default" />
       <updated>1654199942549</updated>
       <workItem from="1654199943693" duration="13576000" />
-      <workItem from="1654213568956" duration="5498000" />
+      <workItem from="1654213568956" duration="5587000" />
+      <workItem from="1654219768985" duration="598000" />
+      <workItem from="1654255457166" duration="598000" />
+      <workItem from="1654264237410" duration="43000" />
+      <workItem from="1654270539633" duration="125000" />
+      <workItem from="1654271036070" duration="598000" />
     </task>
     <servers />
   </component>

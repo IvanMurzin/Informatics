@@ -11,4 +11,4 @@ add_executable(lab4 main.c
         model/tree/binary/BNode.c
         controller/graph/GraphGenerator.c
         controller/dialog/Dialog.c
-        test/test.c test/test.h)
+        test/test.c test/test.h model/tree/q/QTree.c model/tree/q/QTree.h)

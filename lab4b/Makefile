@@ -1,0 +1,17 @@
+CC=gcc
+CFLAGS=-c -std=c99
+DIRS=-Icontroller/dialog -Imodel/tree/binary -Icontroller/graph
+SOURCES=main.c controller/dialog/Dialog.c model/tree/binary/Tree.c model/tree/binary/Item.c controller/graph/GraphGenerator.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=program
+
+all: $(SOURCES)  $(EXECUTABLE)
+
+.c.o:
+	@($(CC) $(DIRS) $(CFLAGS) $< -o $@)
+
+clean:
+	find . -type f -name '*.o' -delete
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -lreadline -o $@
