@@ -17,30 +17,32 @@ void _writeNode(FILE *file, const Node *node) {
 
 void _writeDotNLR(FILE *file, const Node *node, int *leaves) {
     if (node == NULL) return;
-    } else {
-        for (int i = 0; i < 4; ++i) {
-            if (node->nodes[i] != NULL)
-                _writeNode(file, node);
+    for (int i = 0; i < 4; ++i) {
+        if (node->nodes[i] != NULL) {
+            _writeNode(file, node);
+            fprintf(file, " -> ");
+            _writeNode(file, node->nodes[i]);
         }
-        _writeDotNLR(file, node->left, leaves);
-        _writeDotNLR(file, node->right, leaves);
     }
-
-    int createPngGraph(const Tree *tree) {
-        if (tree == NULL || tree->root == NULL) return 1;
-        FILE *file = fopen("../output/tree.dot", "w");
-        if (file == NULL) return 1;
-        fprintf(file, DOT_HEADER);
-        int leaves = 0;
-
-        fprintf(file, "%d.%d", tree->root->key, tree->root->generation);
-        _writeDotNLR(file, tree->root, &leaves, mode);
-        for (int i = 0; i < leaves; ++i) {
-            fprintf(file, DOT_EMPTY, i);
-        }
-        fprintf(file, DOT_FOOTER);
-        fclose(file);
-        system("dot -Tpng -O ../output/binary_tree.dot");
-        return 0;
+    for (int i = 0; i < 4; ++i) {
+        _writeDotNLR(file, node->nodes[i], leaves);
     }
+}
+
+int createPngGraph(const Tree *tree) {
+    if (tree == NULL || tree->root == NULL) return 1;
+    FILE *file = fopen("../output/tree.dot", "w");
+    if (file == NULL) return 1;
+    fprintf(file, DOT_HEADER);
+    int leaves = 0;
+
+    _writeDotNLR(file, tree->root, &leaves);
+//    for (int i = 0; i < leaves; ++i) {
+//        fprintf(file, DOT_EMPTY, i);
+//    }
+    fprintf(file, DOT_FOOTER);
+    fclose(file);
+    system("dot -Tpng -O ../output/tree.dot");
+    return 0;
+}
 

@@ -7,16 +7,16 @@
 
 int dialog(const char *messages[], int messageSize);
 
-int D_AddBT(BinaryTree *tree);
+int D_AddBT(Tree *tree);
 
-int D_FindBT(BinaryTree *tree);
+int D_FindBT(Tree *tree);
 
-int D_DeleteBT(BinaryTree *tree);
+int D_DeleteBT(Tree *tree);
 
-int D_ShowBT(BinaryTree *tree);
+int D_ShowBT(Tree *tree);
 
-int D_MockBT(BinaryTree *tree);
+int D_MockBT(Tree *tree);
 
-int D_GetFromFile(BinaryTree **tree);
+int D_GetFromFile(Tree **tree);
 
 #endif

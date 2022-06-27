@@ -9,7 +9,7 @@ typedef struct Node {
     struct Node *parent;
     struct Node *nodes[4];
     Item *items;
-    int nodeSize;
+    int itemSize;
 } Node;
 
 Node *getNode(Key border);

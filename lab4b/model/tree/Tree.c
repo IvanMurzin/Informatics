@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include "Tree.h"
 
-Tree *getTree(Key max) {
+Tree *getTree(Key max, int N) {
     Tree *tree = calloc(1, sizeof(Tree));
     tree->max = max;
+    tree->N = N;
     return tree;
 }
 
@@ -16,11 +17,15 @@ int add(Tree *tree, Key key, const char *data) {
     }
     Node *ptr = tree->root;
     while (ptr != NULL) {
-        if (ptr->nodeSize < tree->N) {
+        if (ptr->itemSize < tree->N) {
             Item *cursor = ptr->items;
-            while (cursor->next != NULL) cursor = cursor->next;
-            cursor->next = newItem;
-            ptr->nodeSize++;
+            if (cursor == NULL) {
+                ptr->items = newItem;
+            } else {
+                while (cursor->next != NULL) cursor = cursor->next;
+                cursor->next = newItem;
+            }
+            ptr->itemSize++;
             return 0;
         }
         int direction = getDirection(ptr->border, newItem->key);
@@ -35,7 +40,6 @@ int add(Tree *tree, Key key, const char *data) {
         }
         ptr = ptr->nodes[direction];
     }
-
     return 0;
 }
 

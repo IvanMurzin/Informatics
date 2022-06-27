@@ -11,7 +11,7 @@ typedef struct Tree {
     Node *root;
 } Tree;
 
-Tree *getTree(Key max);
+Tree *getTree(Key max, int N);
 
 /*
  * Добавление нового элемента в дерево без нарушения свойств упорядоченности.
@@ -41,7 +41,7 @@ int printNLR(const Tree *tree, enum DrawMode mode);
 int find(const Tree *tree, unsigned key, Item ***result, int *size);
 
 /*
- * Поиск элемента c наименьшим значением ключа
+ * Поиск элемента с наименьшим значением ключа
  * (если таких элементов несколько — действовать по аналогии с операцией поиска по ключу)
  */
 int findMin(const Tree *tree, Item ***result, int *size);
@@ -51,4 +51,3 @@ void destroyQTree(Tree *tree);
 void destroyQTreeDeep(Tree *tree);
 
 #endif
-// todo если сломаю тебе лабу - ты напишешь мне мою 4б. Подпись: dick(Дмитрий Иванович Ckуплинов)
