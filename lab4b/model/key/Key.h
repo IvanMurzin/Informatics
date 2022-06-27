@@ -7,9 +7,22 @@ typedef struct Key {
 
 Key getKey(unsigned x, unsigned y);
 
+int outOfBorder(Key start, Key end, Key key);
+
 Key getHalf(Key key);
 
-int getDirection(Key border, Key key);
+Key getBorder(Key start, Key end);
+
+int getDirection(Key start, Key end, Key key);
 
 int equalsKey(Key first, Key second);
+
+int greaterKey(Key src, Key key);
+
+int gte(Key left, Key right);
+
+Key getNewStartBorder(Key start, Key end, int direction);
+
+Key getNewEndBorder(Key start, Key end, int direction);
+
 #endif

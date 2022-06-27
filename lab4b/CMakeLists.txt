@@ -14,4 +14,7 @@ add_executable(lab4 main.c
         model/item/Item.c
         controller/graph/GraphGenerator.c
         controller/dialog/Dialog.c
-        test/test.c test/test.h model/tree/Tree.c model/tree/Tree.h model/key/Key.c model/key/Key.h model/node/Node.c model/node/Node.h)
+        model/tree/Tree.c
+        model/key/Key.c
+        model/node/Node.c
+        )

@@ -11,5 +11,8 @@ typedef struct Item {
 
 Item *getItem(Key key, const char *data);
 
-void destroyItem(Item* item);
+int putSorted(Item **src, Item *item);
+
+void destroyItem(Item *item);
+
 #endif

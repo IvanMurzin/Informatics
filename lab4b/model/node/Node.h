@@ -5,13 +5,16 @@
 #include "Item.h"
 
 typedef struct Node {
-    Key border;
+    Key borderStart;
+    Key borderEnd;
     struct Node *parent;
     struct Node *nodes[4];
     Item *items;
     int itemSize;
 } Node;
 
-Node *getNode(Key border);
+Node *getNode(Key borderStart, Key borderEnd);
+
+void destroyNode(Node *node);
 
 #endif

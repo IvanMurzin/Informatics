@@ -6,10 +6,10 @@
 #define DOT_FOOTER "}"
 
 void _writeNode(FILE *file, const Node *node) {
-    fprintf(file, "\"[%d;%d]", node->border.x, node->border.y);
+    fprintf(file, "\"x∈[%d;%d]; y∈[%d;%d]", node->borderStart.x, node->borderEnd.x, node->borderStart.y, node->borderEnd.y);
     Item *cursor = node->items;
     while (cursor != NULL) {
-        fprintf(file, "\n(%d;%d)", cursor->key.x, cursor->key.y);
+        fprintf(file, "\n{%d;%d}", cursor->key.x, cursor->key.y);
         cursor = cursor->next;
     }
     fprintf(file, "\"");
@@ -17,6 +17,7 @@ void _writeNode(FILE *file, const Node *node) {
 
 void _writeDotNLR(FILE *file, const Node *node, int *leaves) {
     if (node == NULL) return;
+    _writeNode(file, node);
     for (int i = 0; i < 4; ++i) {
         if (node->nodes[i] != NULL) {
             _writeNode(file, node);
