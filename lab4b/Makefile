@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-c -std=c99
-DIRS=-Imodel/tree -Imodel/key -Imodel/item -Imodel/node -Icontroller/graph -Icontroller/dialog
-SOURCES=main.c model/tree/Tree.c model/item/Item.c controller/graph/GraphGenerator.c controller/dialog/Dialog.c model/key/Key.c model/node/Node.c
+DIRS=-Itest -Imodel/tree -Imodel/key -Imodel/item -Imodel/node -Icontroller/graph -Icontroller/dialog
+SOURCES=main.c test/test.c model/tree/Tree.c model/item/Item.c controller/graph/GraphGenerator.c controller/dialog/Dialog.c model/key/Key.c model/node/Node.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=program
 

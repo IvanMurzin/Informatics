@@ -80,7 +80,7 @@ int greaterKey(Key src, Key key) {
     return src.x < key.x || src.y < key.y;
 }
 
-int gte(Key left, Key right) {
+int gt(Key left, Key right) {
     if (left.x < right.x) return 0;
     if (left.x == right.x && left.y < right.y) return 0;
     return 1;

@@ -17,3 +17,18 @@ void destroyNode(Node *node) {
     }
     free(node);
 }
+
+int isAllNull(Node **nodes, int size) {
+    int countNull = 0;
+    for (int i = 0; i < size; ++i) {
+        countNull += (nodes[i] == NULL);
+    }
+    return size == countNull;
+}
+
+int firstNotNullIndex(Node **nodes, int size) {
+    for (int i = 0; i < size; ++i) {
+        if (nodes[i] != NULL) return i;
+    }
+    return -1;
+}

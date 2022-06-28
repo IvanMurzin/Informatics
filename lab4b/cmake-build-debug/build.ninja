@@ -98,6 +98,13 @@ build CMakeFiles/lab4.dir/model/node/Node.c.o: C_COMPILER__lab4_Debug /Users/iva
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/model/node
 
+build CMakeFiles/lab4.dir/test/test.c.o: C_COMPILER__lab4_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/test/test.c || cmake_object_order_depends_target_lab4
+  DEP_FILE = CMakeFiles/lab4.dir/test/test.c.o.d
+  FLAGS = -lreadline -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/model/tree -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/model/key -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/model/item -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab4b/controller/dialog
+  OBJECT_DIR = CMakeFiles/lab4.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab4.dir/test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab4
@@ -106,7 +113,7 @@ build CMakeFiles/lab4.dir/model/node/Node.c.o: C_COMPILER__lab4_Debug /Users/iva
 #############################################
 # Link the executable lab4
 
-build lab4: C_EXECUTABLE_LINKER__lab4_Debug CMakeFiles/lab4.dir/main.c.o CMakeFiles/lab4.dir/model/tree/Tree.c.o CMakeFiles/lab4.dir/model/item/Item.c.o CMakeFiles/lab4.dir/controller/graph/GraphGenerator.c.o CMakeFiles/lab4.dir/controller/dialog/Dialog.c.o CMakeFiles/lab4.dir/model/key/Key.c.o CMakeFiles/lab4.dir/model/node/Node.c.o
+build lab4: C_EXECUTABLE_LINKER__lab4_Debug CMakeFiles/lab4.dir/main.c.o CMakeFiles/lab4.dir/model/tree/Tree.c.o CMakeFiles/lab4.dir/model/item/Item.c.o CMakeFiles/lab4.dir/controller/graph/GraphGenerator.c.o CMakeFiles/lab4.dir/controller/dialog/Dialog.c.o CMakeFiles/lab4.dir/model/key/Key.c.o CMakeFiles/lab4.dir/model/node/Node.c.o CMakeFiles/lab4.dir/test/test.c.o
   FLAGS = -lreadline -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   OBJECT_DIR = CMakeFiles/lab4.dir
   POST_BUILD = :

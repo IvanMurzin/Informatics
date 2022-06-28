@@ -1,12 +1,12 @@
-//#ifndef LAB4_TEST_H
-//#define LAB4_TEST_H
-//
-//#include "BinaryTree.h"
-//
-//int insert(BinaryTree* tree);
-//
-//int find(BinaryTree* tree);
-//
-//int delete(BinaryTree* tree);
-//
-//#endif
+#ifndef LAB4_TEST_H
+#define LAB4_TEST_H
+
+#include "Tree.h"
+
+int insertQ(Tree* tree);
+
+int findQ(Tree* tree);
+
+int deleteQ(Tree* tree);
+
+#endif

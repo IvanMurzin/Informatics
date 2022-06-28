@@ -3,6 +3,6 @@
 
 #include "Tree.h"
 
-int createPngGraph(const Tree *tree);
+int createPngGraph(const Tree *tree, int isNLR);
 
 #endif

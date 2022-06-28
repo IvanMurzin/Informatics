@@ -19,7 +19,7 @@ int equalsKey(Key first, Key second);
 
 int greaterKey(Key src, Key key);
 
-int gte(Key left, Key right);
+int gt(Key left, Key right);
 
 Key getNewStartBorder(Key start, Key end, int direction);
 

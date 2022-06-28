@@ -7,16 +7,20 @@
 
 int dialog(const char *messages[], int messageSize);
 
-int D_AddBT(Tree *tree);
+int D_Add(Tree *tree);
 
-int D_FindBT(Tree *tree);
+int D_Find(Tree *tree);
 
-int D_DeleteBT(Tree *tree);
+int D_FindMin(Tree *tree);
 
-int D_ShowBT(Tree *tree);
+int D_DeleteByNumber(Tree *tree);
 
-int D_MockBT(Tree *tree);
+int D_Delete(Tree *tree);
 
-int D_GetFromFile(Tree **tree);
+int D_Draw(Tree *tree);
+
+int D_DrawReverse(Tree *tree);
+
+int D_Mock(Tree *tree);
 
 #endif

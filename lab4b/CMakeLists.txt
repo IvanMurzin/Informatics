@@ -17,4 +17,5 @@ add_executable(lab4 main.c
         model/tree/Tree.c
         model/key/Key.c
         model/node/Node.c
+        test/test.c
         )
