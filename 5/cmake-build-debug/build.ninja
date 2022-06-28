@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug/
+cmake_ninja_workdir = /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target lab5
 
@@ -49,82 +49,82 @@ cmake_ninja_workdir = /Users/ivanmurzin/Projects/CLionProjects/informatics/semes
 
 build cmake_object_order_depends_target_lab5: phony || CMakeFiles/lab5.dir
 
-build CMakeFiles/lab5.dir/main.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/main.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/main.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/main.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/main.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/model/matrix/Matrix.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix/Matrix.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/model/matrix/Matrix.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix/Matrix.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/model/matrix/Matrix.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/model/matrix
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/model/vertex/Vertex.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex/Vertex.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/model/vertex/Vertex.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex/Vertex.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/model/vertex/Vertex.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/model/vertex
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/model/container/Container.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container/Container.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/model/container/Container.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container/Container.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/model/container/Container.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/model/container
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/view/Logger.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view/Logger.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/view/Logger.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view/Logger.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/view/Logger.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/view
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/model/edge/Edge.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge/Edge.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/model/edge/Edge.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge/Edge.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/model/edge/Edge.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/model/edge
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph/GraphGenerator.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph/GraphGenerator.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/controller/graph
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/model/node/Node.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node/Node.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/model/node/Node.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node/Node.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/model/node/Node.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/model/node
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
   TARGET_PDB = lab5.pdb
 
-build CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog/Dialog.c || cmake_object_order_depends_target_lab5
+build CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o: C_COMPILER__lab5_Debug /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog/Dialog.c || cmake_object_order_depends_target_lab5
   DEP_FILE = CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu99
-  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/view
+  INCLUDES = -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/dialog -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/controller/graph -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/container -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/edge -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/matrix -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/node -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/model/vertex -I/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/view
   OBJECT_DIR = CMakeFiles/lab5.dir
   OBJECT_FILE_DIR = CMakeFiles/lab5.dir/controller/dialog
   TARGET_COMPILE_PDB = CMakeFiles/lab5.dir/
@@ -152,7 +152,7 @@ build lab5: C_EXECUTABLE_LINKER__lab5_Debug CMakeFiles/lab5.dir/main.c.o CMakeFi
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug && "/Users/ivanmurzin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/cmake-build-debug && "/Users/ivanmurzin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -163,7 +163,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug && "/Users/ivanmurzin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5 -B/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug
+  COMMAND = cd /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/cmake-build-debug && "/Users/ivanmurzin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5 -B/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -179,7 +179,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug
+# Folder: /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/5/cmake-build-debug
 
 build all: phony lab5
 

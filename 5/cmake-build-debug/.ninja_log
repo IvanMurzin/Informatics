@@ -1,5 +1,5 @@
 # ninja log v5
-0	64	1656429142222651719	build.ninja	f84d5b72b2b4c18e
+0	64	1656432269489493231	build.ninja	f84d5b72b2b4c18e
 1	69	1654270550062620817	CMakeFiles/lab5.dir/view/Logger.c.o	31f9b814c0869fd6
 2	69	1654270550062491112	CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o	d4a9ae60318e8db3
 0	61	1654270550051979463	CMakeFiles/lab5.dir/model/vertex/Vertex.c.o	3e4aea9d77fd7cf3
@@ -10,3 +10,13 @@
 2	73	1654270550068230174	CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o	420b436aab6a3377
 1	67	1654270550061939876	CMakeFiles/lab5.dir/model/edge/Edge.c.o	deaaaf037933481
 2	67	1654270550060877112	CMakeFiles/lab5.dir/model/node/Node.c.o	b32b8f5367757ff9
+3	236	1656437509835474206	CMakeFiles/lab5.dir/model/container/Container.c.o	96ad29470d7b43ac
+3	237	1656437509835651369	CMakeFiles/lab5.dir/view/Logger.c.o	6649e8561924c0d9
+3	237	1656437509835542830	CMakeFiles/lab5.dir/model/edge/Edge.c.o	d8e6b2605e0417ac
+1	237	1656437509835487664	CMakeFiles/lab5.dir/main.c.o	5810485beee54677
+2	237	1656437509835467373	CMakeFiles/lab5.dir/model/vertex/Vertex.c.o	f3540f624c92f734
+2	243	1656437509842932600	CMakeFiles/lab5.dir/model/matrix/Matrix.c.o	82a82a4f51c54436
+237	269	1656437509870428303	CMakeFiles/lab5.dir/model/node/Node.c.o	586460ff0477e157
+236	270	1656437509871629653	CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o	e6682bcf8e3e7366
+237	271	1656437509872558760	CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o	c97c2117c338971d
+271	321	1656437509922294562	lab5	d7cfb775208e0d64

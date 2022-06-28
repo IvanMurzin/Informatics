@@ -1,0 +1,1 @@
+CMakeLists.txt not found in /Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab3 Select CMakeLists.txt

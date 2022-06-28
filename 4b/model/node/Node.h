@@ -15,10 +15,10 @@ typedef struct Node {
 
 Node *getNode(Key borderStart, Key borderEnd);
 
+int getNodes(Key borderStart, Key borderEnd, Node **result);
+
 void destroyNode(Node *node);
 
-int isAllNull(Node **nodes, int size);
-
-int firstNotNullIndex(Node **nodes, int size);
+int firstNotEmptyIndex(Node **nodes, int size);
 
 #endif

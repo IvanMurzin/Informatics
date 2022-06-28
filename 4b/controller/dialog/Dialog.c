@@ -17,7 +17,7 @@ int _getUnsigned(int *a) {
     return 1;
 }
 
-Key _getKey() {
+Key _readKey() {
     unsigned x = 0, y = 0;
     puts("Enter key: --> ");
     puts("Enter x: --> ");
@@ -46,7 +46,7 @@ int dialog(const char *messages[], int messageSize) {
 }
 
 int D_Add(Tree *tree) {
-    Key key = _getKey();
+    Key key = _readKey();
     char *data = NULL;
     int n;
     do {
@@ -76,7 +76,7 @@ int D_Add(Tree *tree) {
 }
 
 int D_Find(Tree *tree) {
-    Key key = _getKey();
+    Key key = _readKey();
     int number = 0;
     puts("Enter positional number --> ");
     _getUnsigned(&number);
@@ -98,7 +98,7 @@ int D_FindMin(Tree *tree) {
 }
 
 int D_DeleteByNumber(Tree *tree) {
-    Key key = _getKey();
+    Key key = _readKey();
     int number = 0;
     puts("Enter positional number --> ");
     _getUnsigned(&number);
@@ -109,12 +109,15 @@ int D_DeleteByNumber(Tree *tree) {
 }
 
 int D_Delete(Tree *tree) {
-    Key key = _getKey();
+    Key key = _readKey();
     int number = getMaxNumber(tree, key);
+    if (number < 0) {
+        puts("Not Found");
+        return 1;
+    }
     printf("Deleting: Key={%d.%d} Number=%d\n", key.x, key.y, number);
-    int deleteResult = delete(tree, key, number);
-    if (deleteResult) puts("Not Found");
-    else puts("Ok");
+    delete(tree, key, number);
+    puts("Ok");
     return 1;
 }
 
@@ -125,7 +128,22 @@ int D_Draw(Tree *tree) {
 }
 
 int D_DrawReverse(Tree *tree) {
-    createPngGraph(tree, 0);
+    int n;
+    Key floor;
+    Key selling;
+    do {
+        n = 1;
+        puts("Enter floor");
+        floor = _readKey();
+        puts("Enter selling");
+        selling = _readKey();
+        if (gt(floor, selling)) {
+            puts("Floor can't be greater than selling\nRepeat input");
+            n = 0;
+        }
+    } while (n == 0);
+    Tree *newTree = getNewTree(tree, floor, selling);
+    createPngGraph(newTree, 0);
     puts("Drew");
     return 1;
 }

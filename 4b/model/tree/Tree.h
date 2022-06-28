@@ -7,11 +7,14 @@ enum DrawMode;
 
 typedef struct Tree {
     int N;
-    Key max;
+    Key end;
+    Key start;
     Node *root;
 } Tree;
 
-Tree *getTree(Key max, int N);
+Tree *getTree(Key start, Key end, int N);
+
+Tree *getNewTree(Tree *tree, Key start, Key end);
 
 int add(Tree *tree, Key key, const char *data);
 

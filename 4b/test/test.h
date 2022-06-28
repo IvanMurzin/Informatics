@@ -3,10 +3,10 @@
 
 #include "Tree.h"
 
-int insertQ(Tree* tree);
+int insertQ(Tree *tree);
 
-int findQ(Tree* tree);
+int findQ(Tree *tree);
 
-int deleteQ(Tree* tree);
+int deleteQ(Tree *tree);
 
 #endif
