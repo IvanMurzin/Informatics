@@ -1,3 +1,0 @@
-/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/ivanmurzin/Projects/CLionProjects/informatics/semester2/lab5/cmake-build-debug/CMakeFiles/lab5.dir

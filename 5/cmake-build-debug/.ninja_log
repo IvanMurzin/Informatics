@@ -1,0 +1,12 @@
+# ninja log v5
+0	64	1656429142222651719	build.ninja	f84d5b72b2b4c18e
+1	69	1654270550062620817	CMakeFiles/lab5.dir/view/Logger.c.o	31f9b814c0869fd6
+2	69	1654270550062491112	CMakeFiles/lab5.dir/controller/graph/GraphGenerator.c.o	d4a9ae60318e8db3
+0	61	1654270550051979463	CMakeFiles/lab5.dir/model/vertex/Vertex.c.o	3e4aea9d77fd7cf3
+0	71	1654270550066122187	CMakeFiles/lab5.dir/main.c.o	79edd41afd461761
+1	68	1654270550061425556	CMakeFiles/lab5.dir/model/container/Container.c.o	24ccfee151c6b026
+0	80	1654270550074257479	CMakeFiles/lab5.dir/model/matrix/Matrix.c.o	47cd9197553cf124
+80	120	1654270550115407433	lab5	7ec07fac0f7bca9a
+2	73	1654270550068230174	CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o	420b436aab6a3377
+1	67	1654270550061939876	CMakeFiles/lab5.dir/model/edge/Edge.c.o	deaaaf037933481
+2	67	1654270550060877112	CMakeFiles/lab5.dir/model/node/Node.c.o	b32b8f5367757ff9

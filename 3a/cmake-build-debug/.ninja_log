@@ -1,0 +1,15 @@
+# ninja log v5
+3	253	1654086772175948147	CMakeFiles/lab3.dir/controller/dialog/Dialog.c.o	bbc4f7cc2d219a53
+0	73	1653780594655599053	CMakeFiles/lab3.dir/model/table/CompositeKey.c.o	fabd06cc258a317c
+1	252	1654086772172418820	CMakeFiles/lab3.dir/model/keyspace/container/Container.c.o	f5584d05f972af2d
+1	253	1654086772175570865	CMakeFiles/lab3.dir/model/keyspace/keyspace2/KeySpace2.c.o	576a8a4f0bcf356
+2	253	1654086772173052262	CMakeFiles/lab3.dir/controller/iterator/Iterator.c.o	f6b3424115d760a1
+1	41	1654257901588435031	CMakeFiles/lab3.dir/main.c.o	44df6bf043680e86
+1	252	1654086772174134235	CMakeFiles/lab3.dir/model/table/item/Item.c.o	240918d42a51a3
+1	71	1654259508972266625	CMakeFiles/lab3.dir/model/keyspace/keyspace1/KeySpace1.c.o	d0444633dae25a58
+71	120	1654259509023435823	lab3	e5b6ac5741b83054
+1	73	1653780594655591595	CMakeFiles/lab3.dir/model/keyspace/key/Key.c.o	fbcd93a35466be47
+1	35	1654086908320402021	CMakeFiles/lab3.dir/view/Logger.c.o	7c9b9fd03dc738f4
+1	253	1654086772175463743	CMakeFiles/lab3.dir/model/table/Table.c.o	8c35d366cd6e6529
+0	52	1656429100473647839	build.ninja	12023d35ee7525a1
+1	41	1654088188000656911	CMakeFiles/lab3.dir/model/keyspace/node/Node.c.o	a26ffea3ea3c2fa0
