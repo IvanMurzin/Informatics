@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <printf.h>
 #include <limits.h>
 #include "Matrix.h"
 
@@ -177,10 +176,6 @@ int findShortestPathBellmanFord(Matrix *matrix, Vertex begin, Vertex end, Node *
             }
         }
     }
-    for (int i = 0; i < matrix->size; ++i) {
-        printf("%d ", previous[i]);
-    }
-    printf("\n s:%d e:%d\n", beginIndex, endIndex);
     _buildPath(matrix, endIndex, beginIndex, previous, path);
     free(d);
     free(previous);
