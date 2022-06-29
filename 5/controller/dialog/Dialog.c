@@ -100,8 +100,8 @@ int D_FindShortestPath(Matrix *matrix) {
             puts("Ok");
             printPath(path);
         }
-        destroyNodes(path);
     }
+    destroyNodes(path);
     return 1;
 }
 

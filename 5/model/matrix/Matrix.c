@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <limits.h>
-#include <printf.h>
 #include "Matrix.h"
 
 void _initContainers(Matrix *matrix, int size) {
@@ -112,14 +111,14 @@ void _dfs(Matrix *matrix, int *colors, int *previous, int index) {
     colors[index] = 2;
 }
 
-int _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node **path) {
+int _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node **path, int isBfAlg) {
     pushFirst(path, matrix->containers[endIndex].vertex);
     int prev = previous[endIndex];
     while (prev != -1 && prev != beginIndex) {
         pushFirst(path, matrix->containers[prev].vertex);
         prev = previous[prev];
     }
-    if (prev != beginIndex) {
+    if (prev != beginIndex && !isBfAlg) {
         return 1;
     }
     pushFirst(path, matrix->containers[beginIndex].vertex);
@@ -136,7 +135,7 @@ int findPathDFS(Matrix *matrix, Vertex begin, Vertex end, Node **path) {
     int *previous = malloc(matrix->size * sizeof(int));
     for (int i = 0; i < matrix->size; ++i) previous[i] = -1;
     _dfs(matrix, colors, previous, beginIndex);
-    int res = _buildPath(matrix, endIndex, beginIndex, previous, path);
+    int res = _buildPath(matrix, endIndex, beginIndex, previous, path, 0);
     free(colors);
     free(previous);
     return res;
@@ -180,11 +179,7 @@ int findShortestPathBellmanFord(Matrix *matrix, Vertex begin, Vertex end, Node *
             }
         }
     }
-    for (int i = 0; i < matrix->size; ++i) {
-        printf("%d ", previous[i]);
-    }
-    printf("\n s:%d e:%d\n", beginIndex, endIndex);
-    _buildPath(matrix, endIndex, beginIndex, previous, path);
+    _buildPath(matrix, endIndex, beginIndex, previous, path, 1);
     free(d);
     free(previous);
     return 0;
