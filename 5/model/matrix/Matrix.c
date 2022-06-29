@@ -119,11 +119,8 @@ int _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node
         pushFirst(path, matrix->containers[prev].vertex);
         prev = previous[prev];
     }
-    if (prev == beginIndex) {
-        pushFirst(path, matrix->containers[beginIndex].vertex);
-        return 0;
-    }
-    return 1;
+    pushFirst(path, matrix->containers[beginIndex].vertex);
+    return 0;
 }
 
 int findPathDFS(Matrix *matrix, Vertex begin, Vertex end, Node **path) {
@@ -162,9 +159,10 @@ int findShortestPathBellmanFord(Matrix *matrix, Vertex begin, Vertex end, Node *
     int *d = malloc(sizeof(int) * matrix->size);
     int *previous = malloc(matrix->size * sizeof(int));
     for (int i = 0; i < matrix->size; ++i) {
-        d[i] = INT_MAX - 1;
+        d[i] = INT_MAX - 1000;
         previous[i] = -1;
     }
+    d[beginIndex] = 0;
     for (int _ = 0; _ < matrix->size; ++_) {
         for (int i = 0; i < matrix->size; ++i) {
             Container first = matrix->containers[i];
@@ -179,6 +177,10 @@ int findShortestPathBellmanFord(Matrix *matrix, Vertex begin, Vertex end, Node *
             }
         }
     }
+    for (int i = 0; i < matrix->size; ++i) {
+        printf("%d ", previous[i]);
+    }
+    printf("\n s:%d e:%d\n", beginIndex, endIndex);
     _buildPath(matrix, endIndex, beginIndex, previous, path);
     free(d);
     free(previous);

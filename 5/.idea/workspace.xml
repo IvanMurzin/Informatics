@@ -15,23 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f623f02-07a8-47da-9974-5e6c04895a1f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../4b/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/CMakeFiles/lab4.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/CMakeFiles/lab4.dir/main.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/CMakeFiles/lab4.dir/test/test.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/CMakeFiles/lab4.dir/test/test.c.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/cmake-build-debug/lab4" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/cmake-build-debug/lab4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/output/tree.dot" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/output/tree.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4b/output/tree.dot.png" beforeDir="false" afterPath="$PROJECT_DIR$/../4b/output/tree.dot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/controller/dialog/Dialog.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/matrix/Matrix.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab5.dir/model/matrix/Matrix.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab5" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/dialog/Dialog.c" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dialog/Dialog.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/matrix/Matrix.c" beforeDir="false" afterPath="$PROJECT_DIR$/model/matrix/Matrix.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/graph.dot" beforeDir="false" afterPath="$PROJECT_DIR$/output/graph.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/graph.dot.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/graph.dot.png" afterDir="false" />
@@ -108,7 +97,7 @@
       <workItem from="1654271036070" duration="598000" />
       <workItem from="1656429140311" duration="612000" />
       <workItem from="1656432269737" duration="4304000" />
-      <workItem from="1656457448195" duration="3771000" />
+      <workItem from="1656457448195" duration="6148000" />
     </task>
     <servers />
   </component>
@@ -131,8 +120,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/model/matrix/Matrix.c</url>
-          <line>129</line>
+          <line>126</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/model/matrix/Matrix.c</url>
+          <line>183</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
