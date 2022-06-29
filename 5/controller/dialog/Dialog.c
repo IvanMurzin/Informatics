@@ -67,6 +67,10 @@ int D_FindPath(Matrix *matrix) {
     puts("Enter second vertex");
     Vertex second = _readVertex();
     Node *path = NULL;
+    if (equalsVertex(first, second)) {
+        printf("(%d;%d)", first.x, second.y);
+        return 1;
+    }
     if (findPathDFS(matrix, first, second, &path)) puts("Error");
     else {
         if (path == NULL || path->next == NULL) puts("Error");
@@ -85,6 +89,10 @@ int D_FindShortestPath(Matrix *matrix) {
     puts("Enter second vertex");
     Vertex second = _readVertex();
     Node *path = NULL;
+    if (equalsVertex(first, second)) {
+        printf("(%d;%d)", first.x, second.y);
+        return 1;
+    }
     if (findShortestPathBellmanFord(matrix, first, second, &path)) puts("Error");
     else {
         if (path == NULL || path->next == NULL) puts("Error");

@@ -36,9 +36,9 @@ int addVertex(Matrix *matrix, Vertex vertex) {
         Container *oldContainers = matrix->containers;
         _initContainers(matrix, matrix->buffSize);
         for (int i = 0; i < matrix->size; ++i) {
+            matrix->containers[i].vertex = oldContainers[i].vertex;
             for (int j = 0; j < matrix->size; ++j) {
-                matrix->containers[i].vertex = oldContainers[i].vertex;
-                matrix->containers[i].data[j] = oldContainers->data[j];
+                matrix->containers[i].data[j] = oldContainers[i].data[j];
             }
         }
         for (int i = 0; i < matrix->size; ++i) free(oldContainers[i].data);
@@ -55,9 +55,11 @@ int addEdge(Matrix *matrix, Edge edge) {
     if (firstIndex < 0) return 1;
     int secondIndex = _findMatrix(matrix, edge.second);
     if (secondIndex < 0) return 1;
-    if (firstIndex == secondIndex) return 1;
+//    if (firstIndex == secondIndex) matrix->containers[firstIndex].data[secondIndex] = 1;
+//    else {
     matrix->containers[firstIndex].data[secondIndex] = 1;
     matrix->containers[secondIndex].data[firstIndex] = 1;
+//    }
     return 0;
 }
 
@@ -85,9 +87,13 @@ int deleteEdge(Matrix *matrix, Edge edge) {
     if (firstIndex < 0) return 1;
     int secondIndex = _findMatrix(matrix, edge.second);
     if (secondIndex < 0) return 1;
-    if (firstIndex == secondIndex) return 1;
+    if (matrix->containers[firstIndex].data[secondIndex] < 0 || matrix->containers[secondIndex].data[firstIndex] < 0)
+        return 1;
+//    if (firstIndex == secondIndex) matrix->containers[firstIndex].data[secondIndex] = 0;
+//    else {
     matrix->containers[firstIndex].data[secondIndex] = 0;
     matrix->containers[secondIndex].data[firstIndex] = 0;
+//    }
     return 0;
 }
 
@@ -106,14 +112,18 @@ void _dfs(Matrix *matrix, int *colors, int *previous, int index) {
     colors[index] = 2;
 }
 
-void _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node **path) {
+int _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node **path) {
     pushFirst(path, matrix->containers[endIndex].vertex);
     int prev = previous[endIndex];
     while (prev != -1 && prev != beginIndex) {
         pushFirst(path, matrix->containers[prev].vertex);
         prev = previous[prev];
     }
-    pushFirst(path, matrix->containers[beginIndex].vertex);
+    if (prev == beginIndex) {
+        pushFirst(path, matrix->containers[beginIndex].vertex);
+        return 0;
+    }
+    return 1;
 }
 
 int findPathDFS(Matrix *matrix, Vertex begin, Vertex end, Node **path) {
@@ -126,10 +136,10 @@ int findPathDFS(Matrix *matrix, Vertex begin, Vertex end, Node **path) {
     int *previous = malloc(matrix->size * sizeof(int));
     for (int i = 0; i < matrix->size; ++i) previous[i] = -1;
     _dfs(matrix, colors, previous, beginIndex);
-    _buildPath(matrix, endIndex, beginIndex, previous, path);
+    int res = _buildPath(matrix, endIndex, beginIndex, previous, path);
     free(colors);
     free(previous);
-    return 0;
+    return res;
 }
 
 int _allZero(int *a, int size) {
