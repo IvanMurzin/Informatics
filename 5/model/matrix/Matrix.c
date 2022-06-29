@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <limits.h>
+#include <printf.h>
 #include "Matrix.h"
 
 void _initContainers(Matrix *matrix, int size) {
@@ -118,6 +119,9 @@ int _buildPath(Matrix *matrix, int endIndex, int beginIndex, int *previous, Node
         pushFirst(path, matrix->containers[prev].vertex);
         prev = previous[prev];
     }
+    if (prev != beginIndex) {
+        return 1;
+    }
     pushFirst(path, matrix->containers[beginIndex].vertex);
     return 0;
 }
@@ -176,6 +180,10 @@ int findShortestPathBellmanFord(Matrix *matrix, Vertex begin, Vertex end, Node *
             }
         }
     }
+    for (int i = 0; i < matrix->size; ++i) {
+        printf("%d ", previous[i]);
+    }
+    printf("\n s:%d e:%d\n", beginIndex, endIndex);
     _buildPath(matrix, endIndex, beginIndex, previous, path);
     free(d);
     free(previous);
