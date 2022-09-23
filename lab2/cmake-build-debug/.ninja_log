@@ -1,0 +1,7 @@
+# ninja log v5
+8	903	1663875283917894639	CMakeFiles/lab2.dir/model/Cardioid.cpp.o	904a812f5d8f73a9
+7	1173	1663875284189544023	CMakeFiles/lab2.dir/main.cpp.o	c48abd8e711be9b9
+7	931	1663875283946565103	CMakeFiles/lab2.dir/lib/controller/Dialog.cpp.o	66cff92858ff5ed0
+1173	1245	1663875284265056499	lab2	34721a613d941761
+0	76	1663911816530029258	build.ninja	d8590cfec9cc6208
+3	963	1663870214570943824	CMakeFiles/lab2.dir/lib/model/Action.cpp.o	d2f7850fbdb38f16
