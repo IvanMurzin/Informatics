@@ -12,7 +12,7 @@ public:
 
     double getA() const;
 
-    void printFormula() const;
+    const std::string getFormula() const;
 
     double getRadius(double angel) const;
 

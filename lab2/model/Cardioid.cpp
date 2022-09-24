@@ -11,8 +11,9 @@ void Cardioid::setA(double a) {
     this->a = a;
 }
 
-void Cardioid::printFormula() const {
-    std::cout << "Cardioid: r(φ) = 2 * " << a << " * (1 - cos(φ))" << std::endl;
+const std::string Cardioid::getFormula() const {
+    std::string value = (a == int(a)) ? std::to_string(int(a)) : std::to_string(a);
+    return "Cardioid: r(φ) = 2 * " + value + " * (1 - cos(φ))";
 }
 
 double Cardioid::getRadius(double angel) const {
@@ -40,5 +41,5 @@ double Cardioid::getArea() const {
 }
 
 double Cardioid::getLength(double angel) const {
-    return 16 * a * angel / M_PI;
+    return 16 * abs(a) * angel / M_PI;
 }

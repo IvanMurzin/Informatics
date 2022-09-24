@@ -1,3 +1,6 @@
 /Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/CMakeFiles/lab2.dir
 /Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/test/CMakeFiles/test.dir
+/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir

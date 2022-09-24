@@ -4,7 +4,7 @@
 int main() {
     Dialog dialog = Dialog();
     auto cardioid = Cardioid(dialog.getScanner().next<double>("Enter cardioid coefficient a: "));
-    dialog.addAction("Print cardioid formula", [&cardioid] { cardioid.printFormula(); });
+    dialog.addAction("Print cardioid formula", [&cardioid] { std::cout << cardioid.getFormula() << std::endl; });
     dialog.addAction("Set cardioid coefficient", [&cardioid, &dialog] { cardioid.setA(dialog.getScanner().next<double>("Enter new cardioid coefficient a: ")); });
     dialog.addAction("Get cardioid radius", [&cardioid, &dialog] {
         const auto &in = dialog.getScanner();

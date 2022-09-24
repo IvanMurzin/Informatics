@@ -42,8 +42,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//C compiler
-CMAKE_C_COMPILER:STRING=/usr/bin/gcc
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:UNINITIALIZED=/usr/bin/gcc
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=-fprofile-instr-generate -fcoverage-mapping
@@ -213,6 +213,15 @@ lab2_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 lab2_SOURCE_DIR:STATIC=/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2
 
+//Value Computed by CMake
+test_BINARY_DIR:STATIC=/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/cmake-build-debug-coverage/test
+
+//Value Computed by CMake
+test_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+test_SOURCE_DIR:STATIC=/Users/ivanmurzin/Projects/CLionProjects/informatics/semester3/lab2/test
+
 
 ########################
 # INTERNAL cache entries
@@ -306,7 +315,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
