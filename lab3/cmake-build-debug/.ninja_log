@@ -1,0 +1,14 @@
+# ninja log v5
+3	277	1664730737707881974	CMakeFiles/lab3.dir/model/Item.cpp.o	f87665c134a6e3db
+2823	2916	1664734035763036736	test/test	f1906251d424c8b3
+1	326	1664725841220897160	CMakeFiles/lab3.dir/lib/model/Action.cpp.o	4c5e9d796eb71ce0
+0	49	1664734047807700266	build.ninja	f23a455d27d14a03
+1	186	1664733617785360674	lab3	c48fe1655fd5d1ed
+2	641	1664733572601454630	CMakeFiles/lab3.dir/model/Table.cpp.o	2a232e6a3e2de0a5
+2	643	1664733572605659543	CMakeFiles/lab3.dir/controller/TableController.cpp.o	8bde45df0c751645
+2	2823	1664734035662613437	test/CMakeFiles/test.dir/test.cpp.o	1ac65b215f5222e0
+8	112	1664733989513804221	test/CMakeFiles/test.dir/__/model/Item.cpp.o	e40c3a80aa8fc219
+1	656	1664733572618053537	CMakeFiles/lab3.dir/lib/controller/Dialog.cpp.o	a1915aec8acc0a52
+2	852	1664733572813252209	CMakeFiles/lab3.dir/main.cpp.o	7fd3ab5285654d93
+0	746	1664733636957225247	test/CMakeFiles/test.dir/__/model/Table.cpp.o	375a310fe0b2b65f
+3	3053	1664733575008998181	CMakeFiles/lab3.dir/test/test.cpp.o	60e91eeae00bf551

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <functional>
 typedef const std::string Message;
 typedef std::function<void()> VoidCallback;
 

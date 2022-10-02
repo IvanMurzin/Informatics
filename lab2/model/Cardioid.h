@@ -6,6 +6,8 @@ class Cardioid {
 private:
     double a;
 public:
+
+    Cardioid();
     Cardioid(double a);
 
     void setA(double a);
@@ -18,7 +20,7 @@ public:
 
     double getMaxRadius() const;
 
-    double getRadiusPI() const noexcept;
+    double getRadiusPI() const;
 
     double getRadiusPI_2() const;
 

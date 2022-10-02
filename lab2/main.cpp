@@ -11,7 +11,7 @@ int main() {
         double radius = in.next<double>("Input angel: ");
         std::cout << cardioid.getRadius(radius) << std::endl;
     });
-    dialog.addAction("Get max cardioid radius", [&cardioid] { std::cout << cardioid.getMaxRadius() << std::endl; });
+    dialog.addAction("Get max cardioid radius",[&cardioid] { std::cout << cardioid.getMaxRadius() << std::endl; });
     dialog.addAction("Get cardioid radius PI", [&cardioid] { std::cout << cardioid.getRadiusPI() << std::endl; });
     dialog.addAction("Get cardioid radius PI_2", [&cardioid] { std::cout << cardioid.getRadiusPI_2() << std::endl; });
     dialog.addAction("Get cardioid radius PI_4", [&cardioid] { std::cout << cardioid.getRadiusPI_4() << std::endl; });

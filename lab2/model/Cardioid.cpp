@@ -24,7 +24,7 @@ double Cardioid::getMaxRadius() const {
     return getRadius(M_PI);
 }
 
-double Cardioid::getRadiusPI() const noexcept {
+double Cardioid::getRadiusPI() const {
     return getRadius(M_PI);
 }
 
@@ -41,5 +41,7 @@ double Cardioid::getArea() const {
 }
 
 double Cardioid::getLength(double angel) const {
-    return 16 * abs(a) * angel / M_PI;
+    return 16 * std::abs(a) * angel / M_PI;
 }
+
+Cardioid::Cardioid() : a(0) {}
