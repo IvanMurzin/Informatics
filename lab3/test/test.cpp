@@ -2,7 +2,7 @@
 
 #include "catch.h"
 #include "Table.h"
-
+//*
 TEST_CASE("test item constructors", "[item]") {
     SECTION("default constructor") {
         Item item = Item();
@@ -67,23 +67,23 @@ TEST_CASE("operations", "[table]") {
     Table table = Table();
     table.add(Item(1));
     table.add(Item(2));
+    table.add(Item(12));
     table.add(Item(3));
+    table.add(Item(9));
+    table.add(Item(6));
     table.add(Item(4));
     table.add(Item(5));
-    table.add(Item(6));
     table.add(Item(7));
     table.add(Item(8));
-    table.add(Item(9));
     table.add(Item(10));
     table.add(Item(11));
-    table.add(Item(12));
-    REQUIRE(table.getSize() == 12);
+    std::cout << table << std::endl;
     SECTION("add start") {
-        CHECK(table.add(Item(0)));
-        CHECK(!table.add(Item(0)));
+        CHECK(table.add(Item(-1)));
+        CHECK(!table.add(Item(-1)));
         CHECK(table.getSize() == 13);
-        CHECK(table.getItem(0).hasData());
-        CHECK(table.getItem(0).getData().getKey() == 0);
+        CHECK(table.getItem(12).hasData());
+        CHECK(table.getItem(12).getData().getKey() == 12);
         CHECK(!table.getItem(123).hasData());
     }SECTION("iterator") {
         int size = 0;
@@ -95,25 +95,26 @@ TEST_CASE("operations", "[table]") {
         CHECK(size == 12);
         CHECK(keySum == 78);
     }SECTION("update") {
-        CHECK(!table.update(Item(0)));
-        CHECK(table.update(Item(1, "test")));
+        CHECK(!table.update(Item(13)));
+        CHECK(table.update(Item(12, "test")));
         CHECK(table.getSize() == 12);
-        CHECK(!table.getItem(0).hasData());
-        CHECK(table.getItem(1).hasData());
-        CHECK(strcmp(table.getItem(1).getData().getData(), "test") == 0);
+        CHECK(!table.getItem(13).hasData());
+        CHECK(table.getItem(12).hasData());
+        CHECK(strcmp(table.getItem(12).getData().getData(), "test") == 0);
     }SECTION("update") {
-        CHECK(!table.update(Item(0)));
-        CHECK(table.update(Item(1, "test")));
+        CHECK(!table.update(Item(13)));
+        CHECK(table.update(Item(12, "test")));
         CHECK(table.getSize() == 12);
-        CHECK(!table.getItem(0).hasData());
-        CHECK(table.getItem(1).hasData());
-        CHECK(strcmp(table.getItem(1).getData().getData(), "test") == 0);
+        CHECK(!table[13].hasData());
+        CHECK(table[12].hasData());
+        CHECK(strcmp(table[12].getData().getData(), "test") == 0);
     }SECTION("remove") {
-        CHECK(!table.remove(0));
-        CHECK(table.remove(1));
-        CHECK(!table.remove(1));
-        CHECK(table.getSize() == 11);
-        CHECK(!table.getItem(0).hasData());
-        CHECK(!table.getItem(1).hasData());
+        table.add(Item(110));
+        CHECK(!table.remove(13));
+        CHECK(table.remove(12));
+        CHECK(!table.remove(12));
+        CHECK(table.getSize() == 12);
+        CHECK(!table[13].hasData());
+        CHECK(!table[12].hasData());
     }
 }

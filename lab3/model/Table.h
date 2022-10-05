@@ -10,7 +10,7 @@ private:
     int size = 0;
     Item *data = nullptr;
 
-    int indexOf(int key) const;
+//    int indexOf(int key) const;
 
     void resize();
 
@@ -24,7 +24,11 @@ private:
 
         Item &operator*() const;
 
+        Item *operator->() const;
+
         Iterator &operator++();
+
+        Iterator operator++(int);
 
         bool operator!=(const Iterator &right) const;
 
@@ -32,6 +36,10 @@ private:
 
 public:
     Table();
+
+    Table(const Table &other);
+
+    Table(Table &&other);
 
     explicit Table(int capacity);
 
@@ -59,8 +67,9 @@ public:
 
     int getCapacity() const;
 
+    Resource<Item> operator[](int key) const;
+
     Resource<Item> getItem(int key) const;
 
     bool isDataNull() const;
 };
-
