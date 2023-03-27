@@ -63,7 +63,7 @@ odd_loop:
 	%ifidni SORT_ORDER, ASC
 	jg swap                 ; swap rdi and rdi+1 matrix rows
 	%else
-	js swap			; swap rdi and rdi+1 matrix rows
+	jl swap			; swap rdi and rdi+1 matrix rows
 	%endif
 
 next_iter_odd_loop:	
