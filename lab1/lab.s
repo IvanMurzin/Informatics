@@ -4,15 +4,15 @@ section .data
 res: 
 	dq	0
 a:
-	dw	16
+	dw	0;65535
 b:	
-	dd	4
+	dd	4294967295
 c:
-	dd	14
+	dd	4294967295
 d:	
-	dw	4
+	dw	65535
 e:
-	dw	2
+	dw	65535
 section .text
 global	_start
 _start:
@@ -27,11 +27,15 @@ _start:
 	;	numerator
 	add	eax, ebx	; rax=a+b	; 2^16+2^32<=2^33
 	jc	_error		; if overflow return with an error
-	imul	rax		; rax=(a+b)^2	; 2^32*2^32=2^64
+	mul	rax		; rax=(a+b)^2	; 2^32*2^32=2^64
 	push	rcx		; save rcx
 	sbb	rcx, rdi	; rcx=c-d	; sbb because of unsigned variables
 	jc	_error		; if negative return with an error
-	imul	rcx, rcx	; rcx=(c-d)^2	; 2^32*2^32=2^64
+	push    rax		; save rax for mul rcx
+	mov 	rax, rcx	; 
+	mul	rax		; rcx=(c-d)^2	; 2^32*2^32=2^64
+	mov 	rcx, rax
+	pop	rax
 	sbb	rax, rcx	; rax=(a+b)^2-(c-d)^2
 	jc	_error		; if negative return with an error
 	pop 	rcx		; rcx=c
@@ -39,8 +43,8 @@ _start:
 
 	; 	denominator
 	mov	rax, rsi	; rax=e	
-	imul 	rsi		; rax=e^2
-	imul    rsi 		; rax=e^3 	; 2^16*2^16*2^16=2^48
+	mul 	rsi		; rax=e^2
+	mul     rsi 		; rax=e^3 	; 2^16*2^16*2^16=2^48
 	add	rax, r8		; rax=a+e^3
 	sbb	rax, rcx	; rax=a+e^3-c
 	jc	_error		; if negative return with an error
@@ -49,7 +53,7 @@ _start:
 	; 	result
 	mov 	rsi, rax	; rsi=a+e^3-c
 	pop	rax		; rax=(a+b)^2-(c-d)^2
-	idiv	rsi		; rax=((a+b)^2-(c-d)^2)/(a+e^3-c)
+	div	rsi		; rax=((a+b)^2-(c-d)^2)/(a+e^3-c)
 	mov	[res], rax 	; res=((a+b)^2-(c-d)^2)/(a+e^3-c)	
 
 
