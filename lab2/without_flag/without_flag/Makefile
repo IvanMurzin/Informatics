@@ -9,12 +9,6 @@ OBJS = $(SRCS:.s=.o)
 
 EXE = lab
 
-SORT_ORDER = ASC
-
-ifdef DESC
-SORT_ORDER = DESC
-endif
-
 all: $(SRCS) $(EXE)
 
 clean:
@@ -24,7 +18,4 @@ $(EXE): $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $@
 
 .s.o:
-	$(AS) $(ASFLAGS) -D SORT_ORDER=$(SORT_ORDER) $< -o $@
-
-# run 'make' to sort in asc order
-# run 'make DESC=1' to sort in desc order
+	$(AS) $(ASFLAGS) $< -o $@
