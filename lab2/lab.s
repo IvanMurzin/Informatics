@@ -57,7 +57,7 @@ main_sort_loop:
 	mov r13b, 1	; set flag isOddLoop = true
 	xor edi, edi	; edi - index in inner loop
 
-odd_loop:
+loop:
 	mov ax, [r10+rdi*2]	; ax = min[rdi]
 	mov dx, [r10+rdi*2+2]	; dx = min[rdi+1]
 	cmp ax, dx		; if min[rdi]>min[rdi+1]
@@ -67,32 +67,22 @@ odd_loop:
 	jl swap			; swap rdi and rdi+1 matrix rows
 	%endif
 
-next_iter_odd_loop:	
+next_iter:	
 	add di, 2               ; di += 2
 	cmp cx, di		; if n-1 > index
-	jg odd_loop		; continue
+	jg loop			; continue
 
-	mov di, 1		; index in inner loop starts with 1
+	or r13b, r13b		; check isOddLoop flag
+	jz end_even_loop  	; if isOddLoop == false -> end even loop
+	
+	mov di, 1		; index in even loop starts with 1
 	xor r13b, r13b		; set flag isOddLoop = false
+	jmp loop		; start even loop
 
-even_loop:
-	mov ax, [r10+rdi*2]	; ax = min[rdi]
-	mov dx, [r10+rdi*2+2]	; dx = min[rdi+1]
-	cmp ax, dx		; if min[rdi] > min[rdi+1]
-	%ifidni SORT_ORDER, ASC
-	jg swap                 ; swap rdi and rdi+1 matrix rows
-	%else
-	jl swap			; swap rdi and rdi+1 matrix rows
-	%endif
 
-next_iter_even_loop:
-	add di, 2               ; di += 2
-	cmp cx, di		; if n-1 > index
-        jg even_loop            ; continue
-
+end_even_loop:
 	or r12w, r12w		; check sorted flag
-	jz main_sort_loop	; if sorted = false continue sorting
-
+	jz main_sort_loop	; if sorted == false continue sorting
 	jmp exit		; skip swapping not in a loop
 
 swap:
@@ -115,8 +105,7 @@ swap_rows_loop:
 	loop swap_rows_loop	        ; check all rows
 	pop rcx			        ; restore rcx
 	or r13b, r13b		        ; check isOddLoop flag
-	jz next_iter_even_loop	        ; if isOddLoop = false go to the even loop
-	jmp next_iter_odd_loop          ; else to the odd loop
+	jmp next_iter         		; continue loop
 
 exit:	
 	mov	eax, 60
